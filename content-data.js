@@ -19,7 +19,7 @@ window.SITE_CONTENT_DEFAULT = {
       bookTrial: "Book a free trial lesson",
       heroCtaPrimary: "Book a consultation call",
       heroCtaSecondary: "Explore our English programs",
-      requestAdvisor: "Request an interview with an advisor",
+      requestAdvisor: "Book a free trial lesson with your teacher",
       selectFoundational: "Choose the Foundational tuition plan",
       applyMentorship: "Apply for the Intensive Mentorship plan",
       retainAdvisory: "Retain the Executive Advisory Board plan",
@@ -27,6 +27,8 @@ window.SITE_CONTENT_DEFAULT = {
       whatsapp: "Chat with us on WhatsApp",
       telegram: "Message us on Telegram",
       email: "Send us an email",
+      instagram: "Follow us on Instagram",
+      linkedin: "Connect with us on LinkedIn",
       footerNavLink1: "Read about our pedagogical philosophy",
       footerNavLink2: "See our English language tracks",
       footerNavLink3: "Meet the Oxbridge fellow panel",
@@ -93,25 +95,23 @@ window.SITE_CONTENT_DEFAULT = {
       ]
     },
     mentorship: {
-      overline: "Distinguished Advisory",
-      title: "Oxbridge & Ivy League Mentorship Panel",
-      subtitle: "Our mentors are active researchers, former admissions board interviewers, and published scholars dedicated to high-touch intellectual direction.",
-      badge1: "Senior Fellow in Mathematical Economics",
-      badge2: "Next Available: 3 Cohort Slots",
+      overline: "Meet Your Teacher",
+      title: "Your Dedicated English Teacher",
+      subtitle: "A patient, experienced teacher who builds every lesson around your goals — from everyday conversation to exam success.",
+      badge1: "Senior English Teacher",
+      badge2: "Open Slots This Month: 3",
       name: "Elizaveta Tarasova",
-      credentials: "Trinity College, Cambridge (D.Phil) & Harvard Fellow",
-      bio: "Over twelve years guiding candidates through competitive admissions. Elizaveta specializes in rigorous analytical writing, quantitative economic modeling, and preparing applicants for Oxbridge admissions interviews.",
-      quote: "Elizaveta elevated my thinking from basic textbook recitation to true intellectual discourse. Her mock interviews made the actual Cambridge interview feel like an engaging, natural debate.",
-      quoteAuthor: "— Marcus T., Cambridge Land Economy '27",
-      ctaText: "Request Advisor Interview",
+      credentials: "CELTA & IELTS-Certified English Teacher",
+      bio: "With over a decade of classroom and one-on-one teaching experience, Elizaveta specializes in building real conversational confidence, focused exam preparation for IELTS and TOEFL, and clear, structured academic and business writing.",
+      ctaText: "Book a Free Trial Lesson",
       responseTime: "Typical response < 4 hours",
-      statsTitle: "Faculty Record & Metrics",
-      stat1: { value: "140+", label: "Admitted Students" },
-      stat2: { value: "12 Yrs", label: "Advisory Experience" },
-      stat3: { value: "100%", label: "Interview Pass Rate" },
-      stat4: { value: "1:1", label: "Exclusive Mentorship" },
-      domainsLabel: "Supervision Domains",
-      domains: ["Economics Tripos", "Mathematics HL", "Admissions Statements", "Oxbridge Viva"]
+      statsTitle: "Teaching Record & Results",
+      stat1: { value: "140+", label: "Students Taught" },
+      stat2: { value: "12 Yrs", label: "Teaching Experience" },
+      stat3: { value: "98%", label: "Student Satisfaction Rate" },
+      stat4: { value: "1:1", label: "Private Lessons" },
+      domainsLabel: "Areas of Expertise",
+      domains: ["General English", "Conversation Practice", "IELTS & TOEFL Prep", "Business English"]
     },
     pricing: {
       overline: "Transparent Retainers",
@@ -133,15 +133,12 @@ window.SITE_CONTENT_DEFAULT = {
       ]
     },
     contact: {
-      overline: "Admissions Deanery",
       title: "Initiate a Diagnostic Inquiry",
       subtitle: "We welcome prospective scholars, parents, and academic counselors to schedule an evaluation with an admissions dean.",
       channelsLabel: "Direct Express Channels",
-      whatsapp: { title: "WhatsApp Direct Advisory", subtitle: "Immediate academic concierge", url: "https://wa.me/" },
+      whatsapp: { title: "WhatsApp Direct Advisory", subtitle: "Immediate academic concierge", url: "https://wa.me/", floatMessage: "Hello! I'd like to learn more about your English lessons." },
       telegram: { title: "Telegram Admissions Desk", subtitle: "Confidential scholar support", url: "https://t.me/" },
       email: { title: "hello@elizavetatarasova.com", subtitle: "Formal transcript submissions", address: "hello@elizavetatarasova.com" },
-      officeLabel: "Office Hours & Locations",
-      officeText: "Mon – Sat: 08:30 – 20:00 GMT\nLondon • Cambridge • Istanbul Advisory Rooms",
       formTitle: "Book Diagnostic Consultation",
       formSubtitle: "Please furnish academic details for proper scholar-mentor matching.",
       fieldStudentName: "Student Full Name *",
@@ -159,7 +156,6 @@ window.SITE_CONTENT_DEFAULT = {
       errorMsg: "Something went wrong. Please try again or contact us directly via WhatsApp/Telegram."
     },
     bottomBar: {
-      langNote: "Advisory sessions available in English, Türkçe, and Русский by native-fluent scholars.",
       backToTop: "Return to Summit"
     },
     footer: {
@@ -172,11 +168,10 @@ window.SITE_CONTENT_DEFAULT = {
       navLink2: "English Language Tracks",
       navLink3: "Oxbridge Fellow Panel",
       navLink4: "Bespoke Retainers",
-      officesTitle: "Advisory Offices",
-      officesText: "Mayfair Advisory Suites, London\nKinnear Library, Cambridge\nIstinye Park Office, Istanbul",
-      officesBadge: "Autumn Term Cohorts Active",
+      socialTitle: "Connect With Us",
+      instagramUrl: "https://instagram.com/",
+      linkedinUrl: "https://linkedin.com/",
       copyright: "© 2025 Elizaveta Tarasova. All rights reserved.",
-      link1: "Institutional Governance",
       link2: "Honor Code & Privacy"
     },
     privacyPolicy: {
@@ -210,7 +205,7 @@ window.SITE_CONTENT_DEFAULT = {
       bookTrial: "Ücretsiz deneme dersi ayırtın",
       heroCtaPrimary: "Danışmanlık görüşmesi ayırtın",
       heroCtaSecondary: "İngilizce programlarımızı inceleyin",
-      requestAdvisor: "Bir danışmanla görüşme talep edin",
+      requestAdvisor: "Öğretmeninizle ücretsiz deneme dersi ayırtın",
       selectFoundational: "Foundational ücret planını seçin",
       applyMentorship: "Intensive Mentorship planına başvurun",
       retainAdvisory: "Executive Advisory Board planını seçin",
@@ -218,6 +213,8 @@ window.SITE_CONTENT_DEFAULT = {
       whatsapp: "WhatsApp üzerinden bizimle sohbet edin",
       telegram: "Telegram üzerinden bize mesaj gönderin",
       email: "Bize e-posta gönderin",
+      instagram: "Instagram'da bizi takip edin",
+      linkedin: "LinkedIn'de bize bağlanın",
       footerNavLink1: "Pedagojik felsefemizi okuyun",
       footerNavLink2: "İngilizce dil derslerimizi görün",
       footerNavLink3: "Oxbridge akademisyen kurulunu tanıyın",
@@ -284,25 +281,23 @@ window.SITE_CONTENT_DEFAULT = {
       ]
     },
     mentorship: {
-      overline: "Seçkin Danışmanlık",
-      title: "Oxbridge & Ivy League Mentorluk Kurulu",
-      subtitle: "Mentorlarımız aktif araştırmacılar, eski kabul komitesi mülakatçıları ve yüksek düzey entelektüel rehberliğe adanmış yayımlanmış akademisyenlerdir.",
-      badge1: "Matematiksel Ekonomi Kıdemli Öğretim Üyesi",
-      badge2: "Sıradaki Boş Kontenjan: 3 Kişi",
+      overline: "Öğretmeninizle Tanışın",
+      title: "Size Özel İngilizce Öğretmeniniz",
+      subtitle: "Her dersi sizin hedeflerinize göre şekillendiren, sabırlı ve deneyimli bir öğretmen — günlük konuşmadan sınav başarısına kadar.",
+      badge1: "Kıdemli İngilizce Öğretmeni",
+      badge2: "Bu Ay İçin Boş Kontenjan: 3 Kişi",
       name: "Elizaveta Tarasova",
-      credentials: "Trinity College, Cambridge (D.Phil) & Harvard Fellow",
-      bio: "On iki yılı aşkın süredir rekabetçi üniversite kabullerinde adaylara rehberlik ediyor. Elizaveta; titiz analitik yazım, niceliksel ekonomi modellemesi ve Oxbridge kabul mülakatlarına hazırlık konularında uzmanlaşmıştır.",
-      quote: "Elizaveta düşünme biçimimi temel ders kitabı ezberinden gerçek entelektüel söyleme taşıdı. Deneme mülakatları sayesinde gerçek Cambridge mülakatı, doğal ve keyifli bir tartışma gibi hissettirdi.",
-      quoteAuthor: "— Marcus T., Cambridge Land Economy '27",
-      ctaText: "Danışman Mülakatı Talep Et",
+      credentials: "CELTA & IELTS Sertifikalı İngilizce Öğretmeni",
+      bio: "On yılı aşkın sınıf içi ve birebir ders deneyimiyle Elizaveta; gerçek konuşma özgüveni kazandırma, IELTS ve TOEFL odaklı sınav hazırlığı ile açık ve düzenli akademik/iş yazımı konularında uzmanlaşmıştır.",
+      ctaText: "Ücretsiz Deneme Dersi Talep Et",
       responseTime: "Ortalama yanıt süresi < 4 saat",
-      statsTitle: "Akademik Kayıt & Metrikler",
-      stat1: { value: "140+", label: "Kabul Edilen Öğrenci" },
-      stat2: { value: "12 Yıl", label: "Danışmanlık Deneyimi" },
-      stat3: { value: "%100", label: "Mülakat Başarı Oranı" },
-      stat4: { value: "1:1", label: "Özel Mentorluk" },
-      domainsLabel: "Danışmanlık Alanları",
-      domains: ["Ekonomi Tripos", "Matematik HL", "Kabul Başvuru Metinleri", "Oxbridge Viva"]
+      statsTitle: "Öğretmenlik Geçmişi & Sonuçlar",
+      stat1: { value: "140+", label: "Ders Verilen Öğrenci" },
+      stat2: { value: "12 Yıl", label: "Öğretmenlik Deneyimi" },
+      stat3: { value: "%98", label: "Öğrenci Memnuniyeti" },
+      stat4: { value: "1:1", label: "Özel Ders" },
+      domainsLabel: "Uzmanlık Alanları",
+      domains: ["Genel İngilizce", "Konuşma Pratiği", "IELTS & TOEFL Hazırlık", "İş İngilizcesi"]
     },
     pricing: {
       overline: "Şeffaf Ücretlendirme",
@@ -324,15 +319,12 @@ window.SITE_CONTENT_DEFAULT = {
       ]
     },
     contact: {
-      overline: "Kabul Ofisi",
       title: "Tanı Görüşmesi Başlatın",
       subtitle: "Aday öğrencileri, velileri ve akademik danışmanları bir kabul sorumlusuyla değerlendirme randevusu almaya davet ediyoruz.",
       channelsLabel: "Doğrudan İletişim Kanalları",
-      whatsapp: { title: "WhatsApp Doğrudan Danışmanlık", subtitle: "Anında akademik destek", url: "https://wa.me/" },
+      whatsapp: { title: "WhatsApp Doğrudan Danışmanlık", subtitle: "Anında akademik destek", url: "https://wa.me/", floatMessage: "Merhaba! İngilizce derslerinizle ilgili bilgi almak istiyorum." },
       telegram: { title: "Telegram Kabul Hattı", subtitle: "Gizli öğrenci desteği", url: "https://t.me/" },
       email: { title: "hello@elizavetatarasova.com", subtitle: "Resmi transkript gönderimleri", address: "hello@elizavetatarasova.com" },
-      officeLabel: "Çalışma Saatleri & Konumlar",
-      officeText: "Pzt – Cmt: 08:30 – 20:00 (GMT)\nLondra • Cambridge • İstanbul Danışmanlık Ofisleri",
       formTitle: "Tanı Görüşmesi Randevusu Alın",
       formSubtitle: "Öğrenci-mentor eşleştirmesi için lütfen akademik bilgileri paylaşın.",
       fieldStudentName: "Öğrencinin Adı Soyadı *",
@@ -350,7 +342,6 @@ window.SITE_CONTENT_DEFAULT = {
       errorMsg: "Bir şeyler ters gitti. Lütfen tekrar deneyin veya doğrudan WhatsApp/Telegram üzerinden bize ulaşın."
     },
     bottomBar: {
-      langNote: "Danışmanlık seansları anadili İngilizce, Türkçe ve Rusça olan akademisyenlerce sunulmaktadır.",
       backToTop: "Yukarı Dön"
     },
     footer: {
@@ -363,11 +354,10 @@ window.SITE_CONTENT_DEFAULT = {
       navLink2: "İngilizce Program Yolları",
       navLink3: "Oxbridge Akademisyen Kurulu",
       navLink4: "Kişiye Özel Paketler",
-      officesTitle: "Danışmanlık Ofisleri",
-      officesText: "Mayfair Danışmanlık Ofisi, Londra\nKinnear Kütüphanesi, Cambridge\nİstinye Park Ofisi, İstanbul",
-      officesBadge: "Güz Dönemi Kayıtları Aktif",
+      socialTitle: "Bize Ulaşın",
+      instagramUrl: "https://instagram.com/",
+      linkedinUrl: "https://linkedin.com/",
       copyright: "© 2025 Elizaveta Tarasova. Tüm hakları saklıdır.",
-      link1: "Kurumsal Yönetişim",
       link2: "Onur Kuralları & Gizlilik"
     },
     privacyPolicy: {
@@ -401,7 +391,7 @@ window.SITE_CONTENT_DEFAULT = {
       bookTrial: "Записаться на бесплатный пробный урок",
       heroCtaPrimary: "Записаться на консультацию",
       heroCtaSecondary: "Изучить наши программы английского",
-      requestAdvisor: "Запросить собеседование с консультантом",
+      requestAdvisor: "Запишитесь на бесплатный пробный урок с преподавателем",
       selectFoundational: "Выбрать тариф Foundational",
       applyMentorship: "Подать заявку на Intensive Mentorship",
       retainAdvisory: "Выбрать Executive Advisory Board",
@@ -409,6 +399,8 @@ window.SITE_CONTENT_DEFAULT = {
       whatsapp: "Написать нам в WhatsApp",
       telegram: "Написать нам в Telegram",
       email: "Отправить нам письмо",
+      instagram: "Подписывайтесь на нас в Instagram",
+      linkedin: "Свяжитесь с нами в LinkedIn",
       footerNavLink1: "Прочитать о нашей педагогической философии",
       footerNavLink2: "Посмотреть программы английского языка",
       footerNavLink3: "Познакомиться с преподавателями Oxbridge",
@@ -475,25 +467,23 @@ window.SITE_CONTENT_DEFAULT = {
       ]
     },
     mentorship: {
-      overline: "Выдающиеся наставники",
-      title: "Менторская коллегия Oxbridge и Ivy League",
-      subtitle: "Наши менторы — действующие исследователи, бывшие члены приёмных комиссий и публикующиеся учёные, посвятившие себя глубокому интеллектуальному наставничеству.",
-      badge1: "Старший научный сотрудник по математической экономике",
-      badge2: "Свободно: 3 места в группе",
+      overline: "Познакомьтесь с преподавателем",
+      title: "Ваш персональный преподаватель английского",
+      subtitle: "Терпеливый, опытный преподаватель, который выстраивает каждое занятие вокруг ваших целей — от повседневного общения до успешной сдачи экзаменов.",
+      badge1: "Старший преподаватель английского языка",
+      badge2: "Свободных мест в этом месяце: 3",
       name: "Елизавета Тарасова",
-      credentials: "Trinity College, Cambridge (D.Phil), стипендиат Harvard",
-      bio: "Более двенадцати лет сопровождает кандидатов в процессе конкурсного поступления. Елизавета специализируется на глубоком аналитическом письме, количественном экономическом моделировании и подготовке к собеседованиям при поступлении в Oxbridge.",
-      quote: "Елизавета подняла моё мышление от простого пересказа учебника до настоящей интеллектуальной дискуссии. Благодаря пробным собеседованиям реальное интервью в Кембридже ощущалось как увлекательный, естественный разговор.",
-      quoteAuthor: "— Маркус Т., Cambridge Land Economy, выпуск '27",
-      ctaText: "Запросить собеседование с ментором",
+      credentials: "Сертифицированный преподаватель CELTA, специалист по IELTS",
+      bio: "Более десяти лет опыта преподавания в группах и индивидуально. Елизавета специализируется на развитии уверенной разговорной речи, целенаправленной подготовке к IELTS и TOEFL, а также на чётком и структурированном академическом и деловом письме.",
+      ctaText: "Записаться на бесплатный пробный урок",
       responseTime: "Обычно отвечаем менее чем за 4 часа",
-      statsTitle: "Показатели и достижения",
-      stat1: { value: "140+", label: "Поступивших студентов" },
-      stat2: { value: "12 лет", label: "Опыт наставничества" },
-      stat3: { value: "100%", label: "Успешных собеседований" },
-      stat4: { value: "1:1", label: "Индивидуальное менторство" },
-      domainsLabel: "Направления консультирования",
-      domains: ["Economics Tripos", "Математика HL", "Мотивационные письма", "Собеседования Oxbridge"]
+      statsTitle: "Педагогический опыт и результаты",
+      stat1: { value: "140+", label: "Обученных студентов" },
+      stat2: { value: "12 лет", label: "Опыт преподавания" },
+      stat3: { value: "98%", label: "Удовлетворённость учеников" },
+      stat4: { value: "1:1", label: "Индивидуальные занятия" },
+      domainsLabel: "Направления обучения",
+      domains: ["Общий английский", "Разговорная практика", "Подготовка к IELTS и TOEFL", "Деловой английский"]
     },
     pricing: {
       overline: "Прозрачные тарифы",
@@ -515,15 +505,12 @@ window.SITE_CONTENT_DEFAULT = {
       ]
     },
     contact: {
-      overline: "Приёмная комиссия",
       title: "Начните с диагностической консультации",
       subtitle: "Мы приглашаем будущих учеников, родителей и консультантов записаться на встречу с представителем приёмной комиссии.",
       channelsLabel: "Прямые каналы связи",
-      whatsapp: { title: "Консультация через WhatsApp", subtitle: "Мгновенная академическая поддержка", url: "https://wa.me/" },
+      whatsapp: { title: "Консультация через WhatsApp", subtitle: "Мгновенная академическая поддержка", url: "https://wa.me/", floatMessage: "Здравствуйте! Хотел(а) бы узнать больше о ваших уроках английского." },
       telegram: { title: "Приёмная комиссия в Telegram", subtitle: "Конфиденциальная поддержка учеников", url: "https://t.me/" },
       email: { title: "hello@elizavetatarasova.com", subtitle: "Подача официальных документов", address: "hello@elizavetatarasova.com" },
-      officeLabel: "Часы работы и адреса",
-      officeText: "Пн – Сб: 08:30 – 20:00 (GMT)\nЛондон • Кембридж • Стамбул",
       formTitle: "Записаться на диагностическую консультацию",
       formSubtitle: "Пожалуйста, укажите академические данные для точного подбора ментора.",
       fieldStudentName: "Полное имя ученика *",
@@ -541,7 +528,6 @@ window.SITE_CONTENT_DEFAULT = {
       errorMsg: "Что-то пошло не так. Пожалуйста, попробуйте снова или свяжитесь с нами через WhatsApp/Telegram."
     },
     bottomBar: {
-      langNote: "Консультации проводятся на английском, турецком и русском языках носителями языка.",
       backToTop: "Наверх"
     },
     footer: {
@@ -554,11 +540,10 @@ window.SITE_CONTENT_DEFAULT = {
       navLink2: "Направления обучения английскому",
       navLink3: "Коллегия менторов Oxbridge",
       navLink4: "Индивидуальные тарифы",
-      officesTitle: "Консультационные офисы",
-      officesText: "Mayfair Advisory Suites, Лондон\nKinnear Library, Кембридж\nIstinye Park Office, Стамбул",
-      officesBadge: "Набор на осенний семестр открыт",
+      socialTitle: "Свяжитесь с нами",
+      instagramUrl: "https://instagram.com/",
+      linkedinUrl: "https://linkedin.com/",
       copyright: "© 2025 Elizaveta Tarasova. Все права защищены.",
-      link1: "Управление академией",
       link2: "Кодекс чести и конфиденциальность"
     },
     privacyPolicy: {
@@ -665,8 +650,6 @@ window.SITE_SCHEMA = [
     { key: "mentorship.name", label: { en: "Mentor name", tr: "Danışman Adı", ru: "Имя ментора" } },
     { key: "mentorship.credentials", label: { en: "Credentials", tr: "Akademik Unvan", ru: "Квалификация" } },
     { key: "mentorship.bio", label: { en: "Bio", tr: "Biyografi", ru: "Биография" }, type: "textarea" },
-    { key: "mentorship.quote", label: { en: "Testimonial quote", tr: "Öğrenci Yorumu", ru: "Отзыв" }, type: "textarea" },
-    { key: "mentorship.quoteAuthor", label: { en: "Testimonial author", tr: "Yorum Sahibi", ru: "Автор отзыва" } },
     { key: "mentorship.ctaText", label: { en: "CTA button", tr: "Buton Metni", ru: "Кнопка" } },
     { key: "mentorship.responseTime", label: { en: "Response time note", tr: "Yanıt Süresi Notu", ru: "Время ответа" } },
     { key: "mentorship.statsTitle", label: { en: "Stats box title", tr: "İstatistik Kutusu Başlığı", ru: "Заголовок блока показателей" } },
@@ -705,34 +688,39 @@ window.SITE_SCHEMA = [
       });
       return f;
   })()},
-  { section: "faq", label: { en: "FAQ", tr: "SSS", ru: "Вопросы и ответы" }, fields: (function(){
-      var f = [
-        { key: "faq.overline", label: { en: "Overline", tr: "Üst Etiket", ru: "Надзаголовок" } },
-        { key: "faq.title", label: { en: "Title", tr: "Başlık", ru: "Заголовок" } },
-        { key: "faq.subtitle", label: { en: "Subtitle", tr: "Alt Metin", ru: "Подзаголовок" }, type: "textarea" }
-      ];
-      for (var i=0;i<4;i++){
-        f.push({ key: "faq.items."+i+".q", label: { en: "Question "+(i+1), tr: "Soru "+(i+1), ru: "Вопрос "+(i+1) } });
-        f.push({ key: "faq.items."+i+".a", label: { en: "Answer "+(i+1), tr: "Cevap "+(i+1), ru: "Ответ "+(i+1) }, type: "textarea" });
-      }
-      return f;
-  })()},
+  { section: "faq", label: { en: "FAQ", tr: "SSS", ru: "Вопросы и ответы" }, fields: [
+      { key: "faq.overline", label: { en: "Overline", tr: "Üst Etiket", ru: "Надзаголовок" } },
+      { key: "faq.title", label: { en: "Title", tr: "Başlık", ru: "Заголовок" } },
+      { key: "faq.subtitle", label: { en: "Subtitle", tr: "Alt Metin", ru: "Подзаголовок" }, type: "textarea" }
+    ],
+    /* Unlimited repeatable list — rendered by admin.html as add/remove cards
+       instead of the generic fixed-field form. `path` points at the array in
+       content-data.js; itemFields describe each {q,a} entry's own inputs. */
+    list: {
+      path: "faq.items",
+      itemLabel: { en: "Question", tr: "Soru", ru: "Вопрос" },
+      addLabel: { en: "+ Add New Question", tr: "+ Yeni Soru Ekle", ru: "+ Добавить вопрос" },
+      removeLabel: { en: "Delete", tr: "Sil", ru: "Удалить" },
+      itemFields: [
+        { key: "q", label: { en: "Question", tr: "Soru", ru: "Вопрос" } },
+        { key: "a", label: { en: "Answer", tr: "Cevap", ru: "Ответ" }, type: "textarea" }
+      ]
+    }
+  },
   { section: "contact", label: { en: "Contact / Form", tr: "İletişim / Form", ru: "Контакты / Форма" }, fields: [
-    { key: "contact.overline", label: { en: "Overline", tr: "Üst Etiket", ru: "Надзаголовок" } },
     { key: "contact.title", label: { en: "Title", tr: "Başlık", ru: "Заголовок" } },
     { key: "contact.subtitle", label: { en: "Subtitle", tr: "Alt Metin", ru: "Подзаголовок" }, type: "textarea" },
     { key: "contact.channelsLabel", label: { en: "Channels label", tr: "Kanallar Etiketi", ru: "Метка каналов" } },
     { key: "contact.whatsapp.title", label: { en: "WhatsApp – title", tr: "WhatsApp – Başlık", ru: "WhatsApp – заголовок" } },
     { key: "contact.whatsapp.subtitle", label: { en: "WhatsApp – subtitle", tr: "WhatsApp – Alt Metin", ru: "WhatsApp – подзаголовок" } },
     { key: "contact.whatsapp.url", label: { en: "WhatsApp – link URL", tr: "WhatsApp – Bağlantı", ru: "WhatsApp – ссылка" } },
+    { key: "contact.whatsapp.floatMessage", label: { en: "WhatsApp floating button – prefilled message", tr: "Sabit WhatsApp Butonu – Hazır Mesaj", ru: "Плавающая кнопка WhatsApp – готовое сообщение" }, type: "textarea" },
     { key: "contact.telegram.title", label: { en: "Telegram – title", tr: "Telegram – Başlık", ru: "Telegram – заголовок" } },
     { key: "contact.telegram.subtitle", label: { en: "Telegram – subtitle", tr: "Telegram – Alt Metin", ru: "Telegram – подзаголовок" } },
     { key: "contact.telegram.url", label: { en: "Telegram – link URL", tr: "Telegram – Bağlantı", ru: "Telegram – ссылка" } },
     { key: "contact.email.title", label: { en: "Email – title", tr: "E-posta – Başlık", ru: "Email – заголовок" } },
     { key: "contact.email.subtitle", label: { en: "Email – subtitle", tr: "E-posta – Alt Metin", ru: "Email – подзаголовок" } },
     { key: "contact.email.address", label: { en: "Email – address", tr: "E-posta – Adres", ru: "Email – адрес" } },
-    { key: "contact.officeLabel", label: { en: "Office label", tr: "Ofis Etiketi", ru: "Метка офиса" } },
-    { key: "contact.officeText", label: { en: "Office hours & address", tr: "Çalışma Saatleri & Adres", ru: "Часы работы и адрес" }, type: "textarea" },
     { key: "contact.formTitle", label: { en: "Form title", tr: "Form Başlığı", ru: "Заголовок формы" } },
     { key: "contact.formSubtitle", label: { en: "Form subtitle", tr: "Form Alt Metni", ru: "Подзаголовок формы" } },
     { key: "contact.fieldStudentName", label: { en: "Field: Student name label", tr: "Alan: Öğrenci Adı Etiketi", ru: "Поле: имя ученика" } },
@@ -750,8 +738,7 @@ window.SITE_SCHEMA = [
     { key: "contact.errorMsg", label: { en: "Error message", tr: "Hata Mesajı", ru: "Сообщение об ошибке" }, type: "textarea" }
   ]},
   { section: "footer", label: { en: "Footer & Bottom Bar", tr: "Alt Bilgi (Footer)", ru: "Подвал сайта" }, fields: [
-    { key: "bottomBar.langNote", label: { en: "Language note bar", tr: "Dil Bilgi Çubuğu", ru: "Строка о языках" } },
-    { key: "bottomBar.backToTop", label: { en: "\"Back to top\" link", tr: "\"Yukarı Dön\" Bağlantısı", ru: "Ссылка «Наверх»" } },
+    { key: "bottomBar.backToTop", label: { en: "\"Back to top\" button tooltip", tr: "\"Yukarı Dön\" Butonu İpucu Metni", ru: "Подсказка кнопки «Наверх»" } },
     { key: "footer.description", label: { en: "Footer description", tr: "Footer Açıklaması", ru: "Описание в подвале" }, type: "textarea" },
     { key: "footer.whatsappLabel", label: { en: "WhatsApp label", tr: "WhatsApp Etiketi", ru: "Метка WhatsApp" } },
     { key: "footer.telegramLabel", label: { en: "Telegram label", tr: "Telegram Etiketi", ru: "Метка Telegram" } },
@@ -761,11 +748,10 @@ window.SITE_SCHEMA = [
     { key: "footer.navLink2", label: { en: "Nav link 2", tr: "Menü Bağlantısı 2", ru: "Ссылка меню 2" } },
     { key: "footer.navLink3", label: { en: "Nav link 3", tr: "Menü Bağlantısı 3", ru: "Ссылка меню 3" } },
     { key: "footer.navLink4", label: { en: "Nav link 4", tr: "Menü Bağlantısı 4", ru: "Ссылка меню 4" } },
-    { key: "footer.officesTitle", label: { en: "Offices column title", tr: "Ofisler Sütunu Başlığı", ru: "Заголовок колонки офисов" } },
-    { key: "footer.officesText", label: { en: "Offices addresses", tr: "Ofis Adresleri", ru: "Адреса офисов" }, type: "textarea" },
-    { key: "footer.officesBadge", label: { en: "Offices badge", tr: "Ofis Rozeti", ru: "Значок офисов" } },
+    { key: "footer.socialTitle", label: { en: "Social column title", tr: "Sosyal Medya Sütunu Başlığı", ru: "Заголовок колонки соцсетей" } },
+    { key: "footer.instagramUrl", label: { en: "Instagram – link URL", tr: "Instagram – Bağlantı", ru: "Instagram – ссылка" } },
+    { key: "footer.linkedinUrl", label: { en: "LinkedIn – link URL", tr: "LinkedIn – Bağlantı", ru: "LinkedIn – ссылка" } },
     { key: "footer.copyright", label: { en: "Copyright line", tr: "Telif Hakkı Satırı", ru: "Строка авторских прав" } },
-    { key: "footer.link1", label: { en: "Bottom link 1", tr: "Alt Bağlantı 1", ru: "Нижняя ссылка 1" } },
     { key: "footer.link2", label: { en: "Bottom link 2", tr: "Alt Bağlantı 2", ru: "Нижняя ссылка 2" } }
   ]},
   { section: "privacyPolicy", label: { en: "Privacy Modal", tr: "Gizlilik Penceresi", ru: "Окно конфиденциальности" }, fields: (function(){

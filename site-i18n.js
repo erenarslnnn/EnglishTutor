@@ -20,21 +20,24 @@
   }
 
   /* Recursively merge `overrides` onto a clone of `base`. Arrays in overrides
-     fully replace arrays in base only when the override array is non-empty;
-     this keeps things resilient if the schema grows later. */
+     fully replace arrays in base (item-by-item, merging matching object
+     entries) whenever the override array is non-empty; this makes the
+     override length authoritative, so removing an entry (e.g. deleting a
+     FAQ item in admin) actually shrinks the merged result instead of the
+     leftover base entry reappearing. An empty override array is treated as
+     "not set" and falls back to base, keeping things resilient if the
+     schema grows later. */
   function deepMerge(base, overrides) {
     if (!overrides) return base;
     if (Array.isArray(base)) {
       if (Array.isArray(overrides)) {
-        var out = base.slice();
-        overrides.forEach(function (v, i) {
-          if (isPlainObject(v) && isPlainObject(out[i])) {
-            out[i] = deepMerge(out[i], v);
-          } else if (v !== undefined) {
-            out[i] = v;
+        if (overrides.length === 0) return base;
+        return overrides.map(function (v, i) {
+          if (isPlainObject(v) && isPlainObject(base[i])) {
+            return deepMerge(base[i], v);
           }
+          return v;
         });
-        return out;
       }
       return base;
     }
@@ -146,8 +149,31 @@
     return JSON.stringify(getContent(), null, 2);
   }
 
+  /* Defensive fallback for imported content.json files: makes sure
+     faq.items is always a clean array of {q,a} strings per language, so a
+     malformed or unexpected shape can't crash rendering. If items is
+     missing entirely, it's left untouched so deepMerge falls back to the
+     built-in defaults instead. */
+  function normalizeFaqItems(parsed) {
+    if (!parsed) return;
+    LANGS.forEach(function (lang) {
+      var faq = parsed[lang] && parsed[lang].faq;
+      if (!faq || !("items" in faq)) return;
+      var items = Array.isArray(faq.items) ? faq.items : [];
+      faq.items = items
+        .filter(function (it) { return isPlainObject(it); })
+        .map(function (it) {
+          return {
+            q: typeof it.q === "string" ? it.q : "",
+            a: typeof it.a === "string" ? it.a : ""
+          };
+        });
+    });
+  }
+
   function importJSON(jsonString) {
     var parsed = JSON.parse(jsonString);
+    normalizeFaqItems(parsed);
     writeStoredOverrides(parsed);
     return parsed;
   }

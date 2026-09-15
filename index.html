@@ -49,9 +49,94 @@
     #privacy-modal.flex { align-items: center; }
     #privacy-modal-panel { max-width: 42rem; margin-left: 1rem; margin-right: 1rem; max-height: 82vh; border-radius: 1rem; }
   }
+  /* --- Back-to-top button (utility classes not present in the pre-built Tailwind bundle) --- */
+  #back-to-top {
+    position: fixed;
+    right: 1.25rem;
+    bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+    z-index: 40;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 9999px;
+    border: none;
+    background-color: #0F2942;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px -6px rgba(15, 41, 66, 0.4);
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(12px);
+    pointer-events: none;
+    transition: opacity .25s ease, transform .25s ease, background-color .15s ease;
+  }
+  #back-to-top.is-visible { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  #back-to-top:hover { background-color: #1A3D60; }
+  @media (min-width: 640px) {
+    #back-to-top { right: 2rem; bottom: calc(2rem + env(safe-area-inset-bottom, 0px)); width: 3.25rem; height: 3.25rem; }
+  }
+  /* --- Floating WhatsApp button (always visible, independent of scroll) --- */
+  #whatsapp-float {
+    position: fixed;
+    left: 1.25rem;
+    bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
+    z-index: 40;
+    width: 3.25rem;
+    height: 3.25rem;
+    border-radius: 9999px;
+    background-color: #25D366;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px -6px rgba(0, 0, 0, 0.35);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform .2s ease, background-color .15s ease;
+  }
+  #whatsapp-float svg { width: 28px; height: 28px; position: relative; z-index: 1; }
+  #whatsapp-float::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background-color: #25D366;
+    animation: whatsapp-pulse 2.4s ease-out infinite;
+    will-change: transform, opacity;
+  }
+  #whatsapp-float:hover { background-color: #1DA851; transform: scale(1.08); }
+  #whatsapp-float:hover::before { animation-play-state: paused; }
+  @keyframes whatsapp-pulse {
+    0% { transform: scale(1); opacity: .55; }
+    100% { transform: scale(1.9); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    #whatsapp-float::before { animation: none; }
+  }
+  @media (min-width: 640px) {
+    #whatsapp-float { left: 2rem; bottom: calc(2rem + env(safe-area-inset-bottom, 0px)); width: 3.5rem; height: 3.5rem; }
+    #whatsapp-float svg { width: 30px; height: 30px; }
+  }
+  /* --- Footer social icon row (utility classes not present in the pre-built Tailwind bundle) --- */
+  .footer-social-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 9999px;
+    background-color: #fff;
+    color: #001428;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: background-color .15s ease, color .15s ease;
+  }
+  .footer-social-btn svg { width: 16px; height: 16px; }
+  .footer-social-btn:hover { background-color: #001428; color: #fff; }
 </style>
-<script src="content-data.js?v=20260915d"></script>
-<script src="site-i18n.js?v=20260915d"></script>
+<script src="content-data.js?v=20260915i"></script>
+<script src="site-i18n.js?v=20260915i"></script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -403,12 +488,12 @@ SAT, ACT &amp; IB Diploma
 <section class="w-full py-space-xl bg-surface-subtle" id="mentorship">
 <div class="max-w-[1280px] mx-auto px-margin">
 <div class="pb-space-lg">
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold" data-i18n="mentorship.overline">Distinguished Advisory</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold" data-i18n="mentorship.overline">Meet Your Teacher</span>
 <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mt-space-xs font-bold" data-i18n="mentorship.title">
-Oxbridge &amp; Ivy League Mentorship Panel
+Your Dedicated English Teacher
 </h2>
 <p class="font-body-md text-body-md text-text-slate-muted max-w-xl mt-space-xs" data-i18n="mentorship.subtitle">
-Our mentors are active researchers, former admissions board interviewers, and published scholars dedicated to high-touch intellectual direction.
+A patient, experienced teacher who builds every lesson around your goals — from everyday conversation to exam success.
 </p>
 </div>
 <div class="bg-surface-card rounded-3xl p-space-lg md:p-space-xl shadow-md">
@@ -417,38 +502,23 @@ Our mentors are active researchers, former admissions board interviewers, and pu
 <div class="flex flex-wrap items-center gap-space-sm">
 <span class="inline-flex items-center gap-space-xs bg-amber-tint-surface text-amber-tint-text font-label-sm text-label-sm px-space-md py-space-xs rounded-full max-w-full">
 <span class="text-[16px] shrink-0"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="m320-240 160-122 160 122-60-198 160-114H544l-64-208-64 208H220l160 114-60 198ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Z"/></svg></span>
-<span data-i18n="mentorship.badge1">Senior Fellow in Mathematical Economics</span>
+<span data-i18n="mentorship.badge1">Senior English Teacher</span>
 </span>
 <span class="inline-flex items-center gap-space-xs bg-teal-tint-surface text-teal-tint-text font-label-sm text-label-sm px-space-md py-space-xs rounded-full max-w-full">
 <span class="w-2 h-2 rounded-full bg-secondary shrink-0"></span>
-<span data-i18n="mentorship.badge2">Next Available: 3 Cohort Slots</span>
+<span data-i18n="mentorship.badge2">Open Slots This Month: 3</span>
 </span>
 </div>
 <div>
 <h3 class="font-headline-md text-headline-md text-primary font-bold" data-i18n="mentorship.name">Elizaveta Tarasova</h3>
-<p class="font-body-md text-body-md text-secondary font-semibold" data-i18n="mentorship.credentials">Trinity College, Cambridge (D.Phil) &amp; Harvard Fellow</p>
+<p class="font-body-md text-body-md text-secondary font-semibold" data-i18n="mentorship.credentials">CELTA &amp; IELTS-Certified English Teacher</p>
 </div>
 <p class="font-body-md text-body-md text-text-slate-muted" data-i18n="mentorship.bio">
-Over twelve years guiding candidates through competitive admissions. Elizaveta specializes in rigorous analytical writing, quantitative economic modeling, and preparing applicants for Oxbridge admissions interviews.
+With over a decade of classroom and one-on-one teaching experience, Elizaveta specializes in building real conversational confidence, focused exam preparation for IELTS and TOEFL, and clear, structured academic and business writing.
 </p>
-<div class="bg-canvas-parchment p-space-md rounded-xl">
-<div class="flex items-center gap-space-xs text-amber-highlight mb-space-xs">
-<span class="text-[16px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="m233-120 65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"/></svg></span>
-<span class="text-[16px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="m233-120 65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"/></svg></span>
-<span class="text-[16px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="m233-120 65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"/></svg></span>
-<span class="text-[16px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="m233-120 65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"/></svg></span>
-<span class="text-[16px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="m233-120 65-281L80-590l288-25 112-265 112 265 288 25-218 189 65 281-247-149-247 149Z"/></svg></span>
-</div>
-<p class="font-body-sm text-body-sm text-primary italic" data-i18n="mentorship.quote">
-"Elizaveta elevated my thinking from basic textbook recitation to true intellectual discourse. Her mock interviews made the actual Cambridge interview feel like an engaging, natural debate."
-</p>
-<p class="font-label-sm text-label-sm text-text-slate-muted mt-space-xs" data-i18n="mentorship.quoteAuthor">
-— Marcus T., Cambridge Land Economy '27
-</p>
-</div>
 <div class="flex flex-wrap items-center gap-space-md pt-space-xs">
 <a class="inline-flex items-center justify-center text-center gap-space-xs bg-secondary text-on-secondary hover:bg-secondary/90 px-space-lg py-space-sm rounded-lg font-title-md text-title-md transition-all shadow-sm w-full sm:w-auto" href="#contact">
-<span title="Request an interview with an advisor" data-i18n-title="linkTitles.requestAdvisor" data-i18n="mentorship.ctaText">Request Advisor Interview</span>
+<span title="Book a free trial lesson with your teacher" data-i18n-title="linkTitles.requestAdvisor" data-i18n="mentorship.ctaText">Book a Free Trial Lesson</span>
 <span class="text-[18px] shrink-0"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18"><path d="M200-80q-33 0-56.5-23.5T120-160v-560q0-33 23.5-56.5T200-800h40v-80h80v80h320v-80h80v80h40q33 0 56.5 23.5T840-720v560q0 33-23.5 56.5T760-80H200Zm0-80h560v-400H200v400Zm0-480h560v-80H200v80Zm0 0v-80 80Z"/></svg></span>
 </a>
 <span class="font-label-sm text-label-sm text-text-slate-muted flex items-center gap-space-xs">
@@ -458,32 +528,32 @@ Over twelve years guiding candidates through competitive admissions. Elizaveta s
 </div>
 </div>
 <div class="lg:col-span-5 bg-surface-subtle rounded-2xl p-space-lg flex flex-col gap-space-md min-w-0">
-<h4 class="font-title-md text-title-md text-primary font-bold" data-i18n="mentorship.statsTitle">Faculty Record &amp; Metrics</h4>
+<h4 class="font-title-md text-title-md text-primary font-bold" data-i18n="mentorship.statsTitle">Teaching Record &amp; Results</h4>
 <div class="mentor-stats-grid">
 <div class="bg-surface-card p-space-md rounded-xl min-w-0">
 <p class="font-headline-sm text-headline-sm text-primary font-bold" data-i18n="mentorship.stat1.value">140+</p>
-<p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="mentorship.stat1.label">Admitted Students</p>
+<p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="mentorship.stat1.label">Students Taught</p>
 </div>
 <div class="bg-surface-card p-space-md rounded-xl min-w-0">
 <p class="font-headline-sm text-headline-sm text-primary font-bold" data-i18n="mentorship.stat2.value">12 Yrs</p>
-<p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="mentorship.stat2.label">Advisory Experience</p>
+<p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="mentorship.stat2.label">Teaching Experience</p>
 </div>
 <div class="bg-surface-card p-space-md rounded-xl min-w-0">
-<p class="font-headline-sm text-headline-sm text-primary font-bold" data-i18n="mentorship.stat3.value">100%</p>
-<p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="mentorship.stat3.label">Interview Pass Rate</p>
+<p class="font-headline-sm text-headline-sm text-primary font-bold" data-i18n="mentorship.stat3.value">98%</p>
+<p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="mentorship.stat3.label">Student Satisfaction Rate</p>
 </div>
 <div class="bg-surface-card p-space-md rounded-xl min-w-0">
 <p class="font-headline-sm text-headline-sm text-primary font-bold" data-i18n="mentorship.stat4.value">1:1</p>
-<p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="mentorship.stat4.label">Exclusive Mentorship</p>
+<p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="mentorship.stat4.label">Private Lessons</p>
 </div>
 </div>
 <div class="pt-space-xs">
-<p class="font-label-sm text-label-sm uppercase tracking-wider text-text-slate-muted mb-space-xs" data-i18n="mentorship.domainsLabel">Supervision Domains</p>
+<p class="font-label-sm text-label-sm uppercase tracking-wider text-text-slate-muted mb-space-xs" data-i18n="mentorship.domainsLabel">Areas of Expertise</p>
 <div class="flex flex-wrap gap-space-xs">
-<span class="bg-surface-card text-primary font-label-sm text-label-sm px-space-sm py-space-xs rounded-md" data-i18n="mentorship.domains.0">Economics Tripos</span>
-<span class="bg-surface-card text-primary font-label-sm text-label-sm px-space-sm py-space-xs rounded-md" data-i18n="mentorship.domains.1">Mathematics HL</span>
-<span class="bg-surface-card text-primary font-label-sm text-label-sm px-space-sm py-space-xs rounded-md" data-i18n="mentorship.domains.2">Admissions Statements</span>
-<span class="bg-surface-card text-primary font-label-sm text-label-sm px-space-sm py-space-xs rounded-md" data-i18n="mentorship.domains.3">Oxbridge Viva</span>
+<span class="bg-surface-card text-primary font-label-sm text-label-sm px-space-sm py-space-xs rounded-md" data-i18n="mentorship.domains.0">General English</span>
+<span class="bg-surface-card text-primary font-label-sm text-label-sm px-space-sm py-space-xs rounded-md" data-i18n="mentorship.domains.1">Conversation Practice</span>
+<span class="bg-surface-card text-primary font-label-sm text-label-sm px-space-sm py-space-xs rounded-md" data-i18n="mentorship.domains.2">IELTS &amp; TOEFL Prep</span>
+<span class="bg-surface-card text-primary font-label-sm text-label-sm px-space-sm py-space-xs rounded-md" data-i18n="mentorship.domains.3">Business English</span>
 </div>
 </div>
 </div>
@@ -650,54 +720,16 @@ Admissions &amp; Mentorship FAQ
 Clarifying the admission process, mentor matching criteria, and expectations for enrolled scholars.
 </p>
 </div>
-<div class="flex flex-col gap-space-sm" id="faq-accordion">
-<div class="faq-item bg-surface-card rounded-xl shadow-sm overflow-hidden transition-all">
-<button class="faq-btn w-full p-space-md md:p-space-lg flex items-center justify-between text-left gap-space-md" type="button">
-<span class="font-title-md text-title-md text-primary font-bold flex-1 min-w-0" data-i18n="faq.items.0.q">How are prospective scholars evaluated prior to enrollment?</span>
-<span class="faq-icon text-secondary transition-transform duration-200 shrink-0"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg></span>
-</button>
-<div class="faq-answer hidden px-space-md md:px-space-lg pb-space-md md:pb-space-lg text-body-md font-body-md text-text-slate-muted border-l-4 border-secondary" data-i18n="faq.items.0.a">
-Every prospective candidate undertakes a 60-minute diagnostic session encompassing qualitative critical reasoning, quantitative problem sets, and an informal oral discussion. This enables us to formulate a precise pedagogical blueprint and pair the candidate with the ideal academic fellow.
-</div>
-</div>
-<div class="faq-item bg-surface-card rounded-xl shadow-sm overflow-hidden transition-all">
-<button class="faq-btn w-full p-space-md md:p-space-lg flex items-center justify-between text-left gap-space-md" type="button">
-<span class="font-title-md text-title-md text-primary font-bold flex-1 min-w-0" data-i18n="faq.items.1.q">Are mentorship sessions conducted entirely online or in person?</span>
-<span class="faq-icon text-secondary transition-transform duration-200 shrink-0"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg></span>
-</button>
-<div class="faq-answer hidden px-space-md md:px-space-lg pb-space-md md:pb-space-lg text-body-md font-body-md text-text-slate-muted border-l-4 border-secondary" data-i18n="faq.items.1.a">
-We operate in a flexible hybrid framework. The majority of weekly tutorials take place over our encrypted virtual seminar classroom with collaborative digital whiteboards and document markup. In-person intensive bootcamps are held each term at our London (Mayfair) and Istanbul advisory suites.
-</div>
-</div>
-<div class="faq-item bg-surface-card rounded-xl shadow-sm overflow-hidden transition-all">
-<button class="faq-btn w-full p-space-md md:p-space-lg flex items-center justify-between text-left gap-space-md" type="button">
-<span class="font-title-md text-title-md text-primary font-bold flex-1 min-w-0" data-i18n="faq.items.2.q">What makes the Oxbridge interview preparation distinct?</span>
-<span class="faq-icon text-secondary transition-transform duration-200 shrink-0"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg></span>
-</button>
-<div class="faq-answer hidden px-space-md md:px-space-lg pb-space-md md:pb-space-lg text-body-md font-body-md text-text-slate-muted border-l-4 border-secondary" data-i18n="faq.items.2.a">
-Rather than coaching canned answers, our faculty creates an authentic collegiate tutorial dynamic. Scholars are presented with unseen stimulus materials, counter-theses, and non-standard mathematical problems to train poise, articulate intellectual adaptability, and structured metacognition.
-</div>
-</div>
-<div class="faq-item bg-surface-card rounded-xl shadow-sm overflow-hidden transition-all">
-<button class="faq-btn w-full p-space-md md:p-space-lg flex items-center justify-between text-left gap-space-md" type="button">
-<span class="font-title-md text-title-md text-primary font-bold flex-1 min-w-0" data-i18n="faq.items.3.q">Can international students from non-English school systems participate?</span>
-<span class="faq-icon text-secondary transition-transform duration-200 shrink-0"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg></span>
-</button>
-<div class="faq-answer hidden px-space-md md:px-space-lg pb-space-md md:pb-space-lg text-body-md font-body-md text-text-slate-muted border-l-4 border-secondary" data-i18n="faq.items.3.a">
-Yes. A significant proportion of our student body joins from European, Turkish, and Central Asian curricula. We assist in academic language transition, contextualizing national transcripts, and bridging analytical conventions required by UK and US admissions panels.
-</div>
-</div>
-</div>
+<div class="flex flex-col gap-space-sm" id="faq-accordion"></div>
 </div>
 </section>
 <!-- SECTION 7: CONTACT & INSTANT CHANNELS (#contact) -->
 <section class="w-full py-space-xl bg-canvas-parchment" id="contact">
 <div class="max-w-[1280px] mx-auto px-margin">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
-<div class="lg:col-span-5 flex flex-col justify-between gap-space-lg min-w-0">
+<div class="lg:col-span-5 flex flex-col justify-center gap-space-lg min-w-0">
 <div>
-<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold" data-i18n="contact.overline">Admissions Deanery</span>
-<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mt-space-xs font-bold" data-i18n="contact.title">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary font-bold" data-i18n="contact.title">
 Initiate a Diagnostic Inquiry
 </h2>
 <p class="font-body-md text-body-md text-text-slate-muted mt-space-sm" data-i18n="contact.subtitle">
@@ -743,15 +775,8 @@ We welcome prospective scholars, parents, and academic counselors to schedule an
 </a>
 </div>
 </div>
-<div class="bg-surface-subtle p-space-md rounded-xl">
-<p class="font-label-sm text-label-sm uppercase tracking-wider text-text-slate-muted" data-i18n="contact.officeLabel">Office Hours &amp; Locations</p>
-<p class="font-body-sm text-body-sm text-primary mt-space-xs" data-i18n="contact.officeText" data-i18n-html="1">
-Mon – Sat: 08:30 – 20:00 GMT<br/>
-London • Cambridge • Istanbul Advisory Rooms
-</p>
 </div>
-</div>
-<div class="lg:col-span-7 bg-surface-card rounded-3xl p-space-lg md:p-space-xl shadow-lg min-w-0">
+<div class="lg:col-span-7 bg-surface-card rounded-3xl p-space-lg shadow-lg min-w-0">
 <h3 class="font-headline-sm text-headline-sm text-primary font-bold" data-i18n="contact.formTitle">Book Diagnostic Consultation</h3>
 <p class="font-body-sm text-body-sm text-text-slate-muted mt-space-xs pb-space-md" data-i18n="contact.formSubtitle">
 Please furnish academic details for proper scholar-mentor matching.
@@ -798,19 +823,6 @@ Please furnish academic details for proper scholar-mentor matching.
 </div>
 </div>
 </section>
-<!-- SECTION 8: BACK-TO-TOP & MULTILINGUAL NOTICE BAR -->
-<section class="w-full bg-canvas-parchment py-space-md border-t border-outline-variant/20">
-<div class="max-w-[1280px] mx-auto px-margin flex flex-col sm:flex-row items-center justify-between gap-space-md">
-<div class="flex items-center gap-space-sm text-text-slate-muted font-body-sm text-body-sm min-w-0">
-<span class="text-secondary text-[18px] shrink-0"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18"><path d="M325-111.5q-73-31.5-127.5-86t-86-127.5Q80-398 80-480.5t31.5-155q31.5-72.5 86-127t127.5-86Q398-880 480.5-880t155 31.5q72.5 31.5 127 86t86 127Q880-563 880-480.5T848.5-325q-31.5 73-86 127.5t-127 86Q563-80 480.5-80T325-111.5ZM480-162q26-36 45-75t31-83H404q12 44 31 83t45 75Zm-104-16q-18-33-31.5-68.5T322-320H204q29 50 72.5 87t99.5 55Zm208 0q56-18 99.5-55t72.5-87H638q-9 38-22.5 73.5T584-178ZM170-400h136q-3-20-4.5-39.5T300-480q0-21 1.5-40.5T306-560H170q-5 20-7.5 39.5T160-480q0 21 2.5 40.5T170-400Zm216 0h188q3-20 4.5-39.5T580-480q0-21-1.5-40.5T574-560H386q-3 20-4.5 39.5T380-480q0 21 1.5 40.5T386-400Zm268 0h136q5-20 7.5-39.5T800-480q0-21-2.5-40.5T790-560H654q3 20 4.5 39.5T660-480q0 21-1.5 40.5T654-400Zm-16-240h118q-29-50-72.5-87T584-782q18 33 31.5 68.5T638-640Zm-234 0h152q-12-44-31-83t-45-75q-26 36-45 75t-31 83Zm-200 0h118q9-38 22.5-73.5T376-782q-56 18-99.5 55T204-640Z"/></svg></span>
-<span data-i18n="bottomBar.langNote">Advisory sessions available in English, Türkçe, and Русский by native-fluent scholars.</span>
-</div>
-<a class="inline-flex items-center gap-space-xs font-label-md text-label-md text-primary hover:text-secondary transition-colors shrink-0" href="#hero">
-<span data-i18n="bottomBar.backToTop">Return to Summit</span>
-<span class="text-[16px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg></span>
-</a>
-</div>
-</section>
 </div>
 <!-- INLINE CLIENT INTERACTION LOGIC -->
 <script>
@@ -837,22 +849,26 @@ Please furnish academic details for proper scholar-mentor matching.
     });
   });
 
-  // FAQ Accordion Collapsible Logic
-  const faqButtons = document.querySelectorAll('.faq-btn');
-  faqButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
+  // FAQ Accordion Collapsible Logic — delegated on the container so it also
+  // covers items rendered dynamically (any number of FAQ entries) by
+  // renderFAQAccordion() further down, not just ones present at page load.
+  const faqAccordion = document.getElementById('faq-accordion');
+  if (faqAccordion) {
+    faqAccordion.addEventListener('click', (e) => {
+      const btn = e.target.closest('.faq-btn');
+      if (!btn || !faqAccordion.contains(btn)) return;
       const answer = btn.nextElementSibling;
       const icon = btn.querySelector('.faq-icon');
       const isExpanded = !answer.classList.contains('hidden');
-      document.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
-      document.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
+      faqAccordion.querySelectorAll('.faq-answer').forEach(a => a.classList.add('hidden'));
+      faqAccordion.querySelectorAll('.faq-icon').forEach(i => i.style.transform = 'rotate(0deg)');
       if (!isExpanded) {
         answer.classList.remove('hidden');
         icon.style.transform = 'rotate(180deg)';
       }
     });
-  });
-</script></main><footer class="w-full bg-surface-subtle pt-space-xl pb-space-lg"><div class="max-w-[1280px] mx-auto px-margin"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-xl pb-space-xl"><div class="md:col-span-2 flex flex-col gap-space-md min-w-0"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-primary tracking-tight" data-i18n="header.logo">Elizaveta Tarasova</span></div><p class="font-body-sm text-body-sm text-text-slate-muted max-w-md" data-i18n="footer.description">Bespoke collegiate mentorship, diagnostic academic analysis, and university placement advisory delivered by elite Oxbridge and Ivy League scholars.</p><div class="flex flex-wrap items-center gap-space-sm pt-space-xs"><a class="flex items-center gap-space-xs bg-channel-whatsapp hover:bg-channel-whatsapp-hover text-on-primary font-label-sm text-label-sm px-space-md py-space-xs rounded-full transition-colors" rel="noopener" target="_blank" data-i18n-href="contact.whatsapp.url" href="https://wa.me/" title="Chat with us on WhatsApp" data-i18n-title="linkTitles.whatsapp"><span class="text-[16px] shrink-0"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg></span><span data-i18n="footer.whatsappLabel">WhatsApp</span></a><a class="flex items-center gap-space-xs bg-channel-telegram hover:bg-channel-telegram-hover text-on-primary font-label-sm text-label-sm px-space-md py-space-xs rounded-full transition-colors" rel="noopener" target="_blank" data-i18n-href="contact.telegram.url" href="https://t.me/" title="Message us on Telegram" data-i18n-title="linkTitles.telegram"><span class="text-[16px] shrink-0"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg></span><span data-i18n="footer.telegramLabel">Telegram</span></a><a class="flex items-center gap-space-xs bg-channel-mail hover:bg-channel-mail-hover text-on-primary font-label-sm text-label-sm px-space-md py-space-xs rounded-full transition-colors" id="footer-email-link" title="Send us an email" data-i18n-title="linkTitles.email" href="mailto:hello@elizavetatarasova.com"><span class="text-[16px] shrink-0"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/></svg></span><span data-i18n="footer.emailLabel">Email</span></a></div></div><div class="flex flex-col gap-space-sm min-w-0"><h4 class="font-title-md text-title-md text-primary" data-i18n="footer.navTitle">Curriculum Navigation</h4><a class="font-body-sm text-body-sm text-text-slate-muted hover:text-on-surface transition-colors" href="#about" title="Read about our pedagogical philosophy" data-i18n-title="linkTitles.footerNavLink1" data-i18n="footer.navLink1">Pedagogical Philosophy</a><a class="font-body-sm text-body-sm text-text-slate-muted hover:text-on-surface transition-colors" href="#curriculum" title="See our English language tracks" data-i18n-title="linkTitles.footerNavLink2" data-i18n="footer.navLink2">STEM &amp; Humanities Track</a><a class="font-body-sm text-body-sm text-text-slate-muted hover:text-on-surface transition-colors" href="#mentorship" title="Meet the Oxbridge fellow panel" data-i18n-title="linkTitles.footerNavLink3" data-i18n="footer.navLink3">Oxbridge Fellow Panel</a><a class="font-body-sm text-body-sm text-text-slate-muted hover:text-on-surface transition-colors" href="#pricing" title="View bespoke retainer pricing" data-i18n-title="linkTitles.footerNavLink4" data-i18n="footer.navLink4">Bespoke Retainers</a></div><div class="flex flex-col gap-space-sm min-w-0"><h4 class="font-title-md text-title-md text-primary" data-i18n="footer.officesTitle">Advisory Offices</h4><p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="footer.officesText" data-i18n-html="1">Mayfair Advisory Suites, London<br/>Kinnear Library, Cambridge<br/>Istinye Park Office, Istanbul</p><div class="pt-space-xs"><span class="inline-flex items-center gap-space-xs bg-teal-tint-surface text-teal-tint-text font-label-sm text-label-sm px-space-sm py-space-xs rounded-full max-w-full"><span class="text-[14px] shrink-0"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="14" viewBox="0 -960 960 960" width="14"><path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"/></svg></span><span data-i18n="footer.officesBadge">Autumn Term Cohorts Active</span></span></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-text-slate-muted text-center sm:text-left" data-i18n="footer.copyright">© 2025 Elizaveta Tarasova. All rights reserved.</p><div class="flex flex-wrap items-center justify-center gap-space-lg"><a class="font-body-sm text-body-sm text-text-slate-muted hover:text-on-surface transition-colors" href="#" title="Institutional Governance" data-i18n-title="footer.link1" data-i18n="footer.link1">Institutional Governance</a><a class="font-body-sm text-body-sm text-text-slate-muted hover:text-on-surface transition-colors" href="#" id="privacy-modal-trigger" title="Honor Code &amp; Privacy" data-i18n-title="footer.link2" data-i18n="footer.link2">Honor Code &amp; Privacy</a></div></div></div></footer><div class="fixed inset-0 z-[100] hidden items-end sm:items-center justify-center" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title"><div class="absolute inset-0 bg-primary/50 backdrop-blur-sm" id="privacy-modal-backdrop"></div><div class="relative w-full sm:max-w-2xl sm:mx-space-md max-h-[88vh] sm:max-h-[82vh] bg-surface-card rounded-t-2xl sm:rounded-2xl shadow-[0_24px_60px_-12px_rgba(15,41,66,0.35)] flex flex-col overflow-hidden" id="privacy-modal-panel"><div class="flex items-start justify-between gap-space-md p-space-lg border-b border-black/5 shrink-0"><div class="min-w-0"><h3 class="font-headline-sm text-headline-sm text-primary font-bold" id="privacy-modal-title" data-i18n="privacyPolicy.title">Privacy Policy</h3><p class="font-label-sm text-label-sm text-on-surface-variant mt-1" data-i18n="privacyPolicy.updated">Last updated: September 2026</p></div><button aria-label="Close" class="shrink-0 p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors" id="privacy-modal-close" type="button"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></button></div><div class="flex-1 min-h-0 overflow-y-auto p-space-lg flex flex-col gap-space-lg"><p class="font-body-md text-body-md text-on-surface-variant" data-i18n="privacyPolicy.intro">Elizaveta Tarasova ("we", "our") respects your privacy. This policy explains what information we collect through this website, how we use it, and the choices you have.</p><div class="flex flex-col gap-space-lg"><div><h4 class="font-title-md text-title-md text-primary font-bold mb-1" data-i18n="privacyPolicy.sections.0.heading">Information We Collect</h4><p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="privacyPolicy.sections.0.body">When you submit the trial-lesson evaluation form, we collect the details you provide: your name, email address, phone number, and any notes about your goals or scheduling preferences. We do not collect payment information through this website.</p></div><div><h4 class="font-title-md text-title-md text-primary font-bold mb-1" data-i18n="privacyPolicy.sections.1.heading">How We Use Your Information</h4><p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="privacyPolicy.sections.1.body">We use your contact details solely to respond to your inquiry, schedule a trial lesson, and share relevant information about lessons and tuition. We never sell or rent your information to third parties.</p></div><div><h4 class="font-title-md text-title-md text-primary font-bold mb-1" data-i18n="privacyPolicy.sections.2.heading">Cookies &amp; Local Storage</h4><p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="privacyPolicy.sections.2.body">This site does not use tracking cookies. Your language preference (English, Turkish, or Russian) is saved locally in your browser using localStorage, so the site remembers your choice on your next visit. This data stays on your device and is never transmitted to us.</p></div><div><h4 class="font-title-md text-title-md text-primary font-bold mb-1" data-i18n="privacyPolicy.sections.3.heading">Third-Party Services</h4><p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="privacyPolicy.sections.3.body">If you choose to contact us via WhatsApp or Telegram, your conversation is subject to that platform's own privacy policy. We are not responsible for how these third-party services handle your data.</p></div><div><h4 class="font-title-md text-title-md text-primary font-bold mb-1" data-i18n="privacyPolicy.sections.4.heading">Data Retention</h4><p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="privacyPolicy.sections.4.body">We retain your contact information only for as long as needed to respond to your inquiry and manage our tutoring relationship, unless you ask us to delete it sooner.</p></div><div><h4 class="font-title-md text-title-md text-primary font-bold mb-1" data-i18n="privacyPolicy.sections.5.heading">Your Rights &amp; Contact</h4><p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="privacyPolicy.sections.5.body">You may request access to, correction of, or deletion of your personal data at any time by emailing us at hello@elizavetatarasova.com. We will respond within a reasonable timeframe.</p></div></div></div><div class="p-space-lg border-t border-black/5 shrink-0 flex justify-end"><button class="inline-flex items-center justify-center bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md px-space-lg py-space-sm rounded-lg transition-all" id="privacy-modal-close-btn" type="button" data-i18n="privacyPolicy.closeLabel">Close</button></div></div></div><script>const openBtn = document.getElementById('mobile-menu-trigger'); const closeBtn = document.getElementById('mobile-menu-close'); const drawer = document.getElementById('mobile-drawer'); if(openBtn && closeBtn && drawer){ openBtn.addEventListener('click', () => drawer.classList.remove('hidden')); closeBtn.addEventListener('click', () => drawer.classList.add('hidden')); drawer.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => drawer.classList.add('hidden')); }); }
+  }
+</script></main><footer class="w-full bg-surface-subtle pt-space-xl pb-space-lg"><div class="max-w-[1280px] mx-auto px-margin"><div class="grid grid-cols-1 md:grid-cols-4 gap-space-xl pb-space-xl"><div class="md:col-span-2 flex flex-col gap-space-md min-w-0"><div class="flex items-center gap-space-sm"><span class="font-headline-sm text-headline-sm text-primary tracking-tight" data-i18n="header.logo">Elizaveta Tarasova</span></div><p class="font-body-sm text-body-sm text-text-slate-muted max-w-md" data-i18n="footer.description">Bespoke collegiate mentorship, diagnostic academic analysis, and university placement advisory delivered by elite Oxbridge and Ivy League scholars.</p><div class="flex flex-wrap items-center gap-space-sm pt-space-xs"><a class="flex items-center gap-space-xs bg-channel-whatsapp hover:bg-channel-whatsapp-hover text-on-primary font-label-sm text-label-sm px-space-md py-space-xs rounded-full transition-colors" rel="noopener" target="_blank" data-i18n-href="contact.whatsapp.url" href="https://wa.me/" title="Chat with us on WhatsApp" data-i18n-title="linkTitles.whatsapp"><span class="text-[16px] shrink-0"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg></span><span data-i18n="footer.whatsappLabel">WhatsApp</span></a><a class="flex items-center gap-space-xs bg-channel-telegram hover:bg-channel-telegram-hover text-on-primary font-label-sm text-label-sm px-space-md py-space-xs rounded-full transition-colors" rel="noopener" target="_blank" data-i18n-href="contact.telegram.url" href="https://t.me/" title="Message us on Telegram" data-i18n-title="linkTitles.telegram"><span class="text-[16px] shrink-0"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg></span><span data-i18n="footer.telegramLabel">Telegram</span></a><a class="flex items-center gap-space-xs bg-channel-mail hover:bg-channel-mail-hover text-on-primary font-label-sm text-label-sm px-space-md py-space-xs rounded-full transition-colors" id="footer-email-link" title="Send us an email" data-i18n-title="linkTitles.email" href="mailto:hello@elizavetatarasova.com"><span class="text-[16px] shrink-0"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/></svg></span><span data-i18n="footer.emailLabel">Email</span></a></div></div><div class="flex flex-col gap-space-sm min-w-0"><h4 class="font-title-md text-title-md text-primary" data-i18n="footer.navTitle">Curriculum Navigation</h4><a class="font-body-sm text-body-sm text-text-slate-muted hover:text-on-surface transition-colors" href="#about" title="Read about our pedagogical philosophy" data-i18n-title="linkTitles.footerNavLink1" data-i18n="footer.navLink1">Pedagogical Philosophy</a><a class="font-body-sm text-body-sm text-text-slate-muted hover:text-on-surface transition-colors" href="#curriculum" title="See our English language tracks" data-i18n-title="linkTitles.footerNavLink2" data-i18n="footer.navLink2">STEM &amp; Humanities Track</a><a class="font-body-sm text-body-sm text-text-slate-muted hover:text-on-surface transition-colors" href="#mentorship" title="Meet the Oxbridge fellow panel" data-i18n-title="linkTitles.footerNavLink3" data-i18n="footer.navLink3">Oxbridge Fellow Panel</a><a class="font-body-sm text-body-sm text-text-slate-muted hover:text-on-surface transition-colors" href="#pricing" title="View bespoke retainer pricing" data-i18n-title="linkTitles.footerNavLink4" data-i18n="footer.navLink4">Bespoke Retainers</a></div><div class="flex flex-col gap-space-sm min-w-0"><h4 class="font-title-md text-title-md text-primary" data-i18n="footer.socialTitle">Connect With Us</h4><div class="flex flex-wrap items-center gap-space-xs"><a class="footer-social-btn" rel="noopener" target="_blank" data-i18n-href="footer.instagramUrl" href="https://instagram.com/" title="Follow us on Instagram" data-i18n-title="linkTitles.instagram" aria-label="Follow us on Instagram"><svg fill="currentColor" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg></a><a class="footer-social-btn" rel="noopener" target="_blank" data-i18n-href="footer.linkedinUrl" href="https://linkedin.com/" title="Connect with us on LinkedIn" data-i18n-title="linkTitles.linkedin" aria-label="Connect with us on LinkedIn"><svg fill="currentColor" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M100.28 448H7.4V148.9h92.88zm-46.44-338c-29.71 0-53.79-24.13-53.79-53.79 0-29.71 24.08-53.79 53.79-53.79 29.65 0 53.79 24.08 53.79 53.79 0 29.66-24.14 53.79-53.79 53.79zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.29-79.3-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg></a><a class="footer-social-btn" rel="noopener" target="_blank" data-i18n-href="contact.whatsapp.url" href="https://wa.me/" title="Chat with us on WhatsApp" data-i18n-title="linkTitles.whatsapp" aria-label="Chat with us on WhatsApp"><svg fill="currentColor" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg"><path d="M240-400h320v-80H240v80Zm0-120h480v-80H240v80Zm0-120h480v-80H240v80ZM80-80v-720q0-33 23.5-56.5T160-880h640q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H240L80-80Zm126-240h594v-480H160v525l46-45Zm-46 0v-480 480Z"/></svg></a><a class="footer-social-btn" rel="noopener" target="_blank" data-i18n-href="contact.telegram.url" href="https://t.me/" title="Message us on Telegram" data-i18n-title="linkTitles.telegram" aria-label="Message us on Telegram"><svg fill="currentColor" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg"><path d="M120-160v-640l760 320-760 320Zm80-120 474-200-474-200v140l240 60-240 60v140Zm0 0v-400 400Z"/></svg></a><a class="footer-social-btn" id="footer-social-email-link" title="Send us an email" data-i18n-title="linkTitles.email" href="mailto:hello@elizavetatarasova.com" aria-label="Send us an email"><svg fill="currentColor" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg"><path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z"/></svg></a></div></div></div><div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md"><p class="font-body-sm text-body-sm text-text-slate-muted text-center sm:text-left" data-i18n="footer.copyright">© 2025 Elizaveta Tarasova. All rights reserved.</p><div class="flex flex-wrap items-center justify-center gap-space-lg"><a class="font-body-sm text-body-sm text-text-slate-muted hover:text-on-surface transition-colors" href="#" id="privacy-modal-trigger" title="Honor Code &amp; Privacy" data-i18n-title="footer.link2" data-i18n="footer.link2">Honor Code &amp; Privacy</a></div></div></div></footer><div class="fixed inset-0 z-[100] hidden items-end sm:items-center justify-center" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-modal-title"><div class="absolute inset-0 bg-primary/50 backdrop-blur-sm" id="privacy-modal-backdrop"></div><div class="relative w-full sm:max-w-2xl sm:mx-space-md max-h-[88vh] sm:max-h-[82vh] bg-surface-card rounded-t-2xl sm:rounded-2xl shadow-[0_24px_60px_-12px_rgba(15,41,66,0.35)] flex flex-col overflow-hidden" id="privacy-modal-panel"><div class="flex items-start justify-between gap-space-md p-space-lg border-b border-black/5 shrink-0"><div class="min-w-0"><h3 class="font-headline-sm text-headline-sm text-primary font-bold" id="privacy-modal-title" data-i18n="privacyPolicy.title">Privacy Policy</h3><p class="font-label-sm text-label-sm text-on-surface-variant mt-1" data-i18n="privacyPolicy.updated">Last updated: September 2026</p></div><button aria-label="Close" class="shrink-0 p-space-xs rounded-lg text-on-surface-variant hover:bg-surface-subtle hover:text-on-surface transition-colors" id="privacy-modal-close" type="button"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></button></div><div class="flex-1 min-h-0 overflow-y-auto p-space-lg flex flex-col gap-space-lg"><p class="font-body-md text-body-md text-on-surface-variant" data-i18n="privacyPolicy.intro">Elizaveta Tarasova ("we", "our") respects your privacy. This policy explains what information we collect through this website, how we use it, and the choices you have.</p><div class="flex flex-col gap-space-lg"><div><h4 class="font-title-md text-title-md text-primary font-bold mb-1" data-i18n="privacyPolicy.sections.0.heading">Information We Collect</h4><p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="privacyPolicy.sections.0.body">When you submit the trial-lesson evaluation form, we collect the details you provide: your name, email address, phone number, and any notes about your goals or scheduling preferences. We do not collect payment information through this website.</p></div><div><h4 class="font-title-md text-title-md text-primary font-bold mb-1" data-i18n="privacyPolicy.sections.1.heading">How We Use Your Information</h4><p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="privacyPolicy.sections.1.body">We use your contact details solely to respond to your inquiry, schedule a trial lesson, and share relevant information about lessons and tuition. We never sell or rent your information to third parties.</p></div><div><h4 class="font-title-md text-title-md text-primary font-bold mb-1" data-i18n="privacyPolicy.sections.2.heading">Cookies &amp; Local Storage</h4><p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="privacyPolicy.sections.2.body">This site does not use tracking cookies. Your language preference (English, Turkish, or Russian) is saved locally in your browser using localStorage, so the site remembers your choice on your next visit. This data stays on your device and is never transmitted to us.</p></div><div><h4 class="font-title-md text-title-md text-primary font-bold mb-1" data-i18n="privacyPolicy.sections.3.heading">Third-Party Services</h4><p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="privacyPolicy.sections.3.body">If you choose to contact us via WhatsApp or Telegram, your conversation is subject to that platform's own privacy policy. We are not responsible for how these third-party services handle your data.</p></div><div><h4 class="font-title-md text-title-md text-primary font-bold mb-1" data-i18n="privacyPolicy.sections.4.heading">Data Retention</h4><p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="privacyPolicy.sections.4.body">We retain your contact information only for as long as needed to respond to your inquiry and manage our tutoring relationship, unless you ask us to delete it sooner.</p></div><div><h4 class="font-title-md text-title-md text-primary font-bold mb-1" data-i18n="privacyPolicy.sections.5.heading">Your Rights &amp; Contact</h4><p class="font-body-sm text-body-sm text-text-slate-muted" data-i18n="privacyPolicy.sections.5.body">You may request access to, correction of, or deletion of your personal data at any time by emailing us at hello@elizavetatarasova.com. We will respond within a reasonable timeframe.</p></div></div></div><div class="p-space-lg border-t border-black/5 shrink-0 flex justify-end"><button class="inline-flex items-center justify-center bg-primary text-on-primary hover:bg-primary-container font-label-md text-label-md px-space-lg py-space-sm rounded-lg transition-all" id="privacy-modal-close-btn" type="button" data-i18n="privacyPolicy.closeLabel">Close</button></div></div></div><button id="back-to-top" type="button" aria-label="Back to top" title="Return to Summit" data-i18n-title="bottomBar.backToTop"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z"/></svg></button><a id="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" title="Chat with us on WhatsApp" data-i18n-title="linkTitles.whatsapp" href="https://wa.me/"><svg viewBox="0 0 448 512" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3s19.9 53.7 22.6 57.4c2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a><script>const openBtn = document.getElementById('mobile-menu-trigger'); const closeBtn = document.getElementById('mobile-menu-close'); const drawer = document.getElementById('mobile-drawer'); if(openBtn && closeBtn && drawer){ openBtn.addEventListener('click', () => drawer.classList.remove('hidden')); closeBtn.addEventListener('click', () => drawer.classList.add('hidden')); drawer.querySelectorAll('a').forEach(link => { link.addEventListener('click', () => drawer.classList.add('hidden')); }); }
 (function(){
   var trigger = document.getElementById('privacy-modal-trigger');
   var modal = document.getElementById('privacy-modal');
@@ -908,16 +924,81 @@ Please furnish academic details for proper scholar-mentor matching.
     if (addr) {
       var l1 = document.getElementById('email-contact-link');
       var l2 = document.getElementById('footer-email-link');
+      var l3 = document.getElementById('footer-social-email-link');
       if (l1) l1.setAttribute('href', 'mailto:' + addr);
       if (l2) l2.setAttribute('href', 'mailto:' + addr);
+      if (l3) l3.setAttribute('href', 'mailto:' + addr);
     }
+  }
+
+  // FAQ items are a variable-length list, so they're rendered here instead
+  // of through the static data-i18n bindings that applyLangToDocument()
+  // handles — the accordion markup is built fresh from however many
+  // faq.items entries exist for the language (no 4-item limit).
+  function renderFAQAccordion(lang) {
+    var container = document.getElementById('faq-accordion');
+    if (!container) return;
+    var content = window.SapphireContent.getContent()[lang];
+    var items = (content && content.faq && Array.isArray(content.faq.items)) ? content.faq.items : [];
+    // A question with no q or a text in this language is left out of the
+    // accordion entirely rather than rendered blank (each language's FAQ
+    // list is filtered independently, so a fully-filled TR entry can still
+    // be hidden in EN/RU until translated).
+    items = items.filter(function (item) {
+      return item && typeof item.q === 'string' && item.q.trim() && typeof item.a === 'string' && item.a.trim();
+    });
+
+    container.innerHTML = '';
+    items.forEach(function (item) {
+      var wrap = document.createElement('div');
+      wrap.className = 'faq-item bg-surface-card rounded-xl shadow-sm overflow-hidden transition-all';
+
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'faq-btn w-full p-space-md md:p-space-lg flex items-center justify-between text-left gap-space-md';
+
+      var q = document.createElement('span');
+      q.className = 'font-title-md text-title-md text-primary font-bold flex-1 min-w-0';
+      q.textContent = item && item.q ? item.q : '';
+
+      var iconSpan = document.createElement('span');
+      iconSpan.className = 'faq-icon text-secondary transition-transform duration-200 shrink-0';
+      iconSpan.innerHTML = '<svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg>';
+
+      btn.appendChild(q);
+      btn.appendChild(iconSpan);
+
+      var answer = document.createElement('div');
+      answer.className = 'faq-answer hidden px-space-md md:px-space-lg pb-space-md md:pb-space-lg text-body-md font-body-md text-text-slate-muted border-l-4 border-secondary';
+      answer.textContent = item && item.a ? item.a : '';
+
+      wrap.appendChild(btn);
+      wrap.appendChild(answer);
+      container.appendChild(wrap);
+    });
+  }
+
+  // The wa.me link needs the base URL (number) plus a prefilled ?text=
+  // message appended, so it can't go through the plain data-i18n-href
+  // mechanism (which only ever sets the raw stored value verbatim).
+  function syncWhatsappFloat(lang) {
+    var content = window.SapphireContent.getContent()[lang];
+    var btn = document.getElementById('whatsapp-float');
+    if (!btn) return;
+    var wa = (content && content.contact && content.contact.whatsapp) || {};
+    var base = wa.url || 'https://wa.me/';
+    var message = wa.floatMessage || '';
+    var separator = base.indexOf('?') === -1 ? '?' : '&';
+    btn.setAttribute('href', base + separator + 'text=' + encodeURIComponent(message));
   }
 
   function setLang(lang) {
     window.SapphireContent.applyLangToDocument(lang);
+    renderFAQAccordion(lang);
     window.SapphireContent.setLangPref(lang);
     paintLangButtons(lang);
     syncEmailLinks(lang);
+    syncWhatsappFloat(lang);
   }
 
   document.querySelectorAll('.lang-switch-btn').forEach(function (btn) {
@@ -987,6 +1068,20 @@ Please furnish academic details for proper scholar-mentor matching.
       }).finally(function () {
         if (submitBtn) submitBtn.removeAttribute('disabled');
       });
+    });
+  }
+
+  /* ---- Back-to-top button: hidden at the top, fades in past the hero, scrolls to top on click ---- */
+  var backToTopBtn = document.getElementById('back-to-top');
+  if (backToTopBtn) {
+    var BACK_TO_TOP_SCROLL_THRESHOLD = 400;
+    var toggleBackToTop = function () {
+      backToTopBtn.classList.toggle('is-visible', window.scrollY > BACK_TO_TOP_SCROLL_THRESHOLD);
+    };
+    toggleBackToTop();
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
+    backToTopBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 })();

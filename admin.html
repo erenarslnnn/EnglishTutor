@@ -22,6 +22,33 @@
   .sidebar-btn { color: #334155; }
   .lang-tab.active { background: #0F2942; color: #fff; }
   [hidden] { display: none !important; }
+
+  /* Repeatable list editor (FAQ items) */
+  .faq-list-wrap { margin-top: 0.5rem; padding-top: 1rem; border-top: 1px solid #E2E8F0; }
+  .faq-list { display: flex; flex-direction: column; gap: 0.75rem; }
+  .faq-card { padding: 0.85rem 1rem; border-radius: 0.75rem; background: #F1F5F9; display: flex; flex-direction: column; gap: 0.6rem; }
+  .faq-item-badge { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #334155; }
+  .faq-list-note { font-size: 11px; color: #64748B; margin-top: -0.25rem; }
+
+  .faq-delete-btn {
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    padding: 0.4rem 0.7rem; border-radius: 0.5rem; border: none;
+    background: transparent; color: #BA1A1A;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 600;
+    cursor: pointer; transition: background-color .15s;
+  }
+  .faq-delete-btn:hover { background: #FFDAD6; }
+  .faq-delete-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+
+  .faq-add-btn {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.55rem 0.9rem; border-radius: 0.6rem; border: none;
+    background: #2F7D5B; color: #fff;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 700;
+    cursor: pointer; white-space: nowrap; transition: background-color .15s;
+  }
+  .faq-add-btn:hover { background: #256449; }
+  .faq-add-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
 </style>
 </head>
 <body>
@@ -116,8 +143,8 @@
   </footer>
 </div>
 
-<script src="content-data.js?v=20260915d"></script>
-<script src="site-i18n.js?v=20260915d"></script>
+<script src="content-data.js?v=20260915i"></script>
+<script src="site-i18n.js?v=20260915i"></script>
 <script>
 (function () {
   "use strict";
@@ -251,6 +278,142 @@
 
       wrapper.appendChild(input);
       container.appendChild(wrapper);
+    });
+
+    if (section.list) {
+      renderListEditor(section.list, container);
+    }
+  }
+
+  /* ---------------- Repeatable list editor (e.g. FAQ items) ----------------
+     Adding/removing an entry changes the array length in all three languages
+     at once (so indices stay aligned); editing q/a text only touches the
+     language currently being edited. */
+  function getListArray(lang, path) {
+    var arr = SC.getPath(content[lang], path);
+    if (!Array.isArray(arr)) {
+      arr = [];
+      SC.setPath(content[lang], path, arr);
+    }
+    return arr;
+  }
+
+  var TRASH_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>';
+  var PLUS_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg>';
+
+  function renderListEditor(listSchema, container) {
+    var wrap = document.createElement("div");
+    wrap.className = "sm:col-span-2 faq-list-wrap flex flex-col gap-3";
+
+    var headerRow = document.createElement("div");
+    headerRow.className = "flex items-center justify-between gap-3 flex-wrap";
+
+    var heading = document.createElement("h3");
+    heading.className = "text-sm font-bold text-primary";
+    heading.textContent = (listSchema.itemLabel.tr || "Liste") + " Listesi";
+    headerRow.appendChild(heading);
+
+    var addBtn = document.createElement("button");
+    addBtn.type = "button";
+    addBtn.className = "faq-add-btn";
+    // schema labels carry a leading "+" for plain-text contexts; the icon already conveys "add".
+    addBtn.innerHTML = PLUS_ICON_SVG + "<span>" + (listSchema.addLabel.tr || "Ekle").replace(/^\+\s*/, "") + "</span>";
+    addBtn.addEventListener("click", function () {
+      SC.LANGS.forEach(function (lang) {
+        var arr = getListArray(lang, listSchema.path);
+        var item = {};
+        listSchema.itemFields.forEach(function (f) { item[f.key] = ""; });
+        arr.push(item);
+      });
+      scheduleSave();
+      renderFields();
+      focusNewestListItem();
+    });
+    headerRow.appendChild(addBtn);
+    wrap.appendChild(headerRow);
+
+    var note = document.createElement("p");
+    note.className = "faq-list-note";
+    note.textContent = "Not: Bir dilde soru veya cevap boş bırakılırsa, o soru sitede o dilde görünmez.";
+    wrap.appendChild(note);
+
+    var list = document.createElement("div");
+    list.className = "faq-list";
+
+    var items = getListArray(currentLang, listSchema.path);
+
+    items.forEach(function (item, idx) {
+      var card = document.createElement("div");
+      card.className = "faq-card";
+
+      var cardHeader = document.createElement("div");
+      cardHeader.className = "flex items-center justify-between gap-2";
+
+      var badge = document.createElement("span");
+      badge.className = "faq-item-badge";
+      badge.textContent = (listSchema.itemLabel.tr || "Öğe") + " " + (idx + 1);
+      cardHeader.appendChild(badge);
+
+      var removeBtn = document.createElement("button");
+      removeBtn.type = "button";
+      removeBtn.className = "faq-delete-btn";
+      removeBtn.innerHTML = TRASH_ICON_SVG + "<span>" + (listSchema.removeLabel.tr || "Sil") + "</span>";
+      removeBtn.addEventListener("click", function () {
+        if (!confirm("Bu soruyu TR/EN/RU üçünde de silmek istediğinize emin misiniz?")) return;
+        SC.LANGS.forEach(function (lang) {
+          getListArray(lang, listSchema.path).splice(idx, 1);
+        });
+        scheduleSave();
+        renderFields();
+      });
+      cardHeader.appendChild(removeBtn);
+      card.appendChild(cardHeader);
+
+      listSchema.itemFields.forEach(function (f) {
+        var fieldWrap = document.createElement("div");
+        fieldWrap.className = "flex flex-col gap-1";
+
+        var flabel = document.createElement("label");
+        flabel.className = "text-[11px] font-bold uppercase tracking-wide text-secondary-tint-text";
+        flabel.textContent = f.label.tr || f.key;
+        fieldWrap.appendChild(flabel);
+
+        var finput;
+        if (f.type === "textarea") {
+          finput = document.createElement("textarea");
+          finput.rows = 3;
+        } else {
+          finput = document.createElement("input");
+          finput.type = "text";
+        }
+        finput.className = "field-input";
+        finput.value = item[f.key] == null ? "" : item[f.key];
+        finput.addEventListener("input", function () {
+          getListArray(currentLang, listSchema.path)[idx][f.key] = finput.value;
+          scheduleSave();
+        });
+        fieldWrap.appendChild(finput);
+        card.appendChild(fieldWrap);
+      });
+
+      list.appendChild(card);
+    });
+
+    wrap.appendChild(list);
+    container.appendChild(wrap);
+  }
+
+  // After adding a new FAQ item, scroll its card into view and focus the
+  // question input so the user can start typing right away.
+  function focusNewestListItem() {
+    var cards = document.querySelectorAll(".faq-card");
+    var last = cards[cards.length - 1];
+    if (!last) return;
+    var firstInput = last.querySelector(".field-input");
+    if (!firstInput) return;
+    requestAnimationFrame(function () {
+      last.scrollIntoView({ behavior: "smooth", block: "center" });
+      firstInput.focus({ preventScroll: true });
     });
   }
 
