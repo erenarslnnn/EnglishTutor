@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/><title>Elizaveta Tarasova — Yönetim Paneli</title>
+<meta name="robots" content="noindex, nofollow"/>
+<link rel="icon" href="assets/favicon/favicon.svg" type="image/svg+xml"/><link rel="icon" href="assets/favicon/favicon.ico" sizes="any"/><link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png"/>
+<link rel="stylesheet" href="assets/css/fonts.css"/>
+<link rel="stylesheet" href="assets/css/tailwind-admin.css"/>
+
+<style>
+  html, body { margin:0; padding:0; max-width:100%; overflow-x:hidden; background:#FDFBF7; }
+  * { min-width: 0; box-sizing: border-box; }
+  body { font-family: 'Plus Jakarta Sans', sans-serif; color:#131B2E; }
+  h1,h2,h3,h4,label,button,input,select,textarea,p,span,a { overflow-wrap: break-word; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 8px; }
+  .field-input {
+    width: 100%; padding: 0.6rem 0.75rem; border-radius: 0.6rem;
+    border: 1.5px solid #CBD5E1; background: #fff; color: #131B2E;
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 14px; outline: none;
+  }
+  .field-input:focus { border-color: #0E7490; box-shadow: 0 0 0 3px rgba(14,116,144,0.15); }
+  .sidebar-btn.active { background: #0F2942; color: #fff; }
+  .sidebar-btn { color: #334155; }
+  .lang-tab.active { background: #0F2942; color: #fff; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+
+<!-- ===================== LOGIN SCREEN ===================== -->
+<div id="login-screen" class="min-h-screen flex items-center justify-center px-4 py-10">
+  <div class="w-full max-w-sm bg-white rounded-2xl shadow-[0_16px_40px_-12px_rgba(15,41,66,0.18)] p-6 sm:p-8">
+    <div class="flex items-center gap-2 mb-1">
+      <div class="w-9 h-9 rounded-lg bg-primary flex items-center justify-center shrink-0">
+        <span class="text-white text-[20px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"/></svg></span>
+      </div>
+      <span class="font-display font-bold text-lg text-primary truncate">Elizaveta Tarasova</span>
+    </div>
+    <h1 class="font-display font-bold text-xl text-ink mt-4">Yönetim Paneline Giriş</h1>
+    <p class="text-sm text-muted mt-1">Site içeriğini düzenlemek için şifreyi girin.</p>
+    <form id="login-form" class="mt-5 flex flex-col gap-3">
+      <input id="login-password" type="password" class="field-input" placeholder="Şifre" autocomplete="current-password" required/>
+      <p id="login-error" hidden class="text-sm text-danger">Şifre hatalı. Lütfen tekrar deneyin.</p>
+      <button type="submit" class="w-full bg-primary hover:bg-primary-container text-white font-semibold text-sm py-3 rounded-lg transition-colors">Giriş Yap</button>
+    </form>
+    <p class="text-xs text-muted mt-5 leading-relaxed">Not: Bu şifre yalnızca yetkisiz kişilerin panele kolayca erişmesini engellemek içindir; sunucu tarafında güvenlik sağlamaz. Bu sayfanın bağlantısını yalnızca güvendiğiniz kişilerle paylaşın.</p>
+  </div>
+</div>
+
+<!-- ===================== ADMIN APP ===================== -->
+<div id="admin-app" hidden class="min-h-screen flex flex-col">
+
+  <!-- Top bar -->
+  <header class="sticky top-0 z-30 bg-white border-b border-outline/60 shadow-sm">
+    <div class="max-w-[1400px] mx-auto px-3 sm:px-6 py-3 flex flex-wrap items-center gap-3 justify-between">
+      <div class="flex items-center gap-2 min-w-0">
+        <div class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center shrink-0">
+          <span class="text-white text-[18px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="18" viewBox="0 -960 960 960" width="18"><path d="M480-120 200-272v-240L40-600l440-240 440 240v320h-80v-276l-80 44v240L480-120Zm0-332 274-148-274-148-274 148 274 148Zm0 241 200-108v-151L480-360 280-470v151l200 108Zm0-241Zm0 90Zm0 0Z"/></svg></span>
+        </div>
+        <div class="min-w-0">
+          <p class="font-display font-bold text-sm sm:text-base text-primary leading-tight truncate">Elizaveta Tarasova</p>
+          <p class="text-[11px] sm:text-xs text-muted leading-tight truncate">İçerik Yönetim Paneli</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2 flex-wrap justify-end">
+        <div id="lang-tabs" class="inline-flex items-center bg-subtle p-1 rounded-full shrink-0">
+          <button class="lang-tab px-3 py-1.5 rounded-full text-xs font-bold transition-colors" data-lang="en">EN</button>
+          <button class="lang-tab px-3 py-1.5 rounded-full text-xs font-bold transition-colors" data-lang="tr">TR</button>
+          <button class="lang-tab px-3 py-1.5 rounded-full text-xs font-bold transition-colors" data-lang="ru">RU</button>
+        </div>
+        <a href="index.html" target="_blank" class="inline-flex items-center gap-1 bg-subtle hover:bg-outline/40 text-primary text-xs font-semibold px-3 py-2 rounded-lg transition-colors whitespace-nowrap">
+          <span class="text-[16px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"/></svg></span><span class="hidden sm:inline">Siteyi Görüntüle</span>
+        </a>
+        <button id="btn-logout" class="inline-flex items-center gap-1 bg-subtle hover:bg-outline/40 text-primary text-xs font-semibold px-3 py-2 rounded-lg transition-colors whitespace-nowrap">
+          <span class="text-[16px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h280v80H200Zm440-160-55-58 102-102H360v-80h327L585-622l55-58 200 200-200 200Z"/></svg></span><span class="hidden sm:inline">Çıkış</span>
+        </button>
+      </div>
+    </div>
+    <div class="max-w-[1400px] mx-auto px-3 sm:px-6 pb-3 flex flex-wrap items-center gap-2 justify-between">
+      <p id="save-status" class="text-xs text-secondary-tint-text flex items-center gap-1">
+        <span class="text-[15px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg></span>
+        <span>Tüm değişiklikler kaydedildi</span>
+      </p>
+      <div class="flex flex-wrap items-center gap-2">
+        <button id="btn-export" class="inline-flex items-center gap-1 bg-white border border-outline hover:bg-subtle text-ink text-xs font-semibold px-3 py-2 rounded-lg transition-colors whitespace-nowrap">
+          <span class="text-[16px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="M480-320 280-520l56-58 104 104v-326h80v326l104-104 56 58-200 200ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg></span>content.json İndir
+        </button>
+        <label class="inline-flex items-center gap-1 bg-white border border-outline hover:bg-subtle text-ink text-xs font-semibold px-3 py-2 rounded-lg transition-colors cursor-pointer whitespace-nowrap">
+          <span class="text-[16px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="M440-320v-326L336-542l-56-58 200-200 200 200-56 58-104-104v326h-80ZM240-160q-33 0-56.5-23.5T160-240v-120h80v120h480v-120h80v120q0 33-23.5 56.5T720-160H240Z"/></svg></span>İçe Aktar
+          <input id="import-file-input" type="file" accept="application/json" class="hidden"/>
+        </label>
+        <button id="btn-reset" class="inline-flex items-center gap-1 bg-white border border-danger/40 hover:bg-danger-tint text-danger text-xs font-semibold px-3 py-2 rounded-lg transition-colors whitespace-nowrap">
+          <span class="text-[16px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="16" viewBox="0 -960 960 960" width="16"><path d="M440-122q-121-15-200.5-105.5T160-440q0-66 26-126.5T260-672l57 57q-38 34-57.5 79T240-440q0 88 56 155.5T440-202v80Zm80 0v-80q87-16 143.5-83T720-440q0-100-70-170t-170-70h-3l44 44-56 56-140-140 140-140 56 56-44 44h3q134 0 227 93t93 227q0 121-79.5 211.5T520-122Z"/></svg></span>Bu Dili Sıfırla
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="flex-1 max-w-[1400px] w-full mx-auto flex flex-col lg:flex-row gap-4 px-3 sm:px-6 py-4">
+
+    <!-- Sidebar / section nav -->
+    <nav id="section-nav" class="lg:w-64 shrink-0 flex lg:flex-col gap-1 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 -mx-1 px-1 lg:mx-0 lg:px-0"></nav>
+
+    <!-- Form area -->
+    <main class="flex-1 min-w-0 flex flex-col gap-4">
+      <div class="bg-white rounded-2xl shadow-sm border border-outline/50 p-4 sm:p-6">
+        <h2 id="section-title" class="font-display font-bold text-lg text-primary">—</h2>
+        <p id="section-hint" class="text-xs text-muted mt-1">Aşağıdaki alanları düzenleyin. Değişiklikler otomatik olarak kaydedilir.</p>
+        <div id="fields-container" class="mt-5 grid grid-cols-1 sm:grid-cols-2 gap-4"></div>
+      </div>
+    </main>
+  </div>
+
+  <footer class="text-center text-xs text-muted py-6 px-4">
+    Elizaveta Tarasova Yönetim Paneli · Değişiklikler bu tarayıcıda saklanır. Kalıcı olarak yayınlamak için "content.json İndir" ile dosyayı indirip sitenizin barındığı yere yükleyin.
+  </footer>
+</div>
+
+<script src="content-data.js?v=20260915d"></script>
+<script src="site-i18n.js?v=20260915d"></script>
+<script>
+(function () {
+  "use strict";
+
+  var ADMIN_PASSWORD = "sapphire2026"; // Basic client-side deterrent only — not real security.
+  var AUTH_KEY = "sapphire_admin_authed";
+
+  var SC = window.SapphireContent;
+  var SCHEMA = window.SITE_SCHEMA;
+  var content = SC.getContent(); // {en:{...}, tr:{...}, ru:{...}}
+  var currentLang = "tr";
+  var currentSectionIndex = 0;
+  var saveTimer = null;
+
+  /* ---------------- Auth ---------------- */
+  function showApp() {
+    document.getElementById("login-screen").hidden = true;
+    document.getElementById("admin-app").hidden = false;
+    initAdmin();
+  }
+
+  if (sessionStorage.getItem(AUTH_KEY) === "1") {
+    showApp();
+  }
+
+  document.getElementById("login-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var val = document.getElementById("login-password").value;
+    if (val === ADMIN_PASSWORD) {
+      sessionStorage.setItem(AUTH_KEY, "1");
+      document.getElementById("login-error").hidden = true;
+      showApp();
+    } else {
+      document.getElementById("login-error").hidden = false;
+    }
+  });
+
+  /* ---------------- Admin UI ---------------- */
+  function initAdmin() {
+    document.getElementById("btn-logout").addEventListener("click", function () {
+      sessionStorage.removeItem(AUTH_KEY);
+      location.reload();
+    });
+
+    document.querySelectorAll(".lang-tab").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        currentLang = btn.getAttribute("data-lang");
+        paintLangTabs();
+        renderFields();
+      });
+    });
+    paintLangTabs();
+
+    buildSectionNav();
+    renderFields();
+
+    document.getElementById("btn-export").addEventListener("click", exportJSON);
+    document.getElementById("import-file-input").addEventListener("change", handleImport);
+    document.getElementById("btn-reset").addEventListener("click", handleReset);
+  }
+
+  function paintLangTabs() {
+    document.querySelectorAll(".lang-tab").forEach(function (btn) {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === currentLang);
+    });
+  }
+
+  function buildSectionNav() {
+    var nav = document.getElementById("section-nav");
+    nav.innerHTML = "";
+    SCHEMA.forEach(function (section, idx) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "sidebar-btn text-left text-sm font-semibold px-4 py-3 rounded-lg whitespace-nowrap lg:whitespace-normal shrink-0 hover:bg-subtle transition-colors";
+      btn.textContent = (section.label.tr || section.section);
+      btn.addEventListener("click", function () {
+        currentSectionIndex = idx;
+        paintSectionNav();
+        renderFields();
+      });
+      nav.appendChild(btn);
+    });
+    paintSectionNav();
+  }
+
+  function paintSectionNav() {
+    var buttons = document.querySelectorAll("#section-nav .sidebar-btn");
+    buttons.forEach(function (btn, idx) {
+      btn.classList.toggle("active", idx === currentSectionIndex);
+    });
+  }
+
+  function renderFields() {
+    var section = SCHEMA[currentSectionIndex];
+    document.getElementById("section-title").textContent = section.label.tr || section.section;
+    document.getElementById("section-hint").textContent =
+      "Şu an düzenlenen dil: " + langName(currentLang) + " — Değişiklikler otomatik kaydedilir.";
+
+    var container = document.getElementById("fields-container");
+    container.innerHTML = "";
+
+    section.fields.forEach(function (field) {
+      var wrapper = document.createElement("div");
+      wrapper.className = "flex flex-col gap-1.5" + (field.type === "textarea" ? " sm:col-span-2" : "");
+
+      var label = document.createElement("label");
+      label.className = "text-xs font-bold uppercase tracking-wide text-secondary-tint-text";
+      label.textContent = field.label.tr || field.key;
+      wrapper.appendChild(label);
+
+      var value = SC.getPath(content[currentLang], field.key);
+      if (value == null) value = "";
+
+      var input;
+      if (field.type === "textarea") {
+        input = document.createElement("textarea");
+        input.rows = 4;
+        input.className = "field-input";
+        input.value = value;
+      } else {
+        input = document.createElement("input");
+        input.type = "text";
+        input.className = "field-input";
+        input.value = value;
+      }
+
+      input.addEventListener("input", function () {
+        SC.setPath(content[currentLang], field.key, input.value);
+        scheduleSave();
+      });
+
+      wrapper.appendChild(input);
+      container.appendChild(wrapper);
+    });
+  }
+
+  function langName(lang) {
+    return { en: "İngilizce (EN)", tr: "Türkçe (TR)", ru: "Rusça (RU)" }[lang] || lang;
+  }
+
+  function scheduleSave() {
+    setSaveStatus("saving");
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(function () {
+      SC.saveContent(content);
+      setSaveStatus("saved");
+    }, 400);
+  }
+
+  function setSaveStatus(state) {
+    var el = document.getElementById("save-status");
+    if (state === "saving") {
+      el.innerHTML = '<span class="text-[15px] animate-pulse"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="M160-160v-80h110l-16-14q-52-46-73-105t-21-119q0-111 66.5-197.5T400-790v84q-72 26-116 88.5T240-478q0 45 17 87.5t53 78.5l10 10v-98h80v240H160Zm400-10v-84q72-26 116-88.5T720-482q0-45-17-87.5T650-648l-10-10v98h-80v-240h240v80H690l16 14q49 49 71.5 106.5T800-482q0 111-66.5 197.5T560-170Z"/></svg></span><span>Kaydediliyor…</span>';
+      el.className = "text-xs text-amber-tint-text flex items-center gap-1";
+    } else {
+      el.innerHTML = '<span class="text-[15px]"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="m424-296 282-282-56-56-226 226-114-114-56 56 170 170Zm56 216q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-80q134 0 227-93t93-227q0-134-93-227t-227-93q-134 0-227 93t-93 227q0 134 93 227t227 93Zm0-320Z"/></svg></span><span>Tüm değişiklikler kaydedildi</span>';
+      el.className = "text-xs text-secondary-tint-text flex items-center gap-1";
+    }
+  }
+
+  function exportJSON() {
+    var json = SC.exportJSON();
+    var blob = new Blob([json], { type: "application/json" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "content.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function handleImport(e) {
+    var file = e.target.files && e.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      try {
+        var imported = SC.importJSON(reader.result);
+        content = SC.getContent();
+        renderFields();
+        setSaveStatus("saved");
+        alert("İçerik başarıyla içe aktarıldı.");
+      } catch (err) {
+        alert("Dosya okunamadı. Geçerli bir content.json dosyası seçtiğinizden emin olun.");
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = "";
+  }
+
+  function handleReset() {
+    if (!confirm(langName(currentLang) + " için tüm değişiklikleri varsayılan içeriğe sıfırlamak istediğinize emin misiniz? Bu işlem geri alınamaz.")) return;
+    SC.resetLanguage(currentLang);
+    content = SC.getContent();
+    renderFields();
+    setSaveStatus("saved");
+  }
+})();
+</script>
+</body>
+</html>
