@@ -28,9 +28,9 @@ Domain: `elizavetatarasova.com` (canonical URL'lerde geçiyor, henüz gerçek de
 4. **Dil tercihi**: `localStorage["sapphire_lang_v1"]`, sayfa yüklenince `setLang()` ile uygulanıyor.
 5. **Versiyon cache-busting**: `content-data.js`, `site-i18n.js`, `assets/css/site.css`, `assets/js/site.js`, `assets/css/admin.css`, `assets/js/admin.js` hepsi aynı `?v=20260915i` query param'ını taşıyor — bunlardan biri değişince tarihi (aynı değere) güncellemek gerekir (tarayıcı cache'i için). Derlenmiş Tailwind bundle'ları (`tailwind.css`, `tailwind-admin.css`) ve `fonts.css` bu versiyonlamaya dahil değil.
 
-## Bilinen Tutarsızlık (henüz düzeltilmedi)
+## Tema Tutarlılığı (düzeltildi)
 
-Site anlatısı ikiye bölünmüş: SEO title + `curriculum` bölümü ve artık `mentorship` bölümü "İngilizce özel ders / IELTS / TOEFL" odaklı (mentorship bölümü İngilizce öğretmenliğine uyarlandı, yer tutucu bilgilerle); ama `hero`, `about`, `pricing` bölümleri hâlâ "Oxbridge/Ivy League üniversite kabul mentorluğu" (Economics Tripos, Mathematics HL gibi) dilinde. Muhtemelen bir "admissions coaching" şablonu kısmen "İngilizce öğretmenliği"ne çevrilmiş. Kullanıcıya bildirildi, henüz düzeltme kararı verilmedi.
+Site eskiden "Sapphire Academy" adlı bir üniversite kabul danışmanlığı (Oxbridge/Ivy League) şablonundan kısmen çevrilmişti; `hero`, `about`, `curriculum`, `pricing`, `faq`, `contact`, `footer`, nav etiketleri ve OG meta verisi dahil **tüm bölümler artık İngilizce özel ders temasında** (content-data.js'in üç dilinde de, ve index.html'in eşleşen fallback metinlerinde). Hero'daki istatistikler (`hero.stat1/2`) artık `mentorship.stat1/2` ile birebir aynı rakamları kullanıyor (tek doğru kaynak `mentorship` bölümü); hero'nun küçük mentor kartı (`hero.mentorBadge/mentorSubtitle`) artık `mentorship.badge1/credentials` ile aynı kimliği gösteriyor — artık aynı kişi için çelişen iki farklı unvan yok. Fiyatlandırma bölümündeki tüm rakamlar (`pricing.tier*.price`) bilinçli olarak `$X` yer tutucusu — gerçek fiyat girilmedi. Bu metinlerin tamamı (varsayılan SSS soruları dahil) admin panelden düzenlenebilir; kalıcı hardcoded metin sadece `og:image:alt` meta etiketinde (index.html `<head>`, i18n mekanizmasına bağlı değil, tek dil).
 
 ## Nasıl Çalışılır
 
