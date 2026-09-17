@@ -142,3 +142,11 @@ html.overflow-hidden, body.overflow-hidden { overflow: hidden !important; }
 }
 .footer-social-btn svg { width: 16px; height: 16px; }
 .footer-social-btn:hover { background-color: #001428; color: #fff; }
+
+/* Footer WhatsApp/Telegram pill buttons: darker than the brand accent used
+   elsewhere so the small white label text clears WCAG AA (4.5:1) contrast —
+   the compiled bg-channel-* utilities are too light at this text size. */
+.footer-channel-pill-whatsapp { background-color: #15803d; }
+.footer-channel-pill-whatsapp:hover { background-color: #166534; }
+.footer-channel-pill-telegram { background-color: #0369a1; }
+.footer-channel-pill-telegram:hover { background-color: #075985; }

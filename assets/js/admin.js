@@ -168,6 +168,7 @@
     var addBtn = document.createElement("button");
     addBtn.type = "button";
     addBtn.className = "faq-add-btn";
+    addBtn.setAttribute("aria-label", (listSchema.addLabel.tr || "Ekle").replace(/^\+\s*/, ""));
     // schema labels carry a leading "+" for plain-text contexts; the icon already conveys "add".
     addBtn.innerHTML = PLUS_ICON_SVG + "<span>" + (listSchema.addLabel.tr || "Ekle").replace(/^\+\s*/, "") + "</span>";
     addBtn.addEventListener("click", function () {
@@ -209,6 +210,7 @@
       var removeBtn = document.createElement("button");
       removeBtn.type = "button";
       removeBtn.className = "faq-delete-btn";
+      removeBtn.setAttribute("aria-label", (listSchema.removeLabel.tr || "Sil") + " " + (listSchema.itemLabel.tr || "") + " " + (idx + 1));
       removeBtn.innerHTML = TRASH_ICON_SVG + "<span>" + (listSchema.removeLabel.tr || "Sil") + "</span>";
       removeBtn.addEventListener("click", function () {
         if (!confirm("Bu soruyu TR/EN/RU üçünde de silmek istediğinize emin misiniz?")) return;

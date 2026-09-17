@@ -114,6 +114,18 @@
     return out;
   }
 
+  /* Same as getContent() but builds only the requested language instead of
+     cloning+merging all three — the admin panel needs all three in memory
+     at once (cross-language edits), but index.html only ever renders one
+     language at a time, so calling getContent()[lang] there was wastefully
+     deep-cloning ~2/3 of content-data.js on every setLang() call. */
+  function getLangContent(lang) {
+    var defaults = global.SITE_CONTENT_DEFAULT[lang];
+    var overrides = readStoredOverrides();
+    var langOverrides = overrides && overrides[lang];
+    return langOverrides ? deepMerge(deepClone(defaults), langOverrides) : deepClone(defaults);
+  }
+
   function saveContent(fullContentObj) {
     return writeStoredOverrides(fullContentObj);
   }
@@ -182,7 +194,7 @@
 
   function applyLangToDocument(lang, root) {
     root = root || document;
-    var content = getContent()[lang];
+    var content = getLangContent(lang);
     if (!content) return;
 
     root.querySelectorAll("[data-i18n]").forEach(function (el) {
@@ -249,6 +261,7 @@
     getPath: getPath,
     setPath: setPath,
     getContent: getContent,
+    getLangContent: getLangContent,
     saveContent: saveContent,
     resetLanguage: resetLanguage,
     resetAll: resetAll,

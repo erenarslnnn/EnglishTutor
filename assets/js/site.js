@@ -91,7 +91,7 @@ const openBtn = document.getElementById('mobile-menu-trigger'); const closeBtn =
   }
 
   function syncEmailLinks(lang) {
-    var content = window.SapphireContent.getContent()[lang];
+    var content = window.SapphireContent.getLangContent(lang);
     var addr = window.SapphireContent.getPath(content, 'contact.email.address');
     if (addr) {
       var l1 = document.getElementById('email-contact-link');
@@ -110,7 +110,7 @@ const openBtn = document.getElementById('mobile-menu-trigger'); const closeBtn =
   function renderFAQAccordion(lang) {
     var container = document.getElementById('faq-accordion');
     if (!container) return;
-    var content = window.SapphireContent.getContent()[lang];
+    var content = window.SapphireContent.getLangContent(lang);
     var items = (content && content.faq && Array.isArray(content.faq.items)) ? content.faq.items : [];
     // A question with no q or a text in this language is left out of the
     // accordion entirely rather than rendered blank (each language's FAQ
@@ -154,7 +154,7 @@ const openBtn = document.getElementById('mobile-menu-trigger'); const closeBtn =
   // message appended, so it can't go through the plain data-i18n-href
   // mechanism (which only ever sets the raw stored value verbatim).
   function syncWhatsappFloat(lang) {
-    var content = window.SapphireContent.getContent()[lang];
+    var content = window.SapphireContent.getLangContent(lang);
     var btn = document.getElementById('whatsapp-float');
     if (!btn) return;
     var wa = (content && content.contact && content.contact.whatsapp) || {};
@@ -173,7 +173,7 @@ const openBtn = document.getElementById('mobile-menu-trigger'); const closeBtn =
   // Google's structured-data crawling expects this data embedded in the
   // page itself, not loaded separately.
   function updateFAQJsonLd(lang) {
-    var content = window.SapphireContent.getContent()[lang];
+    var content = window.SapphireContent.getLangContent(lang);
     var items = (content && content.faq && Array.isArray(content.faq.items)) ? content.faq.items : [];
     items = items.filter(function (item) {
       return item && typeof item.q === 'string' && item.q.trim() && typeof item.a === 'string' && item.a.trim();
