@@ -35,28 +35,28 @@ window.SITE_CONTENT_DEFAULT = {
       footerNavLink4: "View lesson pricing and packages"
     },
     header: {
-      logo: "Elizaveta Tarasova",
+      logo: "Elizaveta Tarasova English Tutor",
       nav: { about: "About", curriculum: "Curriculum", mentorship: "Teacher", pricing: "Pricing", faq: "FAQ", contact: "Contact" },
       bookTrial: "Book Trial"
     },
     mobile: {
-      trustBadge: "CELTA-Certified English Teacher",
+      trustBadge: "TEFL/TESOL-Certified English Teacher",
       ctaButton: "Book a Free Trial Lesson"
     },
     hero: {
-      badge1: "CELTA-Certified English Teacher",
+      badge1: "TEFL/TESOL-Certified English Teacher",
       badge2: "Open Slots This Month: 3",
       title: "Personalized 1-on-1 English Lessons",
       subtitle: "Lessons tailored to your level and goals — from everyday conversation practice to IELTS and TOEFL exam preparation.",
       ctaPrimary: "Book a Free Trial Lesson",
       ctaSecondary: "View Lesson Plans",
-      stat1Value: "140+",
+      stat1Value: "50+",
       stat1Label: "Students Taught",
       stat2Tag: "Experience",
-      stat2Value: "12 Yrs",
+      stat2Value: "5 Yrs",
       stat2Label: "Teaching English",
       stat3Label: "Focus Areas",
-      stat3Value: "General English • IELTS & TOEFL • Business English",
+      stat3Value: "General English • IELTS & TOEFL • Business English • English For Kids/Teens",
       mentorBadge: "Senior English Teacher",
       mentorName: "Elizaveta Tarasova",
       mentorSubtitle: "CELTA & IELTS-Certified English Teacher",
@@ -66,11 +66,11 @@ window.SITE_CONTENT_DEFAULT = {
       imgAlt: "Private English tutor guiding a student through a one-on-one lesson"
     },
     about: {
-      overline: "The Tarasova Method",
+      overline: "Our Strategy",
       title: "A Teaching Method Built on Real Progress",
       subtitle: "Moving beyond rote memorization. We build real confidence, natural fluency, and a personalized learning plan tailored to every student.",
-      pillar1: { label: "Pillar I", title: "Level & Goal Assessment", desc: "We assess your current speaking, writing, and comprehension level to design a clear, personalized learning plan built around your goals.", footer: "10+ Years of Teaching Experience" },
-      pillar2: { label: "Pillar II", title: "Personalized 1-on-1 Lessons", desc: "Every lesson is tailored to you — whether it's conversation practice, exam preparation, or academic and business writing.", footer: "98% Student Satisfaction" },
+      pillar1: { label: "Pillar I", title: "Level & Goal Assessment", desc: "We assess your current speaking, writing, and comprehension level to design a clear, personalized learning plan built around your goals.", footer: "5+ Years of Teaching Experience" },
+      pillar2: { label: "Pillar II", title: "Engage With Native Speakers", desc: "Gain personalised speaking sessions with our native English tutor to monitor your progress. Build confidence as you practise real-life conversations receive direct feedback and improve your fluency progressively.", footer: "A Plan Tailored To Every Student" },
       pillar3: { label: "Pillar III", title: "Consistent Progress Tracking", desc: "Regular feedback, practical materials, and mock tests keep your progress clear and measurable at every stage.", footer: "Personalized Progress Reports" }
     },
     curriculum: {
@@ -101,13 +101,13 @@ window.SITE_CONTENT_DEFAULT = {
       badge1: "Senior English Teacher",
       badge2: "Open Slots This Month: 3",
       name: "Elizaveta Tarasova",
-      credentials: "CELTA & IELTS-Certified English Teacher",
+      credentials: "TEFL/TESOL-Certified English Teacher",
       bio: "With over a decade of classroom and one-on-one teaching experience, Elizaveta specializes in building real conversational confidence, focused exam preparation for IELTS and TOEFL, and clear, structured academic and business writing.",
       ctaText: "Book a Free Trial Lesson",
       responseTime: "Typical response < 4 hours",
       statsTitle: "Teaching Record & Results",
-      stat1: { value: "140+", label: "Students Taught" },
-      stat2: { value: "12 Yrs", label: "Teaching Experience" },
+      stat1: { value: "50+", label: "Students Taught" },
+      stat2: { value: "5 Yrs", label: "Teaching Experience" },
       stat3: { value: "98%", label: "Student Satisfaction Rate" },
       stat4: { value: "1:1", label: "Private Lessons" },
       domainsLabel: "Areas of Expertise",
@@ -116,10 +116,10 @@ window.SITE_CONTENT_DEFAULT = {
     pricing: {
       overline: "Simple, Transparent Pricing",
       title: "Lesson Packages & Pricing",
-      subtitle: "Clear, straightforward pricing for every learning goal — no hidden fees, no long-term contracts required.",
-      tier1: { name: "Single Lesson", tag: "Pay As You Go", desc: "A single one-on-one lesson focused on your specific goals — perfect for trying things out or occasional practice.", price: "$X", period: "/ lesson", features: ["60-Minute 1-on-1 Lesson", "Personalized Lesson Plan", "Practice Materials Included", "Flexible Scheduling", "Email Support Between Lessons"], cta: "Book a Lesson" },
-      tier2: { badge: "Most Popular", name: "Monthly Plan", tag: "Regular Progress", desc: "Weekly lessons with structured homework and materials — ideal for steady, consistent progress.", price: "$X", period: "/ month", features: ["4 Weekly 60-Minute Lessons", "Custom Homework & Written Feedback", "Direct WhatsApp Support", "Progress Tracking Report", "Priority Scheduling"], cta: "Choose Monthly Plan" },
-      tier3: { name: "Exam Prep Intensive", tag: "IELTS / TOEFL Focus", desc: "Focused, intensive preparation for IELTS, TOEFL, or Cambridge exams with mock tests and detailed feedback.", price: "$X", period: "/ month", features: ["8 Weekly 60-Minute Lessons", "Full-Length Mock Exams", "Detailed Score Feedback", "Custom Study Plan", "Unlimited Email Support"], cta: "Start Exam Prep" }
+      subtitle: "For personal requests please contact us.",
+      tier1: { name: "Single Lesson", tag: "Pay As You Go", desc: "A single one-on-one lesson focused on your specific goals — perfect for trying things out or occasional practice.", price: "$25", period: "/ lesson", features: ["60-Minute 1-on-1 Lesson", "Personalized Lesson Plan", "Practice Materials Included", "Flexible Scheduling", "Online Support Between Lessons"], cta: "Book a Lesson" },
+      tier2: { badge: "Most Popular", name: "Regular Plan", tag: "Regular Progress", desc: "Weekly lessons with structured homework and materials — ideal for steady, consistent progress.", price: "$90", period: "/ month", features: ["4 Lessons (60 Minutes)", "Custom Homework & Written Feedback", "Online Support Between Lessons", "Progress Tracking Report", "Priority Scheduling"], cta: "Choose Monthly Plan" },
+      tier3: { name: "Exam Prep Intensive", tag: "IELTS / TOEFL Focus", desc: "Focused, intensive preparation for IELTS, TOEFL, or Cambridge exams with mock tests and detailed feedback.", price: "$280", period: "/ month", features: ["8 Lessons (60 Minutes)", "Full-Length Mock Exams", "Detailed Score Feedback", "Custom Study Plan", "Online Support Between Lessons"], cta: "Start Exam Prep" }
     },
     faq: {
       overline: "Common Questions",
@@ -143,9 +143,9 @@ window.SITE_CONTENT_DEFAULT = {
       formSubtitle: "Share a few details so we can prepare a lesson suited to your level and goals.",
       fieldStudentName: "Student Full Name *",
       studentNamePlaceholder: "e.g. Julian Sterling",
-      fieldParentEmail: "Parent / Guardian Email *",
+      fieldParentEmail: "Email *",
       parentEmailPlaceholder: "name@domain.com",
-      fieldParentPhone: "Parent / Guardian Phone Number *",
+      fieldParentPhone: "Phone Number *",
       parentPhonePlaceholder: "e.g. 555 123 4567",
       fieldSubject: "Interest / Goal",
       subjectPlaceholder: "e.g. IELTS, Conversation Practice, Business English",
@@ -221,28 +221,28 @@ window.SITE_CONTENT_DEFAULT = {
       footerNavLink4: "Ders ücretlerini ve paketleri görüntüleyin"
     },
     header: {
-      logo: "Elizaveta Tarasova",
+      logo: "Elizaveta Tarasova İngilizce Eğitmeni",
       nav: { about: "Hakkımızda", curriculum: "Müfredat", mentorship: "Öğretmenimiz", pricing: "Ücretler", faq: "SSS", contact: "İletişim" },
       bookTrial: "Deneme Dersi"
     },
     mobile: {
-      trustBadge: "CELTA Sertifikalı İngilizce Öğretmeni",
+      trustBadge: "TEFL/TESOL Sertifikalı İngilizce Eğitmeni",
       ctaButton: "Ücretsiz Deneme Dersi Al"
     },
     hero: {
-      badge1: "CELTA Sertifikalı İngilizce Öğretmeni",
+      badge1: "TEFL/TESOL Sertifikalı İngilizce Eğitmeni",
       badge2: "Bu Ay İçin Boş Kontenjan: 3 Kişi",
       title: "Size Özel Birebir İngilizce Dersleri",
       subtitle: "Seviyenize ve hedeflerinize göre tasarlanmış birebir dersler — günlük konuşma pratiğinden IELTS ve TOEFL sınav hazırlığına kadar.",
       ctaPrimary: "Ücretsiz Deneme Dersi Ayırt",
       ctaSecondary: "Ders Programlarını İncele",
-      stat1Value: "140+",
+      stat1Value: "50+",
       stat1Label: "Ders Verilen Öğrenci",
       stat2Tag: "Deneyim",
-      stat2Value: "12 Yıl",
+      stat2Value: "5 Yıl",
       stat2Label: "İngilizce Öğretmenliği",
       stat3Label: "Odak Alanları",
-      stat3Value: "Genel İngilizce • IELTS & TOEFL • İş İngilizcesi",
+      stat3Value: "Genel İngilizce • IELTS ve TOEFL • İş İngilizcesi • Çocuklar/Gençler için İngilizce",
       mentorBadge: "Kıdemli İngilizce Öğretmeni",
       mentorName: "Elizaveta Tarasova",
       mentorSubtitle: "CELTA & IELTS Sertifikalı İngilizce Öğretmeni",
@@ -252,11 +252,11 @@ window.SITE_CONTENT_DEFAULT = {
       imgAlt: "Öğrencisine birebir ders veren özel İngilizce öğretmeni"
     },
     about: {
-      overline: "Tarasova Metodu",
+      overline: "Stratejimiz",
       title: "Gerçek İlerlemeye Dayalı Bir Öğretim Yöntemi",
       subtitle: "Ezbere dayalı öğrenmenin ötesine geçiyoruz. Her öğrenciye özel; gerçek özgüven, doğal akıcılık ve kişiye özel bir öğrenim planı kazandırıyoruz.",
-      pillar1: { label: "1. İlke", title: "Seviye & Hedef Belirleme", desc: "Mevcut konuşma, yazma ve anlama seviyenizi belirleyerek hedeflerinize uygun net, kişiye özel bir öğrenim planı oluşturuyoruz.", footer: "10+ Yıl Öğretmenlik Deneyimi" },
-      pillar2: { label: "2. İlke", title: "Birebir Kişiye Özel Dersler", desc: "İster konuşma pratiği, ister sınav hazırlığı, ister akademik/iş yazımı olsun — her ders size özel olarak tasarlanır.", footer: "%98 Öğrenci Memnuniyeti" },
+      pillar1: { label: "1. İlke", title: "Seviye & Hedef Belirleme", desc: "Mevcut konuşma, yazma ve anlama seviyenizi belirleyerek hedeflerinize uygun net, kişiye özel bir öğrenim planı oluşturuyoruz.", footer: "5+ Yıl Öğretmenlik Deneyimi" },
+      pillar2: { label: "2. İlke", title: "Ana Dili İngilizce Olan Eğitmenler", desc: "İlerlemenizi takip etmek için ana dili İngilizce olan eğitmenimizle kişiselleştirilmiş konuşma seanslarına katılın. Gerçek hayattan diyaloglar kullanıp doğrudan geri bildirim alarak ve akıcılığınızı kademeli olarak geliştirerek öz güven kazanın.", footer: "Her Öğrenciye Özel Plan" },
       pillar3: { label: "3. İlke", title: "Düzenli İlerleme Takibi", desc: "Düzenli geri bildirim, pratik materyaller ve deneme sınavlarıyla ilerlemeniz her aşamada net ve ölçülebilir kalır.", footer: "Kişiye Özel İlerleme Raporları" }
     },
     curriculum: {
@@ -287,13 +287,13 @@ window.SITE_CONTENT_DEFAULT = {
       badge1: "Kıdemli İngilizce Öğretmeni",
       badge2: "Bu Ay İçin Boş Kontenjan: 3 Kişi",
       name: "Elizaveta Tarasova",
-      credentials: "CELTA & IELTS Sertifikalı İngilizce Öğretmeni",
+      credentials: "TEFL/TESOL Sertifikalı İngilizce Eğitmeni",
       bio: "On yılı aşkın sınıf içi ve birebir ders deneyimiyle Elizaveta; gerçek konuşma özgüveni kazandırma, IELTS ve TOEFL odaklı sınav hazırlığı ile açık ve düzenli akademik/iş yazımı konularında uzmanlaşmıştır.",
       ctaText: "Ücretsiz Deneme Dersi Talep Et",
       responseTime: "Ortalama yanıt süresi < 4 saat",
       statsTitle: "Öğretmenlik Geçmişi & Sonuçlar",
-      stat1: { value: "140+", label: "Ders Verilen Öğrenci" },
-      stat2: { value: "12 Yıl", label: "Öğretmenlik Deneyimi" },
+      stat1: { value: "50+", label: "Ders Verilen Öğrenci" },
+      stat2: { value: "5 Yıl", label: "Öğretmenlik Deneyimi" },
       stat3: { value: "%98", label: "Öğrenci Memnuniyeti" },
       stat4: { value: "1:1", label: "Özel Ders" },
       domainsLabel: "Uzmanlık Alanları",
@@ -302,10 +302,10 @@ window.SITE_CONTENT_DEFAULT = {
     pricing: {
       overline: "Şeffaf Ücretlendirme",
       title: "Akademik Ücretler & Paketler",
-      subtitle: "Şeffaf, her şey dahil akademik taahhütler. Gizli danışmanlık ücreti veya kilitli müfredat materyali yok.",
-      tier1: { name: "Tekli Ders", tag: "İstediğinde Öde", desc: "Belirli hedeflerinize odaklanan tek bir birebir ders — denemek veya ara sıra pratik yapmak için ideal.", price: "$X", period: "/ ders", features: ["60 Dakikalık Birebir Ders", "Kişiye Özel Ders Planı", "Pratik Materyaller Dahil", "Esnek Randevu Saatleri", "Dersler Arası E-posta Desteği"], cta: "Ders Ayırt" },
-      tier2: { badge: "En Popüler", name: "Aylık Paket", tag: "Düzenli İlerleme", desc: "Yapılandırılmış ödev ve materyallerle haftalık dersler — istikrarlı ve düzenli ilerleme için ideal.", price: "$X", period: "/ ay", features: ["Haftalık 4 Ders (60 dk)", "Özel Ödev & Yazılı Geri Bildirim", "Doğrudan WhatsApp Desteği", "İlerleme Takip Raporu", "Öncelikli Randevu Saatleri"], cta: "Aylık Paketi Seç" },
-      tier3: { name: "Yoğun Sınav Hazırlığı", tag: "IELTS / TOEFL Odaklı", desc: "IELTS, TOEFL veya Cambridge sınavlarına yönelik, deneme sınavları ve detaylı geri bildirimli yoğun hazırlık.", price: "$X", period: "/ ay", features: ["Haftalık 8 Ders (60 dk)", "Tam Kapsamlı Deneme Sınavları", "Detaylı Puan Geri Bildirimi", "Kişiye Özel Çalışma Planı", "Sınırsız E-posta Desteği"], cta: "Sınav Hazırlığını Başlat" }
+      subtitle: "Kişisel talepleriniz için lütfen bizimle iletişime geçin.",
+      tier1: { name: "Tekli Ders", tag: "İstediğinde Öde", desc: "Belirli hedeflerinize odaklanan tek bir birebir ders — denemek veya ara sıra pratik yapmak için ideal.", price: "1.200₺", period: "/ ders", features: ["60 Dakikalık Birebir Ders", "Kişiye Özel Ders Planı", "Pratik Materyaller Dahil", "Esnek Randevu Saatleri", "Dersler Arası Çevrimiçi Destek"], cta: "Ders Ayırt" },
+      tier2: { badge: "En Popüler", name: "Düzenli Plan", tag: "Düzenli İlerleme", desc: "Yapılandırılmış ödev ve materyallerle haftalık dersler — istikrarlı ve düzenli ilerleme için ideal.", price: "4.300₺", period: "/ ay", features: ["4 Ders (60 Dakika)", "Özel Ödev & Yazılı Geri Bildirim", "Dersler Arası Çevrimiçi Destek", "İlerleme Takip Raporu", "Öncelikli Randevu Saatleri"], cta: "Aylık Paketi Seç" },
+      tier3: { name: "Yoğun Sınav Hazırlığı", tag: "IELTS / TOEFL Odaklı", desc: "IELTS, TOEFL veya Cambridge sınavlarına yönelik, deneme sınavları ve detaylı geri bildirimli yoğun hazırlık.", price: "13.500₺", period: "/ ay", features: ["8 Ders (60 Dakika)", "Tam Kapsamlı Deneme Sınavları", "Detaylı Puan Geri Bildirimi", "Kişiye Özel Çalışma Planı", "Dersler Arası Çevrimiçi Destek"], cta: "Sınav Hazırlığını Başlat" }
     },
     faq: {
       overline: "Sık Sorulan Sorular",
@@ -329,9 +329,9 @@ window.SITE_CONTENT_DEFAULT = {
       formSubtitle: "Seviyenize ve hedeflerinize uygun bir ders hazırlayabilmemiz için birkaç bilgi paylaşın.",
       fieldStudentName: "Öğrencinin Adı Soyadı *",
       studentNamePlaceholder: "örn. Ahmet Yılmaz",
-      fieldParentEmail: "Veli E-postası *",
+      fieldParentEmail: "E-posta *",
       parentEmailPlaceholder: "isim@eposta.com",
-      fieldParentPhone: "Veli Telefon Numarası *",
+      fieldParentPhone: "Telefon Numarası *",
       parentPhonePlaceholder: "örn. 555 123 4567",
       fieldSubject: "İlgi Alanı / Hedef",
       subjectPlaceholder: "örn. IELTS, Konuşma Pratiği, İş İngilizcesi",
@@ -407,28 +407,28 @@ window.SITE_CONTENT_DEFAULT = {
       footerNavLink4: "Посмотреть цены и тарифы на занятия"
     },
     header: {
-      logo: "Elizaveta Tarasova",
+      logo: "Частный Тьютор Елизавета Тарасова",
       nav: { about: "О нас", curriculum: "Программа", mentorship: "Преподаватель", pricing: "Стоимость", faq: "Вопросы", contact: "Контакты" },
       bookTrial: "Пробное занятие"
     },
     mobile: {
-      trustBadge: "Сертифицированный преподаватель CELTA",
+      trustBadge: "Сертифицированный преподаватель TEFL/TESOL",
       ctaButton: "Записаться на бесплатный пробный урок"
     },
     hero: {
-      badge1: "Сертифицированный преподаватель CELTA",
+      badge1: "Сертифицированный преподаватель TEFL/TESOL",
       badge2: "Свободных мест в этом месяце: 3",
       title: "Персональные индивидуальные уроки английского",
       subtitle: "Уроки, подобранные под ваш уровень и цели — от повседневной разговорной практики до подготовки к экзаменам IELTS и TOEFL.",
       ctaPrimary: "Записаться на бесплатный пробный урок",
       ctaSecondary: "Посмотреть программы обучения",
-      stat1Value: "140+",
+      stat1Value: "50+",
       stat1Label: "Обученных студентов",
       stat2Tag: "Опыт",
-      stat2Value: "12 лет",
+      stat2Value: "5 лет",
       stat2Label: "Преподавания английского",
       stat3Label: "Направления",
-      stat3Value: "Общий английский • IELTS и TOEFL • Деловой английский",
+      stat3Value: "Общий английский • IELTS и TOEFL • Деловой английский • Английский для детей и подростков",
       mentorBadge: "Старший преподаватель английского языка",
       mentorName: "Елизавета Тарасова",
       mentorSubtitle: "Сертифицированный преподаватель CELTA, специалист по IELTS",
@@ -438,11 +438,11 @@ window.SITE_CONTENT_DEFAULT = {
       imgAlt: "Частный преподаватель английского языка проводит индивидуальный урок"
     },
     about: {
-      overline: "Метод Тарасовой",
+      overline: "Наша стратегия",
       title: "Методика, основанная на реальном прогрессе",
       subtitle: "Мы уходим от механического заучивания. Развиваем настоящую уверенность, естественную беглость речи и индивидуальный план обучения для каждого ученика.",
-      pillar1: { label: "Принцип I", title: "Оценка уровня и целей", desc: "Мы оцениваем ваш текущий уровень говорения, письма и понимания, чтобы составить чёткий индивидуальный план обучения под ваши цели.", footer: "10+ лет опыта преподавания" },
-      pillar2: { label: "Принцип II", title: "Индивидуальные занятия один на один", desc: "Каждое занятие подстраивается под вас — будь то разговорная практика, подготовка к экзамену или академическое и деловое письмо.", footer: "98% довольных учеников" },
+      pillar1: { label: "Принцип I", title: "Оценка уровня и целей", desc: "Мы оцениваем ваш текущий уровень говорения, письма и понимания, чтобы составить чёткий индивидуальный план обучения под ваши цели.", footer: "5+ лет опыта преподавания" },
+      pillar2: { label: "Принцип II", title: "Общайтесь с носителями языка", desc: "Занимайтесь разговорной практикой индивидуально с нашим преподавателем — носителем английского языка и отслеживайте свой прогресс. Обретайте уверенность, отрабатывая навыки общения в реальных ситуациях на разговорных сессиях.", footer: "Индивидуальный План Для Каждого" },
       pillar3: { label: "Принцип III", title: "Постоянное отслеживание прогресса", desc: "Регулярная обратная связь, практические материалы и пробные тесты делают ваш прогресс понятным и измеримым на каждом этапе.", footer: "Индивидуальные отчёты о прогрессе" }
     },
     curriculum: {
@@ -473,13 +473,13 @@ window.SITE_CONTENT_DEFAULT = {
       badge1: "Старший преподаватель английского языка",
       badge2: "Свободных мест в этом месяце: 3",
       name: "Елизавета Тарасова",
-      credentials: "Сертифицированный преподаватель CELTA, специалист по IELTS",
+      credentials: "Сертифицированный преподаватель TEFL/TESOL, специалист по IELTS",
       bio: "Более десяти лет опыта преподавания в группах и индивидуально. Елизавета специализируется на развитии уверенной разговорной речи, целенаправленной подготовке к IELTS и TOEFL, а также на чётком и структурированном академическом и деловом письме.",
       ctaText: "Записаться на бесплатный пробный урок",
       responseTime: "Обычно отвечаем менее чем за 4 часа",
       statsTitle: "Педагогический опыт и результаты",
-      stat1: { value: "140+", label: "Обученных студентов" },
-      stat2: { value: "12 лет", label: "Опыт преподавания" },
+      stat1: { value: "50+", label: "Обученных студентов" },
+      stat2: { value: "5 лет", label: "Опыт преподавания" },
       stat3: { value: "98%", label: "Удовлетворённость учеников" },
       stat4: { value: "1:1", label: "Индивидуальные занятия" },
       domainsLabel: "Направления обучения",
@@ -488,10 +488,10 @@ window.SITE_CONTENT_DEFAULT = {
     pricing: {
       overline: "Прозрачные тарифы",
       title: "Стоимость обучения и тарифы",
-      subtitle: "Прозрачные комплексные тарифы. Никаких скрытых платежей за консультации или закрытых учебных материалов.",
-      tier1: { name: "Разовое занятие", tag: "Оплата по факту", desc: "Одно индивидуальное занятие, сфокусированное на ваших конкретных целях — идеально, чтобы попробовать или для нерегулярной практики.", price: "$X", period: "/ занятие", features: ["Индивидуальное занятие 60 минут", "Индивидуальный план урока", "Практические материалы включены", "Гибкое расписание", "Поддержка по email между занятиями"], cta: "Записаться на занятие" },
-      tier2: { badge: "Самый популярный", name: "Месячный тариф", tag: "Регулярный прогресс", desc: "Еженедельные занятия со структурированными домашними заданиями и материалами — для стабильного, последовательного прогресса.", price: "$X", period: "/ месяц", features: ["4 занятия по 60 минут в неделю", "Индивидуальные домашние задания и письменная обратная связь", "Прямая поддержка в WhatsApp", "Отчёт об отслеживании прогресса", "Приоритетное расписание"], cta: "Выбрать месячный тариф" },
-      tier3: { name: "Интенсивная подготовка к экзамену", tag: "Фокус на IELTS / TOEFL", desc: "Целенаправленная интенсивная подготовка к IELTS, TOEFL или Cambridge с пробными тестами и подробной обратной связью.", price: "$X", period: "/ месяц", features: ["8 занятий по 60 минут в неделю", "Полноформатные пробные экзамены", "Подробная обратная связь по баллам", "Индивидуальный план подготовки", "Неограниченная поддержка по email"], cta: "Начать подготовку к экзамену" }
+      subtitle: "По личным запросам свяжитесь со нами",
+      tier1: { name: "Разовое занятие", tag: "Оплата по факту", desc: "Одно индивидуальное занятие, сфокусированное на ваших конкретных целях — идеально, чтобы попробовать или для нерегулярной практики.", price: "2.100₽", period: "/ занятие", features: ["Индивидуальное занятие 60 минут", "Индивидуальный план урока", "Практические материалы включены", "Гибкое расписание", "Онлайн-поддержка между занятиями"], cta: "Записаться на занятие" },
+      tier2: { badge: "Самый популярный", name: "Регулярный  тариф", tag: "Регулярный прогресс", desc: "Еженедельные занятия со структурированными домашними заданиями и материалами — для стабильного, последовательного прогресса.", price: "7.500₽", period: "/ месяц", features: ["4 урока (60 минут)", "Индивидуальные домашние задания и письменная обратная связь", "Онлайн-поддержка между занятиями", "Отчёт об отслеживании прогресса", "Приоритетное расписание"], cta: "Выбрать месячный тариф" },
+      tier3: { name: "Интенсивная подготовка к экзамену", tag: "Фокус на IELTS / TOEFL", desc: "Целенаправленная интенсивная подготовка к IELTS, TOEFL или Cambridge с пробными тестами и подробной обратной связью.", price: "23.500₽", period: "/ месяц", features: ["8 урока (60 минут)", "Полноформатные пробные экзамены", "Подробная обратная связь по баллам", "Индивидуальный план подготовки", "Онлайн-поддержка между занятиями"], cta: "Начать подготовку к экзамену" }
     },
     faq: {
       overline: "Частые вопросы",
@@ -515,9 +515,9 @@ window.SITE_CONTENT_DEFAULT = {
       formSubtitle: "Поделитесь несколькими деталями, чтобы мы могли подготовить урок под ваш уровень и цели.",
       fieldStudentName: "Полное имя ученика *",
       studentNamePlaceholder: "например, Юлиан Стерлинг",
-      fieldParentEmail: "Email родителя / опекуна *",
+      fieldParentEmail: "Email *",
       parentEmailPlaceholder: "name@domain.com",
-      fieldParentPhone: "Номер телефона родителя/опекуна *",
+      fieldParentPhone: "Номер телефона *",
       parentPhonePlaceholder: "например, 555 123 4567",
       fieldSubject: "Интерес / цель",
       subjectPlaceholder: "например, IELTS, разговорная практика, деловой английский",
@@ -531,7 +531,7 @@ window.SITE_CONTENT_DEFAULT = {
       backToTop: "Наверх"
     },
     footer: {
-      description: "Персональные индивидуальные уроки английского для любого уровня — от повседневного общения до подготовки к экзаменам IELTS, TOEFL и Cambridge.",
+      description: "Персонализированные индивидуальные уроки английского для любого уровня — от разговорной речи до подготовки к экзаменам IELTS, TOEFL и Cambridge.",
       whatsappLabel: "WhatsApp",
       telegramLabel: "Telegram",
       emailLabel: "Email",
