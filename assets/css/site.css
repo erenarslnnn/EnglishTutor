@@ -150,3 +150,10 @@ html.overflow-hidden, body.overflow-hidden { overflow: hidden !important; }
 .footer-channel-pill-whatsapp:hover { background-color: #166534; }
 .footer-channel-pill-telegram { background-color: #0369a1; }
 .footer-channel-pill-telegram:hover { background-color: #075985; }
+
+/* Active curriculum tab: keep white text on the dark pill even while hovered/focused
+   (touch devices keep :hover stuck after a tap, which made hover:text-on-surface win). */
+.curriculum-tab-btn.bg-primary,
+.curriculum-tab-btn.bg-primary:hover,
+.curriculum-tab-btn.bg-primary:focus,
+.curriculum-tab-btn.bg-primary:active { color: #fff; }
