@@ -157,3 +157,6 @@ html.overflow-hidden, body.overflow-hidden { overflow: hidden !important; }
 .curriculum-tab-btn.bg-primary:hover,
 .curriculum-tab-btn.bg-primary:focus,
 .curriculum-tab-btn.bg-primary:active { color: #fff; }
+.curriculum-tab-btn { transition: none; }
+.curriculum-tab-btn.bg-primary { color: #fff !important; background-color: #001428; }
+.curriculum-tab-btn:not(.bg-primary) { color: #43474D; background-color: transparent; }
