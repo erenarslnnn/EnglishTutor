@@ -70,7 +70,7 @@ window.SITE_CONTENT_DEFAULT = {
       title: "A Teaching Method Built on Real Progress",
       subtitle: "Moving beyond rote memorization. We build real confidence, natural fluency, and a personalized learning plan tailored to every student.",
       pillar1: { label: "Pillar I", title: "Level & Goal Assessment", desc: "We assess your current speaking, writing, and comprehension level to design a clear, personalized learning plan built around your goals.", footer: "5+ Years of Teaching Experience" },
-      pillar2: { label: "Pillar II", title: "Engage With Native Speakers", desc: "Gain personalised speaking sessions with our native English tutor to monitor your progress. Build confidence as you practise real-life conversations receive direct feedback and improve your fluency progressively.", footer: "A Plan Tailored To Every Student" },
+      pillar2: { label: "Pillar II", title: "Engage With Native Speakers", desc: "Gain personalised speaking sessions with our native English tutor to monitor your progress. Build confidence as you practise real-life conversations receive direct feedback and improve your fluency progressively.", footer: "Native Speaker" },
       pillar3: { label: "Pillar III", title: "Consistent Progress Tracking", desc: "Regular feedback, practical materials, and mock tests keep your progress clear and measurable at every stage.", footer: "Personalized Progress Reports" }
     },
     curriculum: {
@@ -256,7 +256,7 @@ window.SITE_CONTENT_DEFAULT = {
       title: "Gerçek İlerlemeye Dayalı Bir Öğretim Yöntemi",
       subtitle: "Ezbere dayalı öğrenmenin ötesine geçiyoruz. Her öğrenciye özel; gerçek özgüven, doğal akıcılık ve kişiye özel bir öğrenim planı kazandırıyoruz.",
       pillar1: { label: "1. İlke", title: "Seviye & Hedef Belirleme", desc: "Mevcut konuşma, yazma ve anlama seviyenizi belirleyerek hedeflerinize uygun net, kişiye özel bir öğrenim planı oluşturuyoruz.", footer: "5+ Yıl Öğretmenlik Deneyimi" },
-      pillar2: { label: "2. İlke", title: "Ana Dili İngilizce Olan Eğitmenler", desc: "İlerlemenizi takip etmek için ana dili İngilizce olan eğitmenimizle kişiselleştirilmiş konuşma seanslarına katılın. Gerçek hayattan diyaloglar kullanıp doğrudan geri bildirim alarak ve akıcılığınızı kademeli olarak geliştirerek öz güven kazanın.", footer: "Her Öğrenciye Özel Plan" },
+      pillar2: { label: "2. İlke", title: "Ana Dili İngilizce Olan Eğitmenler", desc: "İlerlemenizi takip etmek için ana dili İngilizce olan eğitmenimizle kişiselleştirilmiş konuşma seanslarına katılın. Gerçek hayattan diyaloglar kullanıp doğrudan geri bildirim alarak ve akıcılığınızı kademeli olarak geliştirerek öz güven kazanın.", footer: "Ana Dili İngilizce Olan Eğitmenimiz" },
       pillar3: { label: "3. İlke", title: "Düzenli İlerleme Takibi", desc: "Düzenli geri bildirim, pratik materyaller ve deneme sınavlarıyla ilerlemeniz her aşamada net ve ölçülebilir kalır.", footer: "Kişiye Özel İlerleme Raporları" }
     },
     curriculum: {
@@ -442,7 +442,7 @@ window.SITE_CONTENT_DEFAULT = {
       title: "Методика, основанная на реальном прогрессе",
       subtitle: "Мы уходим от механического заучивания. Развиваем настоящую уверенность, естественную беглость речи и индивидуальный план обучения для каждого ученика.",
       pillar1: { label: "Принцип I", title: "Оценка уровня и целей", desc: "Мы оцениваем ваш текущий уровень говорения, письма и понимания, чтобы составить чёткий индивидуальный план обучения под ваши цели.", footer: "5+ лет опыта преподавания" },
-      pillar2: { label: "Принцип II", title: "Общайтесь с носителями языка", desc: "Занимайтесь разговорной практикой индивидуально с нашим преподавателем — носителем английского языка и отслеживайте свой прогресс. Обретайте уверенность, отрабатывая навыки общения в реальных ситуациях на разговорных сессиях.", footer: "Индивидуальный План Для Каждого" },
+      pillar2: { label: "Принцип II", title: "Общайтесь с носителями языка", desc: "Занимайтесь разговорной практикой индивидуально с нашим преподавателем — носителем английского языка и отслеживайте свой прогресс. Обретайте уверенность, отрабатывая навыки общения в реальных ситуациях на разговорных сессиях.", footer: "Носитель языка" },
       pillar3: { label: "Принцип III", title: "Постоянное отслеживание прогресса", desc: "Регулярная обратная связь, практические материалы и пробные тесты делают ваш прогресс понятным и измеримым на каждом этапе.", footer: "Индивидуальные отчёты о прогрессе" }
     },
     curriculum: {
