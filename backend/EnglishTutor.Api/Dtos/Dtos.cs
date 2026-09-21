@@ -4,6 +4,13 @@ namespace EnglishTutor.Api.Dtos;
 
 public record LoginRequest([Required, MaxLength(100)] string Username, [Required, MaxLength(200)] string Password);
 
+public record ChangePasswordRequest(
+    [Required, MaxLength(200)] string CurrentPassword,
+    [Required, MaxLength(200)] string NewPassword,
+    [Required, MaxLength(200)] string ConfirmNewPassword);
+
+public record ReadStateRequest(bool IsRead);
+
 public record LoginResponse(string Token, DateTime ExpiresAtUtc);
 
 public record ContactRequest(

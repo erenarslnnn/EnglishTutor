@@ -36,10 +36,11 @@ public static class SeedData
         using var scope = sp.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
         var user = await db.AdminUsers.FirstOrDefaultAsync(u => u.Username == username);
-        if (user == null)
-            db.AdminUsers.Add(new Models.AdminUser { Username = username, PasswordHash = BCrypt.Net.BCrypt.HashPassword(password) });
-        else if (!BCrypt.Net.BCrypt.Verify(password, user.PasswordHash))
-            user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(password); // rotating the secret rotates the password
+        // Create-only: Admin:Password is just the *initial* password. Once the row exists the database is
+        // authoritative, so a password changed from the admin panel survives restarts.
+        if (user != null) return;
+        db.AdminUsers.Add(new Models.AdminUser { Username = username, PasswordHash = BCrypt.Net.BCrypt.HashPassword(password) });
         await db.SaveChangesAsync();
+        logger.LogInformation("Admin user '{User}' created from the Admin:Password secret.", username);
     }
 }

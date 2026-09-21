@@ -40,6 +40,37 @@
     });
   }
 
+  /* ---------------- Show/hide password toggle ---------------- */
+  var EYE_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="M480-320q75 0 127.5-52.5T660-500q0-75-52.5-127.5T480-680q-75 0-127.5 52.5T300-500q0 75 52.5 127.5T480-320Zm0-72q-45 0-76.5-31.5T372-500q0-45 31.5-76.5T480-608q45 0 76.5 31.5T588-500q0 45-31.5 76.5T480-392Zm0 192q-146 0-266-81.5T40-500q54-137 174-218.5T480-800q146 0 266 81.5T920-500q-54 137-174 218.5T480-200Zm0-300Zm0 220q113 0 207.5-59.5T832-500q-50-101-144.500-160.500T480-720q-113 0-207.500 59.500T128-500q50 101 144.500 160.500T480-280Z"/></svg>';
+  var EYE_OFF_ICON_SVG = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="currentColor" aria-hidden="true"><path d="m644-428-58-58q9-47-27-88t-93-32l-58-58q17-8 34.500-12t37.500-4q75 0 127.500 52.500T660-500q0 20-4 37.500T644-428Zm128 126-58-56q38-29 67.500-63.500T832-500q-50-101-143.500-160.500T480-720q-29 0-57 4t-55 12l-62-62q41-17 84-25.500t90-8.500q151 0 269 83.500T920-500q-23 59-60.500 109.500T772-302Zm20 246L624-222q-35 11-70.500 16.500T480-200q-151 0-269-83.500T40-500q21-53 53-98.500t73-81.500L56-792l56-56 736 736-56 56ZM222-624q-29 26-53 57t-41 67q50 101 143.500 160.500T480-280q20 0 39-2.500t39-5.500l-36-38q-11 3-21 4.500t-21 1.500q-75 0-127.500-52.500T300-500q0-11 1.500-21t4.500-21l-84-82Zm319 93Zm-151 75Z"/></svg>';
+
+  function attachPasswordToggle(input) {
+    if (!input || input.parentNode.classList.contains("pw-field")) return;
+    var wrapper = document.createElement("div");
+    wrapper.className = "pw-field";
+    input.parentNode.insertBefore(wrapper, input);
+    wrapper.appendChild(input);
+
+    var btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pw-toggle";
+    wrapper.appendChild(btn);
+
+    function paint() {
+      var visible = input.type === "text";
+      btn.innerHTML = visible ? EYE_OFF_ICON_SVG : EYE_ICON_SVG;
+      btn.setAttribute("aria-label", visible ? "Şifreyi gizle" : "Şifreyi göster");
+      btn.setAttribute("aria-pressed", visible ? "true" : "false");
+    }
+    btn.addEventListener("click", function () {
+      input.type = input.type === "password" ? "text" : "password";
+      paint();
+    });
+    paint();
+  }
+
+  attachPasswordToggle(document.getElementById("login-password"));
+
   function showLoginError(message) {
     var box = document.getElementById("login-error");
     box.textContent = message;
@@ -120,6 +151,7 @@
 
     buildSectionNav();
     renderFields();
+    updateContactBadge();
 
     document.getElementById("btn-export").addEventListener("click", exportJSON);
     document.getElementById("import-file-input").addEventListener("change", handleImport);
@@ -147,7 +179,226 @@
       });
       nav.appendChild(btn);
     });
+    EXTRA_SECTIONS.forEach(function (extra, i) {
+      var idx = SCHEMA.length + i;
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.id = "nav-" + extra.id;
+      btn.className = "sidebar-btn text-left text-sm font-semibold px-4 py-3 rounded-lg whitespace-nowrap lg:whitespace-normal shrink-0 hover:bg-subtle transition-colors";
+      btn.textContent = extra.label;
+      btn.addEventListener("click", function () {
+        currentSectionIndex = idx;
+        paintSectionNav();
+        renderFields();
+      });
+      nav.appendChild(btn);
+    });
     paintSectionNav();
+  }
+
+  /* ---------------- Extra (non-schema) sections ----------------
+     "Form Başvuruları" and "Şifre Değiştir" talk to their own API endpoints
+     instead of editing the {en,tr,ru} content object, so they render their own UI. */
+  var EXTRA_SECTIONS = [
+    { id: "contacts", label: "Form Başvuruları", hint: "İletişim formundan gelen talepler. Yeni talepler için e-posta bildirimi yoktur; bu ekranı düzenli kontrol edin.", render: renderContactsSection },
+    { id: "password", label: "Şifre Değiştir", hint: "Yönetim paneli giriş şifrenizi değiştirin.", render: renderPasswordSection }
+  ];
+
+  var contactsCache = [];
+
+  function formatDate(iso) {
+    if (!iso) return "";
+    var s = /[zZ]|[+-]\d\d:\d\d$/.test(iso) ? iso : iso + "Z"; // the API stores UTC without a marker
+    var d = new Date(s);
+    return isNaN(d.getTime()) ? iso : d.toLocaleString("tr-TR");
+  }
+
+  function updateContactBadge() {
+    return apiFetch("/api/admin/contact").then(function (res) {
+      return res.ok ? res.json() : null;
+    }).then(function (list) {
+      if (!list) return;
+      contactsCache = list;
+      var unread = list.filter(function (c) { return !c.isRead; }).length;
+      var btn = document.getElementById("nav-contacts");
+      if (btn) btn.textContent = "Form Başvuruları" + (unread > 0 ? " (" + unread + " yeni)" : "");
+    }).catch(function () {});
+  }
+
+  function renderContactsSection(container) {
+    var wrap = document.createElement("div");
+    wrap.className = "sm:col-span-2 contact-list";
+    wrap.textContent = "Yükleniyor…";
+    container.appendChild(wrap);
+
+    var myIndex = currentSectionIndex;
+    updateContactBadge().then(function () {
+      if (currentSectionIndex === myIndex) paintContacts(wrap);
+    });
+  }
+
+  function contactField(dl, term, valueNode, extraClass) {
+    var wrapper = document.createElement("div");
+    if (extraClass) wrapper.className = extraClass;
+    var dt = document.createElement("dt");
+    dt.textContent = term;
+    var dd = document.createElement("dd");
+    dd.appendChild(valueNode);
+    wrapper.appendChild(dt);
+    wrapper.appendChild(dd);
+    dl.appendChild(wrapper);
+  }
+
+  function linkNode(href, text) {
+    var a = document.createElement("a");
+    a.href = href;
+    a.textContent = text;
+    return a;
+  }
+
+  function paintContacts(wrap) {
+    wrap.innerHTML = "";
+    if (!contactsCache.length) {
+      var empty = document.createElement("div");
+      empty.className = "contact-empty";
+      empty.textContent = "Henüz başvuru yok.";
+      wrap.appendChild(empty);
+      return;
+    }
+
+    contactsCache.forEach(function (c) {
+      var card = document.createElement("div");
+      card.className = "contact-card" + (c.isRead ? "" : " is-unread");
+
+      var head = document.createElement("div");
+      head.className = "contact-card-head";
+      var name = document.createElement("span");
+      name.className = "contact-name";
+      name.textContent = c.studentName;
+      if (!c.isRead) {
+        var nb = document.createElement("span");
+        nb.className = "contact-new-badge";
+        nb.textContent = "Yeni";
+        name.appendChild(nb);
+      }
+      var date = document.createElement("span");
+      date.className = "contact-date";
+      date.textContent = formatDate(c.submittedAt);
+      head.appendChild(name);
+      head.appendChild(date);
+      card.appendChild(head);
+
+      var dl = document.createElement("dl");
+      dl.className = "contact-fields";
+      contactField(dl, "Öğrenci adı", document.createTextNode(c.studentName));
+      contactField(dl, "E-posta", linkNode("mailto:" + c.parentEmail, c.parentEmail));
+      contactField(dl, "Telefon", linkNode("tel:" + c.parentPhone, c.parentPhone));
+      contactField(dl, "Konu / Hedef", document.createTextNode(c.topic || "—"));
+      contactField(dl, "Mesaj", document.createTextNode(c.message || "—"), "contact-message");
+      card.appendChild(dl);
+
+      var actions = document.createElement("div");
+      actions.className = "contact-actions";
+
+      var readBtn = document.createElement("button");
+      readBtn.type = "button";
+      readBtn.className = "contact-read-btn";
+      readBtn.textContent = c.isRead ? "Okunmadı yap" : "Okundu olarak işaretle";
+      readBtn.addEventListener("click", function () {
+        apiFetch("/api/admin/contact/" + c.id + "/read", { method: "PUT", body: JSON.stringify({ isRead: !c.isRead }) }).then(function (res) {
+          if (!res.ok) throw new Error("HTTP " + res.status);
+          return updateContactBadge();
+        }).then(function () { paintContacts(wrap); }).catch(function () { alert("İşlem başarısız oldu."); });
+      });
+      actions.appendChild(readBtn);
+
+      var delBtn = document.createElement("button");
+      delBtn.type = "button";
+      delBtn.className = "faq-delete-btn";
+      delBtn.setAttribute("aria-label", c.studentName + " başvurusunu sil");
+      delBtn.innerHTML = TRASH_ICON_SVG + "<span>Sil</span>";
+      delBtn.addEventListener("click", function () {
+        if (!confirm(c.studentName + " adlı kişinin başvurusunu silmek istediğinize emin misiniz? Bu işlem geri alınamaz.")) return;
+        apiFetch("/api/admin/contact/" + c.id, { method: "DELETE" }).then(function (res) {
+          if (!res.ok && res.status !== 404) throw new Error("HTTP " + res.status);
+          return updateContactBadge();
+        }).then(function () { paintContacts(wrap); }).catch(function () { alert("Silme başarısız oldu."); });
+      });
+      actions.appendChild(delBtn);
+
+      card.appendChild(actions);
+      wrap.appendChild(card);
+    });
+  }
+
+  function renderPasswordSection(container) {
+    var form = document.createElement("form");
+    form.className = "sm:col-span-2 pw-form";
+    form.setAttribute("autocomplete", "off");
+
+    function addField(id, labelText, autocomplete) {
+      var box = document.createElement("div");
+      box.className = "flex flex-col gap-1.5";
+      var label = document.createElement("label");
+      label.setAttribute("for", id);
+      label.textContent = labelText;
+      var input = document.createElement("input");
+      input.type = "password";
+      input.id = id;
+      input.className = "field-input";
+      input.required = true;
+      input.setAttribute("autocomplete", autocomplete);
+      box.appendChild(label);
+      box.appendChild(input);
+      attachPasswordToggle(input);
+      form.appendChild(box);
+      return input;
+    }
+
+    var current = addField("pw-current", "Mevcut şifre", "current-password");
+    var next = addField("pw-new", "Yeni şifre (en az 8 karakter)", "new-password");
+    var confirmInput = addField("pw-confirm", "Yeni şifre (tekrar)", "new-password");
+
+    var message = document.createElement("p");
+    message.className = "pw-message";
+    message.setAttribute("role", "status");
+    message.hidden = true;
+    form.appendChild(message);
+
+    var submit = document.createElement("button");
+    submit.type = "submit";
+    submit.className = "faq-add-btn";
+    submit.textContent = "Şifreyi Değiştir";
+    form.appendChild(submit);
+
+    function show(text, ok) {
+      message.textContent = text;
+      message.className = "pw-message " + (ok ? "is-success" : "is-error");
+      message.hidden = false;
+    }
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      if (next.value.length < 8) return show("Yeni şifre en az 8 karakter olmalı.", false);
+      if (next.value !== confirmInput.value) return show("Yeni şifre ile tekrarı eşleşmiyor.", false);
+      submit.disabled = true;
+      apiFetch("/api/admin/change-password", {
+        method: "POST",
+        body: JSON.stringify({ currentPassword: current.value, newPassword: next.value, confirmNewPassword: confirmInput.value })
+      }).then(function (res) {
+        if (res.ok) {
+          current.value = next.value = confirmInput.value = "";
+          show("Şifreniz değiştirildi. Bu oturum açık kalır; bir sonraki girişte yeni şifreyi kullanın.", true);
+          return;
+        }
+        if (res.status === 429) return show("Çok fazla deneme yapıldı. Bir dakika sonra tekrar deneyin.", false);
+        return res.json().catch(function () { return {}; }).then(function (d) { show(d.error || "Şifre değiştirilemedi.", false); });
+      }).catch(function (err) {
+        if (err.message !== "unauthorized") show("Sunucuya ulaşılamadı.", false);
+      }).finally(function () { submit.disabled = false; });
+    });
+
+    container.appendChild(form);
   }
 
   function paintSectionNav() {
@@ -158,6 +409,15 @@
   }
 
   function renderFields() {
+    if (currentSectionIndex >= SCHEMA.length) {
+      var extra = EXTRA_SECTIONS[currentSectionIndex - SCHEMA.length];
+      document.getElementById("section-title").textContent = extra.label;
+      document.getElementById("section-hint").textContent = extra.hint;
+      var extraContainer = document.getElementById("fields-container");
+      extraContainer.innerHTML = "";
+      extra.render(extraContainer);
+      return;
+    }
     var section = SCHEMA[currentSectionIndex];
     document.getElementById("section-title").textContent = section.label.tr || section.section;
     document.getElementById("section-hint").textContent =

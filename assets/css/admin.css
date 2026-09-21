@@ -44,3 +44,43 @@ h1,h2,h3,h4,label,button,input,select,textarea,p,span,a { overflow-wrap: break-w
 }
 .faq-add-btn:hover { background: #256449; }
 .faq-add-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+/* --- Form başvuruları (contact submissions) + şifre değiştir --- */
+.contact-list { display: flex; flex-direction: column; gap: 0.75rem; }
+.contact-empty { padding: 1.5rem 1rem; text-align: center; font-size: 13px; color: #64748B; background: #F1F5F9; border-radius: 0.75rem; }
+.contact-card { padding: 0.9rem 1rem; border-radius: 0.75rem; background: #F1F5F9; border-left: 4px solid transparent; display: flex; flex-direction: column; gap: 0.5rem; }
+.contact-card.is-unread { background: #ECFEFF; border-left-color: #0E7490; }
+.contact-card-head { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
+.contact-name { font-size: 15px; font-weight: 700; color: #0F172A; }
+.contact-card.is-unread .contact-name { font-weight: 800; }
+.contact-new-badge { display: inline-block; margin-left: 0.5rem; padding: 0.1rem 0.5rem; border-radius: 9999px; background: #0E7490; color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; vertical-align: middle; }
+.contact-date { font-size: 11px; color: #64748B; }
+.contact-fields { display: grid; grid-template-columns: 1fr; gap: 0.35rem 1rem; font-size: 13px; color: #334155; }
+@media (min-width: 640px) { .contact-fields { grid-template-columns: 1fr 1fr; } }
+.contact-fields dt { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #64748B; }
+.contact-fields dd { margin: 0; overflow-wrap: anywhere; }
+.contact-fields a { color: #0E7490; text-decoration: underline; }
+.contact-message { grid-column: 1 / -1; white-space: pre-wrap; }
+.contact-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: flex-end; }
+.contact-read-btn { padding: 0.4rem 0.7rem; border-radius: 0.5rem; border: 1px solid #CBD5E1; background: #fff; color: #0F172A; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 12px; font-weight: 600; cursor: pointer; }
+.contact-read-btn:hover { background: #E2E8F0; }
+.pw-form { display: flex; flex-direction: column; gap: 0.9rem; max-width: 26rem; }
+.pw-form label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #475569; }
+.pw-message { font-size: 13px; padding: 0.6rem 0.8rem; border-radius: 0.5rem; }
+.pw-message.is-error { background: #FFDAD6; color: #93000A; }
+.pw-message.is-success { background: #D8F3E4; color: #14532D; }
+.pw-form .faq-add-btn { align-self: flex-start; }
+
+/* --- Şifre göster/gizle butonu --- */
+.pw-field { position: relative; display: block; width: 100%; }
+.pw-field .field-input { padding-right: 2.9rem; }
+.pw-toggle {
+  position: absolute; top: 50%; right: 0.3rem; transform: translateY(-50%);
+  width: 2.25rem; height: 2.25rem; padding: 0; border: none; border-radius: 0.5rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: transparent; color: #475569; cursor: pointer;
+  transition: color .15s, background-color .15s;
+}
+.pw-toggle:hover { color: #0E7490; background: #F1F5F9; }
+.pw-toggle:focus-visible { outline: 2px solid #0E7490; outline-offset: 1px; }
+.pw-toggle svg { width: 20px; height: 20px; }

@@ -5,6 +5,7 @@ using EnglishTutor.Api.Models;
 using EnglishTutor.Api.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
 
 namespace EnglishTutor.Api.Controllers;
@@ -81,14 +82,50 @@ public class AdminController(ContentService content, AppDbContext db) : Controll
 
     // ---- contact form submissions ----
 
-    [HttpGet("contact")]
+    [HttpGet("admin/contact")]
     public async Task<IActionResult> ListContact() =>
-        Ok(await db.ContactSubmissions.OrderByDescending(x => x.SubmittedAt).Take(500).ToListAsync());
+        Ok(await db.ContactSubmissions.OrderByDescending(x => x.SubmittedAt).ThenByDescending(x => x.Id).Take(500).ToListAsync());
 
-    [HttpPut("contact/{id:int}/read")]
-    public async Task<IActionResult> MarkRead(int id)
+    /// <summary>Body {"isRead": true|false}; without a body it marks the item as read.</summary>
+    [HttpPut("admin/contact/{id:int}/read")]
+    public async Task<IActionResult> SetRead(int id, [FromBody] ReadStateRequest? req)
     {
-        var n = await db.ContactSubmissions.Where(x => x.Id == id).ExecuteUpdateAsync(s => s.SetProperty(x => x.IsRead, true));
+        var isRead = req?.IsRead ?? true;
+        var n = await db.ContactSubmissions.Where(x => x.Id == id).ExecuteUpdateAsync(s => s.SetProperty(x => x.IsRead, isRead));
         return n == 0 ? NotFound() : NoContent();
+    }
+
+    [HttpDelete("admin/contact/{id:int}")]
+    public async Task<IActionResult> DeleteContact(int id)
+    {
+        var n = await db.ContactSubmissions.Where(x => x.Id == id).ExecuteDeleteAsync();
+        return n == 0 ? NotFound() : NoContent();
+    }
+
+    // ---- password ----
+
+    /// <summary>
+    /// Wrong current password returns 400 (not 401) on purpose: the admin frontend treats any 401 as
+    /// "session expired" and logs the user out.
+    /// </summary>
+    [HttpPost("admin/change-password")]
+    [EnableRateLimiting("login")]
+    public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequest req)
+    {
+        if (req.NewPassword != req.ConfirmNewPassword) return BadRequest(new { error = "Yeni şifre ile tekrarı eşleşmiyor." });
+        if (req.NewPassword.Length < 8) return BadRequest(new { error = "Yeni şifre en az 8 karakter olmalı." });
+
+        var username = User.Identity?.Name;
+        var user = await db.AdminUsers.FirstOrDefaultAsync(u => u.Username == username);
+        if (user == null) return Unauthorized();
+
+        if (!BCrypt.Net.BCrypt.Verify(req.CurrentPassword, user.PasswordHash))
+            return BadRequest(new { error = "Mevcut şifre hatalı." });
+        if (req.NewPassword == req.CurrentPassword)
+            return BadRequest(new { error = "Yeni şifre mevcut şifreden farklı olmalı." });
+
+        user.PasswordHash = BCrypt.Net.BCrypt.HashPassword(req.NewPassword);
+        await db.SaveChangesAsync();
+        return Ok(new { ok = true });
     }
 }

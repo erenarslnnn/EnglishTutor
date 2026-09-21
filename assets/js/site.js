@@ -264,7 +264,7 @@ const openBtn = document.getElementById('mobile-menu-trigger'); const closeBtn =
     });
   }
 
-  /* ---- Consultation form: submit via Formspree (no backend needed) ---- */
+  /* ---- Consultation form: stored in the database via POST /api/contact ---- */
   var consultationForm = document.getElementById('consultation-form');
   if (consultationForm) {
     var submitBtn = document.getElementById('consultation-submit');
@@ -278,34 +278,23 @@ const openBtn = document.getElementById('mobile-menu-trigger'); const closeBtn =
       if (submitBtn) submitBtn.setAttribute('disabled', 'disabled');
 
       var formData = new FormData(consultationForm);
-
-      // Two independent deliveries: the request is stored in the database
-      // (when an API is configured) and still e-mailed through Formspree.
-      // The visitor sees success if at least one of them went through.
-      var deliveries = [
-        fetch(consultationForm.action, {
-          method: 'POST',
-          body: formData,
-          headers: { 'Accept': 'application/json' }
-        }).then(function (response) { return response.ok; }).catch(function () { return false; })
-      ];
       var apiBase = window.SapphireContent.hasRemote() ? window.SITE_API_BASE : '';
-      if (apiBase) {
-        deliveries.push(fetch(apiBase + '/api/contact', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            studentName: formData.get('studentName') || '',
-            parentEmail: formData.get('parentEmail') || '',
-            parentPhone: formData.get('parentPhone') || '',
-            topic: formData.get('subject') || null,
-            message: formData.get('notes') || null
-          })
-        }).then(function (response) { return response.ok; }).catch(function () { return false; }));
-      }
 
-      Promise.all(deliveries).then(function (results) {
-        if (results.some(Boolean)) {
+      // No API configured (e.g. static hosting without the backend) = nowhere to send it.
+      var delivery = !apiBase ? Promise.resolve(false) : fetch(apiBase + '/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          studentName: formData.get('studentName') || '',
+          parentEmail: formData.get('parentEmail') || '',
+          parentPhone: formData.get('parentPhone') || '',
+          topic: formData.get('subject') || null,
+          message: formData.get('notes') || null
+        })
+      }).then(function (response) { return response.ok; }).catch(function () { return false; });
+
+      delivery.then(function (ok) {
+        if (ok) {
           if (successBox) successBox.classList.remove('hidden');
           consultationForm.reset();
         } else {
@@ -316,7 +305,6 @@ const openBtn = document.getElementById('mobile-menu-trigger'); const closeBtn =
       });
     });
   }
-
   /* ---- Back-to-top button: hidden at the top, fades in past the hero, scrolls to top on click ---- */
   var backToTopBtn = document.getElementById('back-to-top');
   if (backToTopBtn) {
