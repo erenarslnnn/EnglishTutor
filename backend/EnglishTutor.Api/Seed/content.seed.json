@@ -1,0 +1,1187 @@
+{
+  "en": {
+    "seo": {
+      "title": "Elizaveta Tarasova | 1-on-1 English Tutoring, IELTS & TOEFL Prep",
+      "description": "Personalized English tutoring for every level with Elizaveta Tarasova: conversational fluency, academic & business English, and exam preparation for IELTS, TOEFL & Cambridge. Book a free trial lesson today."
+    },
+    "linkTitles": {
+      "navAbout": "Learn about our teaching philosophy",
+      "navCurriculum": "Explore our English program tracks",
+      "navMentorship": "Meet your English teacher",
+      "navPricing": "View lesson pricing and packages",
+      "navFaq": "Read frequently asked questions",
+      "navContact": "Get in touch and book a trial lesson",
+      "bookTrial": "Book a free trial lesson",
+      "heroCtaPrimary": "Book a free trial lesson",
+      "heroCtaSecondary": "Explore our English programs",
+      "requestAdvisor": "Book a free trial lesson with your teacher",
+      "selectFoundational": "Book a single lesson",
+      "applyMentorship": "Choose the Monthly Plan",
+      "retainAdvisory": "Start Exam Prep Intensive",
+      "submitInquiry": "Book your free trial lesson",
+      "whatsapp": "Chat with us on WhatsApp",
+      "telegram": "Message us on Telegram",
+      "email": "Send us an email",
+      "instagram": "Follow us on Instagram",
+      "linkedin": "Connect with us on LinkedIn",
+      "footerNavLink1": "Read about our teaching method",
+      "footerNavLink2": "See our English lesson programs",
+      "footerNavLink3": "Meet your English teacher",
+      "footerNavLink4": "View lesson pricing and packages"
+    },
+    "header": {
+      "logo": "Elizaveta Tarasova English Tutor",
+      "nav": {
+        "about": "About",
+        "curriculum": "Curriculum",
+        "mentorship": "Teacher",
+        "pricing": "Pricing",
+        "faq": "FAQ",
+        "contact": "Contact"
+      },
+      "bookTrial": "Book Trial"
+    },
+    "mobile": {
+      "trustBadge": "TEFL/TESOL-Certified English Teacher",
+      "ctaButton": "Book a Free Trial Lesson"
+    },
+    "hero": {
+      "badge1": "TEFL/TESOL-Certified English Teacher",
+      "badge2": "Open Slots This Month: 3",
+      "title": "Personalized 1-on-1 English Lessons",
+      "subtitle": "Lessons tailored to your level and goals — from everyday conversation practice to IELTS and TOEFL exam preparation.",
+      "ctaPrimary": "Book a Free Trial Lesson",
+      "ctaSecondary": "View Lesson Plans",
+      "stat1Value": "50+",
+      "stat1Label": "Students Taught",
+      "stat2Tag": "Experience",
+      "stat2Value": "5 Yrs",
+      "stat2Label": "Teaching English",
+      "stat3Label": "Focus Areas",
+      "stat3Value": "General English • IELTS & TOEFL • Business English • English For Kids/Teens",
+      "mentorBadge": "Senior English Teacher",
+      "mentorName": "Elizaveta Tarasova",
+      "mentorSubtitle": "CELTA & IELTS-Certified English Teacher",
+      "diagStat": "+1.5 IELTS Band Score",
+      "diagLabel": "Average Student Improvement",
+      "verifiedTag": "Verified",
+      "imgAlt": "Private English tutor guiding a student through a one-on-one lesson"
+    },
+    "about": {
+      "overline": "Our Strategy",
+      "title": "A Teaching Method Built on Real Progress",
+      "subtitle": "Moving beyond rote memorization. We build real confidence, natural fluency, and a personalized learning plan tailored to every student.",
+      "pillar1": {
+        "label": "Pillar I",
+        "title": "Level & Goal Assessment",
+        "desc": "We assess your current speaking, writing, and comprehension level to design a clear, personalized learning plan built around your goals.",
+        "footer": "5+ Years of Teaching Experience"
+      },
+      "pillar2": {
+        "label": "Pillar II",
+        "title": "Engage With Native Speakers",
+        "desc": "Gain personalised speaking sessions with our native English tutor to monitor your progress. Build confidence as you practise real-life conversations receive direct feedback and improve your fluency progressively.",
+        "footer": "Native Speaker"
+      },
+      "pillar3": {
+        "label": "Pillar III",
+        "title": "Consistent Progress Tracking",
+        "desc": "Regular feedback, practical materials, and mock tests keep your progress clear and measurable at every stage.",
+        "footer": "Personalized Progress Reports"
+      }
+    },
+    "curriculum": {
+      "overline": "English Programs",
+      "title": "Curriculum Architecture",
+      "subtitle": "Structured English pathways for young learners, teens, and adults — from foundational grammar to exam-ready fluency.",
+      "tabs": {
+        "stem": "General & Conversational English",
+        "humanities": "Academic & Business English",
+        "testing": "Exam Preparation"
+      },
+      "stem": [
+        {
+          "code": "Course EN-101",
+          "title": "Grammar Foundations & Vocabulary",
+          "desc": "Building a rock-solid foundation in English grammar, sentence structure, and everyday vocabulary for real communication.",
+          "bullets": [
+            "Core Grammar Structures",
+            "Practical Vocabulary Building",
+            "Reading & Listening Basics"
+          ]
+        },
+        {
+          "code": "Course EN-102",
+          "title": "Conversational Fluency & Confidence",
+          "desc": "Speaking-focused sessions that build natural pronunciation, listening comprehension, and confidence in everyday dialogue.",
+          "bullets": [
+            "Pronunciation & Accent Coaching",
+            "Real-Life Roleplay Scenarios",
+            "Active Listening Drills"
+          ]
+        },
+        {
+          "code": "Course EN-103",
+          "title": "English for Kids & Teens",
+          "desc": "Age-appropriate, engaging lessons that build a love of English through games, stories, and interactive practice.",
+          "bullets": [
+            "Playful Vocabulary Games",
+            "Reading & Storytelling",
+            "Confidence-Building Speaking Tasks"
+          ]
+        }
+      ],
+      "humanities": [
+        {
+          "code": "Course AC-201",
+          "title": "Academic Writing & Essays",
+          "desc": "Developing clear, well-structured academic writing skills for essays, reports, and university coursework.",
+          "bullets": [
+            "Essay Structure & Argumentation",
+            "Academic Vocabulary & Style",
+            "Referencing & Citation Basics"
+          ]
+        },
+        {
+          "code": "Course AC-202",
+          "title": "Business English & Professional Communication",
+          "desc": "Practical English for the workplace — emails, meetings, presentations, and professional correspondence.",
+          "bullets": [
+            "Business Email Writing",
+            "Meeting & Presentation Skills",
+            "Professional Vocabulary"
+          ]
+        },
+        {
+          "code": "Course AC-203",
+          "title": "Study Abroad & University Prep",
+          "desc": "Preparing students for English-medium education with academic listening, reading, and classroom communication skills.",
+          "bullets": [
+            "Academic Listening & Note-Taking",
+            "University Interview Practice",
+            "Campus Life Communication"
+          ]
+        }
+      ],
+      "testing": [
+        {
+          "code": "Exam IELTS-9",
+          "title": "IELTS Intensive Preparation",
+          "desc": "Targeted strategies and practice across all four IELTS skills to help students reach their target band score.",
+          "bullets": [
+            "Speaking & Writing Task Strategies",
+            "Listening & Reading Technique Drills",
+            "Full-Length Practice Tests"
+          ]
+        },
+        {
+          "code": "Exam TOEFL-120",
+          "title": "TOEFL iBT Mastery",
+          "desc": "Comprehensive preparation for the TOEFL iBT, focusing on integrated skills and computer-based test strategies.",
+          "bullets": [
+            "Integrated Speaking & Writing Tasks",
+            "Academic Listening Practice",
+            "Timing & Test-Day Strategy"
+          ]
+        },
+        {
+          "code": "Exam CAM-C2",
+          "title": "Cambridge Exams (PET, FCE, CAE)",
+          "desc": "Exam-specific coaching for Cambridge English Qualifications, covering all core skills and exam techniques.",
+          "bullets": [
+            "Exam-Specific Task Practice",
+            "Use of English Mastery",
+            "Speaking Exam Simulations"
+          ]
+        }
+      ]
+    },
+    "mentorship": {
+      "overline": "Meet Your Teacher",
+      "title": "Your Dedicated English Teacher",
+      "subtitle": "A patient, experienced teacher who builds every lesson around your goals — from everyday conversation to exam success.",
+      "badge1": "Senior English Teacher",
+      "badge2": "Open Slots This Month: 3",
+      "name": "Elizaveta Tarasova",
+      "credentials": "TEFL/TESOL-Certified English Teacher",
+      "bio": "With over a decade of classroom and one-on-one teaching experience, Elizaveta specializes in building real conversational confidence, focused exam preparation for IELTS and TOEFL, and clear, structured academic and business writing.",
+      "ctaText": "Book a Free Trial Lesson",
+      "responseTime": "Typical response < 4 hours",
+      "statsTitle": "Teaching Record & Results",
+      "stat1": {
+        "value": "50+",
+        "label": "Students Taught"
+      },
+      "stat2": {
+        "value": "5 Yrs",
+        "label": "Teaching Experience"
+      },
+      "stat3": {
+        "value": "98%",
+        "label": "Student Satisfaction Rate"
+      },
+      "stat4": {
+        "value": "1:1",
+        "label": "Private Lessons"
+      },
+      "domainsLabel": "Areas of Expertise",
+      "domains": [
+        "General English",
+        "Conversation Practice",
+        "IELTS & TOEFL Prep",
+        "Business English"
+      ]
+    },
+    "pricing": {
+      "overline": "Simple, Transparent Pricing",
+      "title": "Lesson Packages & Pricing",
+      "subtitle": "For personal requests please contact us.",
+      "tier1": {
+        "name": "Single Lesson",
+        "tag": "Pay As You Go",
+        "desc": "A single one-on-one lesson focused on your specific goals — perfect for trying things out or occasional practice.",
+        "price": "$25",
+        "period": "/ lesson",
+        "features": [
+          "60-Minute 1-on-1 Lesson",
+          "Personalized Lesson Plan",
+          "Practice Materials Included",
+          "Flexible Scheduling",
+          "Online Support Between Lessons"
+        ],
+        "cta": "Book a Lesson"
+      },
+      "tier2": {
+        "badge": "Most Popular",
+        "name": "Regular Plan",
+        "tag": "Regular Progress",
+        "desc": "Weekly lessons with structured homework and materials — ideal for steady, consistent progress.",
+        "price": "$90",
+        "period": "/ month",
+        "features": [
+          "4 Lessons (60 Minutes)",
+          "Custom Homework & Written Feedback",
+          "Online Support Between Lessons",
+          "Progress Tracking Report",
+          "Priority Scheduling"
+        ],
+        "cta": "Choose Monthly Plan"
+      },
+      "tier3": {
+        "name": "Exam Prep Intensive",
+        "tag": "IELTS / TOEFL Focus",
+        "desc": "Focused, intensive preparation for IELTS, TOEFL, or Cambridge exams with mock tests and detailed feedback.",
+        "price": "$280",
+        "period": "/ month",
+        "features": [
+          "8 Lessons (60 Minutes)",
+          "Full-Length Mock Exams",
+          "Detailed Score Feedback",
+          "Custom Study Plan",
+          "Online Support Between Lessons"
+        ],
+        "cta": "Start Exam Prep"
+      }
+    },
+    "faq": {
+      "overline": "Common Questions",
+      "title": "Frequently Asked Questions About English Lessons",
+      "subtitle": "Everything you need to know about booking a lesson, our teaching approach, and what to expect.",
+      "items": [
+        {
+          "q": "How do I get started?",
+          "a": "Simply book a free trial lesson through the contact form or WhatsApp. We'll have a short conversation to understand your goals and current level, then start your first lesson."
+        },
+        {
+          "q": "Are lessons online or in person?",
+          "a": "All lessons are conducted online via video call, so you can join from anywhere with a stable internet connection. This also makes scheduling flexible across different time zones."
+        },
+        {
+          "q": "How long does it take to prepare for IELTS or TOEFL?",
+          "a": "It depends on your starting level and target score, but most students see solid progress within 8-12 weeks of consistent weekly lessons combined with regular practice."
+        },
+        {
+          "q": "What levels do you teach?",
+          "a": "Lessons are available for all levels, from complete beginners (A1) to advanced speakers (C1/C2) working on fluency, exam preparation, or professional English."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Book Your Free Trial Lesson",
+      "subtitle": "Students and parents can reach out to schedule a trial lesson suited to your level and goals.",
+      "channelsLabel": "Get In Touch",
+      "whatsapp": {
+        "title": "Chat on WhatsApp",
+        "subtitle": "Quick questions and scheduling",
+        "url": "https://wa.me/",
+        "floatMessage": "Hello! I'd like to learn more about your English lessons."
+      },
+      "telegram": {
+        "title": "Message on Telegram",
+        "subtitle": "Reach us anytime",
+        "url": "https://t.me/"
+      },
+      "email": {
+        "title": "hello@elizavetatarasova.com",
+        "subtitle": "For detailed questions",
+        "address": "hello@elizavetatarasova.com"
+      },
+      "formTitle": "Request a Free Trial Lesson",
+      "formSubtitle": "Share a few details so we can prepare a lesson suited to your level and goals.",
+      "fieldStudentName": "Student Full Name *",
+      "studentNamePlaceholder": "e.g. Julian Sterling",
+      "fieldParentEmail": "Email *",
+      "parentEmailPlaceholder": "name@domain.com",
+      "fieldParentPhone": "Phone Number *",
+      "parentPhonePlaceholder": "e.g. 555 123 4567",
+      "fieldSubject": "Interest / Goal",
+      "subjectPlaceholder": "e.g. IELTS, Conversation Practice, Business English",
+      "fieldNotes": "Additional Notes",
+      "notesPlaceholder": "Share your current level, goals, or availability...",
+      "submitBtn": "Book My Trial Lesson",
+      "successMsg": "Your request has been received. We'll get back to you within 4 business hours.",
+      "errorMsg": "Something went wrong. Please try again or contact us directly via WhatsApp/Telegram."
+    },
+    "bottomBar": {
+      "backToTop": "Back to Top"
+    },
+    "footer": {
+      "description": "Personalized 1-on-1 English lessons for every level — from everyday conversation to IELTS, TOEFL, and Cambridge exam preparation.",
+      "whatsappLabel": "WhatsApp",
+      "telegramLabel": "Telegram",
+      "emailLabel": "Email",
+      "navTitle": "Quick Links",
+      "navLink1": "Our Teaching Method",
+      "navLink2": "English Programs",
+      "navLink3": "Meet Your Teacher",
+      "navLink4": "Pricing & Packages",
+      "socialTitle": "Connect With Us",
+      "instagramUrl": "https://instagram.com/",
+      "linkedinUrl": "https://linkedin.com/",
+      "copyright": "© 2025 Elizaveta Tarasova. All rights reserved.",
+      "link2": "Privacy Policy"
+    },
+    "privacyPolicy": {
+      "title": "Privacy Policy",
+      "updated": "Last updated: September 2026",
+      "intro": "Elizaveta Tarasova (\"we\", \"our\") respects your privacy. This policy explains what information we collect through this website, how we use it, and the choices you have.",
+      "closeLabel": "Close",
+      "sections": [
+        {
+          "heading": "Information We Collect",
+          "body": "When you submit the trial-lesson evaluation form, we collect the details you provide: your name, email address, phone number, and any notes about your goals or scheduling preferences. We do not collect payment information through this website."
+        },
+        {
+          "heading": "How We Use Your Information",
+          "body": "We use your contact details solely to respond to your inquiry, schedule a trial lesson, and share relevant information about lessons and tuition. We never sell or rent your information to third parties."
+        },
+        {
+          "heading": "Cookies & Local Storage",
+          "body": "This site does not use tracking cookies. Your language preference (English, Turkish, or Russian) is saved locally in your browser using localStorage, so the site remembers your choice on your next visit. This data stays on your device and is never transmitted to us."
+        },
+        {
+          "heading": "Third-Party Services",
+          "body": "If you choose to contact us via WhatsApp or Telegram, your conversation is subject to that platform's own privacy policy. We are not responsible for how these third-party services handle your data."
+        },
+        {
+          "heading": "Data Retention",
+          "body": "We retain your contact information only for as long as needed to respond to your inquiry and manage our tutoring relationship, unless you ask us to delete it sooner."
+        },
+        {
+          "heading": "Your Rights & Contact",
+          "body": "You may request access to, correction of, or deletion of your personal data at any time by emailing us at hello@elizavetatarasova.com. We will respond within a reasonable timeframe."
+        }
+      ]
+    }
+  },
+  "tr": {
+    "seo": {
+      "title": "Elizaveta Tarasova | Birebir İngilizce Özel Ders, IELTS & TOEFL Hazırlık",
+      "description": "Elizaveta Tarasova ile her seviyeye özel birebir İngilizce dersleri: konuşma pratiği, akademik/iş İngilizcesi ve IELTS, TOEFL, Cambridge sınav hazırlığı. Ücretsiz deneme dersi ayırtın."
+    },
+    "linkTitles": {
+      "navAbout": "Öğretim felsefemiz hakkında bilgi alın",
+      "navCurriculum": "İngilizce program seçeneklerimizi keşfedin",
+      "navMentorship": "İngilizce öğretmeninizle tanışın",
+      "navPricing": "Ders ücretlerini ve paketleri görüntüleyin",
+      "navFaq": "Sıkça sorulan soruları okuyun",
+      "navContact": "Bize ulaşın ve deneme dersi ayırtın",
+      "bookTrial": "Ücretsiz deneme dersi ayırtın",
+      "heroCtaPrimary": "Ücretsiz deneme dersi ayırtın",
+      "heroCtaSecondary": "İngilizce programlarımızı inceleyin",
+      "requestAdvisor": "Öğretmeninizle ücretsiz deneme dersi ayırtın",
+      "selectFoundational": "Tekli ders ayırtın",
+      "applyMentorship": "Aylık Paketi seçin",
+      "retainAdvisory": "Yoğun Sınav Hazırlığını başlatın",
+      "submitInquiry": "Ücretsiz deneme dersinizi ayırtın",
+      "whatsapp": "WhatsApp üzerinden bizimle sohbet edin",
+      "telegram": "Telegram üzerinden bize mesaj gönderin",
+      "email": "Bize e-posta gönderin",
+      "instagram": "Instagram'da bizi takip edin",
+      "linkedin": "LinkedIn'de bize bağlanın",
+      "footerNavLink1": "Öğretim yöntemimizi okuyun",
+      "footerNavLink2": "İngilizce ders programlarımızı görün",
+      "footerNavLink3": "İngilizce öğretmeninizle tanışın",
+      "footerNavLink4": "Ders ücretlerini ve paketleri görüntüleyin"
+    },
+    "header": {
+      "logo": "Elizaveta Tarasova İngilizce Eğitmeni",
+      "nav": {
+        "about": "Hakkımızda",
+        "curriculum": "Müfredat",
+        "mentorship": "Öğretmenimiz",
+        "pricing": "Ücretler",
+        "faq": "SSS",
+        "contact": "İletişim"
+      },
+      "bookTrial": "Deneme Dersi"
+    },
+    "mobile": {
+      "trustBadge": "TEFL/TESOL Sertifikalı İngilizce Eğitmeni",
+      "ctaButton": "Ücretsiz Deneme Dersi Al"
+    },
+    "hero": {
+      "badge1": "TEFL/TESOL Sertifikalı İngilizce Eğitmeni",
+      "badge2": "Bu Ay İçin Boş Kontenjan: 3 Kişi",
+      "title": "Size Özel Birebir İngilizce Dersleri",
+      "subtitle": "Seviyenize ve hedeflerinize göre tasarlanmış birebir dersler — günlük konuşma pratiğinden IELTS ve TOEFL sınav hazırlığına kadar.",
+      "ctaPrimary": "Ücretsiz Deneme Dersi Ayırt",
+      "ctaSecondary": "Ders Programlarını İncele",
+      "stat1Value": "50+",
+      "stat1Label": "Ders Verilen Öğrenci",
+      "stat2Tag": "Deneyim",
+      "stat2Value": "5 Yıl",
+      "stat2Label": "İngilizce Öğretmenliği",
+      "stat3Label": "Odak Alanları",
+      "stat3Value": "Genel İngilizce • IELTS ve TOEFL • İş İngilizcesi • Çocuklar/Gençler için İngilizce",
+      "mentorBadge": "Kıdemli İngilizce Öğretmeni",
+      "mentorName": "Elizaveta Tarasova",
+      "mentorSubtitle": "CELTA & IELTS Sertifikalı İngilizce Öğretmeni",
+      "diagStat": "+1.5 IELTS Bant Puanı",
+      "diagLabel": "Ortalama Öğrenci Gelişimi",
+      "verifiedTag": "Onaylı",
+      "imgAlt": "Öğrencisine birebir ders veren özel İngilizce öğretmeni"
+    },
+    "about": {
+      "overline": "Stratejimiz",
+      "title": "Gerçek İlerlemeye Dayalı Bir Öğretim Yöntemi",
+      "subtitle": "Ezbere dayalı öğrenmenin ötesine geçiyoruz. Her öğrenciye özel; gerçek özgüven, doğal akıcılık ve kişiye özel bir öğrenim planı kazandırıyoruz.",
+      "pillar1": {
+        "label": "1. İlke",
+        "title": "Seviye & Hedef Belirleme",
+        "desc": "Mevcut konuşma, yazma ve anlama seviyenizi belirleyerek hedeflerinize uygun net, kişiye özel bir öğrenim planı oluşturuyoruz.",
+        "footer": "5+ Yıl Öğretmenlik Deneyimi"
+      },
+      "pillar2": {
+        "label": "2. İlke",
+        "title": "Ana Dili İngilizce Olan Eğitmenler",
+        "desc": "İlerlemenizi takip etmek için ana dili İngilizce olan eğitmenimizle kişiselleştirilmiş konuşma seanslarına katılın. Gerçek hayattan diyaloglar kullanıp doğrudan geri bildirim alarak ve akıcılığınızı kademeli olarak geliştirerek öz güven kazanın.",
+        "footer": "Ana Dili İngilizce Olan Eğitmenimiz"
+      },
+      "pillar3": {
+        "label": "3. İlke",
+        "title": "Düzenli İlerleme Takibi",
+        "desc": "Düzenli geri bildirim, pratik materyaller ve deneme sınavlarıyla ilerlemeniz her aşamada net ve ölçülebilir kalır.",
+        "footer": "Kişiye Özel İlerleme Raporları"
+      }
+    },
+    "curriculum": {
+      "overline": "İngilizce Programları",
+      "title": "Müfredat Mimarisi",
+      "subtitle": "Çocuklardan yetişkinlere, temel dilbilgisinden sınava hazır akıcılığa uzanan yapılandırılmış İngilizce programları.",
+      "tabs": {
+        "stem": "Genel & Konuşma İngilizcesi",
+        "humanities": "Akademik & İş İngilizcesi",
+        "testing": "Sınav Hazırlığı"
+      },
+      "stem": [
+        {
+          "code": "Ders EN-101",
+          "title": "Dilbilgisi Temelleri & Kelime Bilgisi",
+          "desc": "Gerçek iletişim için sağlam bir dilbilgisi temeli, cümle yapısı ve günlük kelime bilgisi oluşturma.",
+          "bullets": [
+            "Temel Dilbilgisi Yapıları",
+            "Pratik Kelime Geliştirme",
+            "Okuma & Dinleme Temelleri"
+          ]
+        },
+        {
+          "code": "Ders EN-102",
+          "title": "Konuşma Akıcılığı & Özgüven",
+          "desc": "Doğal telaffuz, dinleme becerisi ve günlük diyaloglarda özgüven kazandıran konuşma odaklı dersler.",
+          "bullets": [
+            "Telaffuz & Aksan Çalışması",
+            "Gerçek Hayat Rol Yapma Senaryoları",
+            "Aktif Dinleme Egzersizleri"
+          ]
+        },
+        {
+          "code": "Ders EN-103",
+          "title": "Çocuklar & Gençler için İngilizce",
+          "desc": "Oyunlar, hikayeler ve interaktif alıştırmalarla İngilizce sevgisi aşılayan, yaşa uygun ve eğlenceli dersler.",
+          "bullets": [
+            "Eğlenceli Kelime Oyunları",
+            "Okuma & Hikaye Anlatımı",
+            "Özgüven Kazandıran Konuşma Görevleri"
+          ]
+        }
+      ],
+      "humanities": [
+        {
+          "code": "Ders AC-201",
+          "title": "Akademik Yazım & Kompozisyon",
+          "desc": "Denemeler, raporlar ve üniversite ödevleri için net ve iyi yapılandırılmış akademik yazım becerileri geliştirme.",
+          "bullets": [
+            "Kompozisyon Yapısı & Argümantasyon",
+            "Akademik Kelime Bilgisi & Üslup",
+            "Kaynak Gösterme Temelleri"
+          ]
+        },
+        {
+          "code": "Ders AC-202",
+          "title": "İş İngilizcesi & Profesyonel İletişim",
+          "desc": "İş yeri için pratik İngilizce — e-postalar, toplantılar, sunumlar ve profesyonel yazışmalar.",
+          "bullets": [
+            "İş E-postası Yazımı",
+            "Toplantı & Sunum Becerileri",
+            "Profesyonel Kelime Bilgisi"
+          ]
+        },
+        {
+          "code": "Ders AC-203",
+          "title": "Yurt Dışı Eğitim & Üniversite Hazırlığı",
+          "desc": "İngilizce eğitim dili olan okullara hazırlık için akademik dinleme, okuma ve sınıf içi iletişim becerileri.",
+          "bullets": [
+            "Akademik Dinleme & Not Alma",
+            "Üniversite Mülakat Pratiği",
+            "Kampüs Yaşamı İletişimi"
+          ]
+        }
+      ],
+      "testing": [
+        {
+          "code": "Sınav IELTS-9",
+          "title": "IELTS Yoğun Hazırlık",
+          "desc": "Öğrencilerin hedef bant puanına ulaşmasına yardımcı olacak, IELTS'in dört becerisinde hedefe yönelik stratejiler ve pratik.",
+          "bullets": [
+            "Speaking & Writing Görev Stratejileri",
+            "Listening & Reading Teknik Çalışmaları",
+            "Tam Uzunlukta Deneme Sınavları"
+          ]
+        },
+        {
+          "code": "Sınav TOEFL-120",
+          "title": "TOEFL iBT Ustalığı",
+          "desc": "Bütünleşik beceriler ve bilgisayar tabanlı sınav stratejilerine odaklanan kapsamlı TOEFL iBT hazırlığı.",
+          "bullets": [
+            "Bütünleşik Speaking & Writing Görevleri",
+            "Akademik Dinleme Pratiği",
+            "Zaman Yönetimi & Sınav Günü Stratejisi"
+          ]
+        },
+        {
+          "code": "Sınav CAM-C2",
+          "title": "Cambridge Sınavları (PET, FCE, CAE)",
+          "desc": "Tüm temel becerileri ve sınav tekniklerini kapsayan, Cambridge İngilizce Sertifikalarına özel koçluk.",
+          "bullets": [
+            "Sınava Özel Görev Pratiği",
+            "Use of English Ustalığı",
+            "Speaking Sınavı Simülasyonları"
+          ]
+        }
+      ]
+    },
+    "mentorship": {
+      "overline": "Öğretmeninizle Tanışın",
+      "title": "Size Özel İngilizce Öğretmeniniz",
+      "subtitle": "Her dersi sizin hedeflerinize göre şekillendiren, sabırlı ve deneyimli bir öğretmen — günlük konuşmadan sınav başarısına kadar.",
+      "badge1": "Kıdemli İngilizce Öğretmeni",
+      "badge2": "Bu Ay İçin Boş Kontenjan: 3 Kişi",
+      "name": "Elizaveta Tarasova",
+      "credentials": "TEFL/TESOL Sertifikalı İngilizce Eğitmeni",
+      "bio": "On yılı aşkın sınıf içi ve birebir ders deneyimiyle Elizaveta; gerçek konuşma özgüveni kazandırma, IELTS ve TOEFL odaklı sınav hazırlığı ile açık ve düzenli akademik/iş yazımı konularında uzmanlaşmıştır.",
+      "ctaText": "Ücretsiz Deneme Dersi Talep Et",
+      "responseTime": "Ortalama yanıt süresi < 4 saat",
+      "statsTitle": "Öğretmenlik Geçmişi & Sonuçlar",
+      "stat1": {
+        "value": "50+",
+        "label": "Ders Verilen Öğrenci"
+      },
+      "stat2": {
+        "value": "5 Yıl",
+        "label": "Öğretmenlik Deneyimi"
+      },
+      "stat3": {
+        "value": "%98",
+        "label": "Öğrenci Memnuniyeti"
+      },
+      "stat4": {
+        "value": "1:1",
+        "label": "Özel Ders"
+      },
+      "domainsLabel": "Uzmanlık Alanları",
+      "domains": [
+        "Genel İngilizce",
+        "Konuşma Pratiği",
+        "IELTS & TOEFL Hazırlık",
+        "İş İngilizcesi"
+      ]
+    },
+    "pricing": {
+      "overline": "Şeffaf Ücretlendirme",
+      "title": "Akademik Ücretler & Paketler",
+      "subtitle": "Kişisel talepleriniz için lütfen bizimle iletişime geçin.",
+      "tier1": {
+        "name": "Tekli Ders",
+        "tag": "İstediğinde Öde",
+        "desc": "Belirli hedeflerinize odaklanan tek bir birebir ders — denemek veya ara sıra pratik yapmak için ideal.",
+        "price": "1.200₺",
+        "period": "/ ders",
+        "features": [
+          "60 Dakikalık Birebir Ders",
+          "Kişiye Özel Ders Planı",
+          "Pratik Materyaller Dahil",
+          "Esnek Randevu Saatleri",
+          "Dersler Arası Çevrimiçi Destek"
+        ],
+        "cta": "Ders Ayırt"
+      },
+      "tier2": {
+        "badge": "En Popüler",
+        "name": "Düzenli Plan",
+        "tag": "Düzenli İlerleme",
+        "desc": "Yapılandırılmış ödev ve materyallerle haftalık dersler — istikrarlı ve düzenli ilerleme için ideal.",
+        "price": "4.300₺",
+        "period": "/ ay",
+        "features": [
+          "4 Ders (60 Dakika)",
+          "Özel Ödev & Yazılı Geri Bildirim",
+          "Dersler Arası Çevrimiçi Destek",
+          "İlerleme Takip Raporu",
+          "Öncelikli Randevu Saatleri"
+        ],
+        "cta": "Aylık Paketi Seç"
+      },
+      "tier3": {
+        "name": "Yoğun Sınav Hazırlığı",
+        "tag": "IELTS / TOEFL Odaklı",
+        "desc": "IELTS, TOEFL veya Cambridge sınavlarına yönelik, deneme sınavları ve detaylı geri bildirimli yoğun hazırlık.",
+        "price": "13.500₺",
+        "period": "/ ay",
+        "features": [
+          "8 Ders (60 Dakika)",
+          "Tam Kapsamlı Deneme Sınavları",
+          "Detaylı Puan Geri Bildirimi",
+          "Kişiye Özel Çalışma Planı",
+          "Dersler Arası Çevrimiçi Destek"
+        ],
+        "cta": "Sınav Hazırlığını Başlat"
+      }
+    },
+    "faq": {
+      "overline": "Sık Sorulan Sorular",
+      "title": "İngilizce Dersleri Hakkında Sıkça Sorulan Sorular",
+      "subtitle": "Ders ayırtma, öğretim yaklaşımımız ve sizi neyin beklediği hakkında bilmeniz gereken her şey.",
+      "items": [
+        {
+          "q": "Nasıl başlayabilirim?",
+          "a": "İletişim formu veya WhatsApp üzerinden ücretsiz bir deneme dersi ayırtmanız yeterli. Hedeflerinizi ve mevcut seviyenizi anlamak için kısa bir görüşme yapıp ilk dersinize başlarız."
+        },
+        {
+          "q": "Dersler online mi yoksa yüz yüze mi?",
+          "a": "Tüm dersler görüntülü görüşme üzerinden online yapılır, böylece stabil internet bağlantınızın olduğu her yerden derse katılabilirsiniz. Bu aynı zamanda farklı saat dilimlerinde de esnek randevu planlamayı mümkün kılar."
+        },
+        {
+          "q": "IELTS veya TOEFL hazırlığı ne kadar sürer?",
+          "a": "Başlangıç seviyenize ve hedef puanınıza bağlı değişir, ancak çoğu öğrenci düzenli haftalık derslerle birlikte 8-12 hafta içinde belirgin bir ilerleme kaydeder."
+        },
+        {
+          "q": "Hangi seviyelere ders veriyorsunuz?",
+          "a": "Tamamen yeni başlayanlardan (A1) ileri seviye konuşmacılara (C1/C2) kadar; akıcılık, sınav hazırlığı veya profesyonel İngilizce üzerine çalışan her seviyeye ders veriyoruz."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Ücretsiz Deneme Dersinizi Ayırtın",
+      "subtitle": "Öğrenciler ve veliler, seviyenize ve hedeflerinize uygun bir deneme dersi planlamak için bize ulaşabilir.",
+      "channelsLabel": "Bize Ulaşın",
+      "whatsapp": {
+        "title": "WhatsApp'tan Yazın",
+        "subtitle": "Hızlı sorular ve randevu",
+        "url": "https://wa.me/",
+        "floatMessage": "Merhaba! İngilizce derslerinizle ilgili bilgi almak istiyorum."
+      },
+      "telegram": {
+        "title": "Telegram'dan Ulaşın",
+        "subtitle": "Her zaman bize ulaşabilirsiniz",
+        "url": "https://t.me/"
+      },
+      "email": {
+        "title": "hello@elizavetatarasova.com",
+        "subtitle": "Detaylı sorularınız için",
+        "address": "hello@elizavetatarasova.com"
+      },
+      "formTitle": "Ücretsiz Deneme Dersi Talep Edin",
+      "formSubtitle": "Seviyenize ve hedeflerinize uygun bir ders hazırlayabilmemiz için birkaç bilgi paylaşın.",
+      "fieldStudentName": "Öğrencinin Adı Soyadı *",
+      "studentNamePlaceholder": "örn. Ahmet Yılmaz",
+      "fieldParentEmail": "E-posta *",
+      "parentEmailPlaceholder": "isim@eposta.com",
+      "fieldParentPhone": "Telefon Numarası *",
+      "parentPhonePlaceholder": "örn. 555 123 4567",
+      "fieldSubject": "İlgi Alanı / Hedef",
+      "subjectPlaceholder": "örn. IELTS, Konuşma Pratiği, İş İngilizcesi",
+      "fieldNotes": "Ek Notlar",
+      "notesPlaceholder": "Mevcut seviyenizi, hedeflerinizi veya müsait olduğunuz saatleri paylaşın...",
+      "submitBtn": "Deneme Dersimi Ayırt",
+      "successMsg": "Talebiniz alındı. 4 iş saati içinde size dönüş yapacağız.",
+      "errorMsg": "Bir şeyler ters gitti. Lütfen tekrar deneyin veya doğrudan WhatsApp/Telegram üzerinden bize ulaşın."
+    },
+    "bottomBar": {
+      "backToTop": "Yukarı Dön"
+    },
+    "footer": {
+      "description": "Her seviye için kişiye özel birebir İngilizce dersleri — günlük konuşmadan IELTS, TOEFL ve Cambridge sınav hazırlığına kadar.",
+      "whatsappLabel": "WhatsApp",
+      "telegramLabel": "Telegram",
+      "emailLabel": "E-posta",
+      "navTitle": "Hızlı Bağlantılar",
+      "navLink1": "Öğretim Yöntemimiz",
+      "navLink2": "İngilizce Ders Programları",
+      "navLink3": "Öğretmenimizle Tanışın",
+      "navLink4": "Ücretler & Paketler",
+      "socialTitle": "Bize Ulaşın",
+      "instagramUrl": "https://instagram.com/",
+      "linkedinUrl": "https://linkedin.com/",
+      "copyright": "© 2025 Elizaveta Tarasova. Tüm hakları saklıdır.",
+      "link2": "Gizlilik Politikası"
+    },
+    "privacyPolicy": {
+      "title": "Gizlilik Politikası",
+      "updated": "Son güncelleme: Eylül 2026",
+      "intro": "Elizaveta Tarasova (\"biz\") gizliliğinize önem verir. Bu politika, bu web sitesi aracılığıyla hangi bilgileri topladığımızı, bunları nasıl kullandığımızı ve sahip olduğunuz seçenekleri açıklar.",
+      "closeLabel": "Kapat",
+      "sections": [
+        {
+          "heading": "Topladığımız Bilgiler",
+          "body": "Deneme dersi değerlendirme formunu doldurduğunuzda; adınız, e-posta adresiniz, telefon numaranız ve hedefleriniz veya zamanlama tercihlerinizle ilgili notlarınız gibi sağladığınız bilgileri topluyoruz. Bu web sitesi üzerinden ödeme bilgisi toplamıyoruz."
+        },
+        {
+          "heading": "Bilgilerinizi Nasıl Kullanıyoruz",
+          "body": "İletişim bilgilerinizi yalnızca talebinize yanıt vermek, bir deneme dersi planlamak ve dersler ile ücretler hakkında ilgili bilgileri paylaşmak için kullanıyoruz. Bilgilerinizi asla üçüncü taraflara satmıyor veya kiralamıyoruz."
+        },
+        {
+          "heading": "Çerezler & Yerel Depolama",
+          "body": "Bu site takip amaçlı çerez kullanmaz. Dil tercihiniz (İngilizce, Türkçe veya Rusça) tarayıcınızda localStorage aracılığıyla yerel olarak saklanır, böylece site bir sonraki ziyaretinizde tercihinizi hatırlar. Bu veri cihazınızda kalır ve bize hiçbir zaman iletilmez."
+        },
+        {
+          "heading": "Üçüncü Taraf Hizmetler",
+          "body": "Bizimle WhatsApp veya Telegram üzerinden iletişime geçmeyi tercih ederseniz, görüşmeniz o platformun kendi gizlilik politikasına tabidir. Bu üçüncü taraf hizmetlerin verilerinizi nasıl işlediğinden sorumlu değiliz."
+        },
+        {
+          "heading": "Veri Saklama",
+          "body": "İletişim bilgilerinizi, siz daha erken silmemizi istemediğiniz sürece, yalnızca talebinize yanıt vermek ve öğretmenlik ilişkimizi yönetmek için gerekli olduğu süre boyunca saklarız."
+        },
+        {
+          "heading": "Haklarınız & İletişim",
+          "body": "Kişisel verilerinize erişim, düzeltme veya silme talebinde bulunmak için istediğiniz zaman hello@elizavetatarasova.com adresinden bizimle iletişime geçebilirsiniz. Makul bir süre içinde yanıt vereceğiz."
+        }
+      ]
+    }
+  },
+  "ru": {
+    "seo": {
+      "title": "Elizaveta Tarasova | Индивидуальные уроки английского, подготовка к IELTS и TOEFL",
+      "description": "Персональные уроки английского для любого уровня с Елизаветой Тарасовой: разговорная практика, деловой и академический английский, подготовка к IELTS, TOEFL и Cambridge. Запишитесь на бесплатный пробный урок."
+    },
+    "linkTitles": {
+      "navAbout": "Узнайте о нашей методике преподавания",
+      "navCurriculum": "Изучите наши программы английского языка",
+      "navMentorship": "Познакомьтесь с вашим преподавателем",
+      "navPricing": "Посмотреть цены и тарифы на занятия",
+      "navFaq": "Прочитать частые вопросы",
+      "navContact": "Свяжитесь с нами и запишитесь на пробный урок",
+      "bookTrial": "Записаться на бесплатный пробный урок",
+      "heroCtaPrimary": "Записаться на бесплатный пробный урок",
+      "heroCtaSecondary": "Изучить наши программы английского",
+      "requestAdvisor": "Запишитесь на бесплатный пробный урок с преподавателем",
+      "selectFoundational": "Записаться на одно занятие",
+      "applyMentorship": "Выбрать месячный тариф",
+      "retainAdvisory": "Начать интенсивную подготовку к экзамену",
+      "submitInquiry": "Запишитесь на бесплатный пробный урок",
+      "whatsapp": "Написать нам в WhatsApp",
+      "telegram": "Написать нам в Telegram",
+      "email": "Отправить нам письмо",
+      "instagram": "Подписывайтесь на нас в Instagram",
+      "linkedin": "Свяжитесь с нами в LinkedIn",
+      "footerNavLink1": "Прочитать о нашей методике преподавания",
+      "footerNavLink2": "Посмотреть программы английского языка",
+      "footerNavLink3": "Познакомиться с вашим преподавателем",
+      "footerNavLink4": "Посмотреть цены и тарифы на занятия"
+    },
+    "header": {
+      "logo": "Частный Тьютор Елизавета Тарасова",
+      "nav": {
+        "about": "О нас",
+        "curriculum": "Программа",
+        "mentorship": "Преподаватель",
+        "pricing": "Стоимость",
+        "faq": "Вопросы",
+        "contact": "Контакты"
+      },
+      "bookTrial": "Пробное занятие"
+    },
+    "mobile": {
+      "trustBadge": "Сертифицированный преподаватель TEFL/TESOL",
+      "ctaButton": "Записаться на бесплатный пробный урок"
+    },
+    "hero": {
+      "badge1": "Сертифицированный преподаватель TEFL/TESOL",
+      "badge2": "Свободных мест в этом месяце: 3",
+      "title": "Персональные индивидуальные уроки английского",
+      "subtitle": "Уроки, подобранные под ваш уровень и цели — от повседневной разговорной практики до подготовки к экзаменам IELTS и TOEFL.",
+      "ctaPrimary": "Записаться на бесплатный пробный урок",
+      "ctaSecondary": "Посмотреть программы обучения",
+      "stat1Value": "50+",
+      "stat1Label": "Обученных студентов",
+      "stat2Tag": "Опыт",
+      "stat2Value": "5 лет",
+      "stat2Label": "Преподавания английского",
+      "stat3Label": "Направления",
+      "stat3Value": "Общий английский • IELTS и TOEFL • Деловой английский • Английский для детей и подростков",
+      "mentorBadge": "Старший преподаватель английского языка",
+      "mentorName": "Елизавета Тарасова",
+      "mentorSubtitle": "Сертифицированный преподаватель CELTA, специалист по IELTS",
+      "diagStat": "+1.5 балла IELTS",
+      "diagLabel": "Средний прогресс учеников",
+      "verifiedTag": "Подтверждено",
+      "imgAlt": "Частный преподаватель английского языка проводит индивидуальный урок"
+    },
+    "about": {
+      "overline": "Наша стратегия",
+      "title": "Методика, основанная на реальном прогрессе",
+      "subtitle": "Мы уходим от механического заучивания. Развиваем настоящую уверенность, естественную беглость речи и индивидуальный план обучения для каждого ученика.",
+      "pillar1": {
+        "label": "Принцип I",
+        "title": "Оценка уровня и целей",
+        "desc": "Мы оцениваем ваш текущий уровень говорения, письма и понимания, чтобы составить чёткий индивидуальный план обучения под ваши цели.",
+        "footer": "5+ лет опыта преподавания"
+      },
+      "pillar2": {
+        "label": "Принцип II",
+        "title": "Общайтесь с носителями языка",
+        "desc": "Занимайтесь разговорной практикой индивидуально с нашим преподавателем — носителем английского языка и отслеживайте свой прогресс. Обретайте уверенность, отрабатывая навыки общения в реальных ситуациях на разговорных сессиях.",
+        "footer": "Носитель языка"
+      },
+      "pillar3": {
+        "label": "Принцип III",
+        "title": "Постоянное отслеживание прогресса",
+        "desc": "Регулярная обратная связь, практические материалы и пробные тесты делают ваш прогресс понятным и измеримым на каждом этапе.",
+        "footer": "Индивидуальные отчёты о прогрессе"
+      }
+    },
+    "curriculum": {
+      "overline": "Программы по английскому",
+      "title": "Архитектура программы",
+      "subtitle": "Структурированные программы английского языка для детей, подростков и взрослых — от основ грамматики до уверенного владения языком для экзаменов.",
+      "tabs": {
+        "stem": "Общий и разговорный английский",
+        "humanities": "Академический и деловой английский",
+        "testing": "Подготовка к экзаменам"
+      },
+      "stem": [
+        {
+          "code": "Курс EN-101",
+          "title": "Основы грамматики и лексика",
+          "desc": "Формирование прочной базы английской грамматики, структуры предложений и повседневной лексики для реального общения.",
+          "bullets": [
+            "Основные грамматические структуры",
+            "Практическое расширение словарного запаса",
+            "Основы чтения и аудирования"
+          ]
+        },
+        {
+          "code": "Курс EN-102",
+          "title": "Разговорная беглость и уверенность",
+          "desc": "Занятия с упором на говорение, развивающие естественное произношение, понимание на слух и уверенность в повседневном диалоге.",
+          "bullets": [
+            "Работа над произношением и акцентом",
+            "Ролевые игры из реальной жизни",
+            "Упражнения на активное слушание"
+          ]
+        },
+        {
+          "code": "Курс EN-103",
+          "title": "Английский для детей и подростков",
+          "desc": "Увлекательные занятия, соответствующие возрасту, прививающие любовь к английскому через игры, истории и интерактивную практику.",
+          "bullets": [
+            "Игровое изучение лексики",
+            "Чтение и рассказывание историй",
+            "Задания на развитие уверенности в речи"
+          ]
+        }
+      ],
+      "humanities": [
+        {
+          "code": "Курс AC-201",
+          "title": "Академическое письмо и эссе",
+          "desc": "Развитие чётких и хорошо структурированных навыков академического письма для эссе, отчётов и университетских работ.",
+          "bullets": [
+            "Структура эссе и аргументация",
+            "Академическая лексика и стиль",
+            "Основы цитирования и ссылок"
+          ]
+        },
+        {
+          "code": "Курс AC-202",
+          "title": "Деловой английский и профессиональное общение",
+          "desc": "Практический английский для работы — электронные письма, встречи, презентации и деловая переписка.",
+          "bullets": [
+            "Написание деловых писем",
+            "Навыки встреч и презентаций",
+            "Профессиональная лексика"
+          ]
+        },
+        {
+          "code": "Курс AC-203",
+          "title": "Подготовка к обучению за рубежом",
+          "desc": "Подготовка учеников к обучению на английском языке: академическое аудирование, чтение и общение в классе.",
+          "bullets": [
+            "Академическое аудирование и конспектирование",
+            "Практика университетских собеседований",
+            "Общение в кампусе"
+          ]
+        }
+      ],
+      "testing": [
+        {
+          "code": "Экзамен IELTS-9",
+          "title": "Интенсивная подготовка к IELTS",
+          "desc": "Целевые стратегии и практика по всем четырём навыкам IELTS, помогающие достичь желаемого балла.",
+          "bullets": [
+            "Стратегии заданий Speaking и Writing",
+            "Отработка техник Listening и Reading",
+            "Полноформатные пробные тесты"
+          ]
+        },
+        {
+          "code": "Экзамен TOEFL-120",
+          "title": "Мастерство TOEFL iBT",
+          "desc": "Комплексная подготовка к TOEFL iBT с упором на интегрированные навыки и стратегии компьютерного тестирования.",
+          "bullets": [
+            "Интегрированные задания Speaking и Writing",
+            "Практика академического аудирования",
+            "Тайм-менеджмент и стратегия дня экзамена"
+          ]
+        },
+        {
+          "code": "Экзамен CAM-C2",
+          "title": "Экзамены Cambridge (PET, FCE, CAE)",
+          "desc": "Коучинг, ориентированный на экзамены Cambridge English, охватывающий все основные навыки и техники сдачи.",
+          "bullets": [
+            "Практика заданий конкретного экзамена",
+            "Мастерство Use of English",
+            "Симуляции устной части экзамена"
+          ]
+        }
+      ]
+    },
+    "mentorship": {
+      "overline": "Познакомьтесь с преподавателем",
+      "title": "Ваш персональный преподаватель английского",
+      "subtitle": "Терпеливый, опытный преподаватель, который выстраивает каждое занятие вокруг ваших целей — от повседневного общения до успешной сдачи экзаменов.",
+      "badge1": "Старший преподаватель английского языка",
+      "badge2": "Свободных мест в этом месяце: 3",
+      "name": "Елизавета Тарасова",
+      "credentials": "Сертифицированный преподаватель TEFL/TESOL, специалист по IELTS",
+      "bio": "Более десяти лет опыта преподавания в группах и индивидуально. Елизавета специализируется на развитии уверенной разговорной речи, целенаправленной подготовке к IELTS и TOEFL, а также на чётком и структурированном академическом и деловом письме.",
+      "ctaText": "Записаться на бесплатный пробный урок",
+      "responseTime": "Обычно отвечаем менее чем за 4 часа",
+      "statsTitle": "Педагогический опыт и результаты",
+      "stat1": {
+        "value": "50+",
+        "label": "Обученных студентов"
+      },
+      "stat2": {
+        "value": "5 лет",
+        "label": "Опыт преподавания"
+      },
+      "stat3": {
+        "value": "98%",
+        "label": "Удовлетворённость учеников"
+      },
+      "stat4": {
+        "value": "1:1",
+        "label": "Индивидуальные занятия"
+      },
+      "domainsLabel": "Направления обучения",
+      "domains": [
+        "Общий английский",
+        "Разговорная практика",
+        "Подготовка к IELTS и TOEFL",
+        "Деловой английский"
+      ]
+    },
+    "pricing": {
+      "overline": "Прозрачные тарифы",
+      "title": "Стоимость обучения и тарифы",
+      "subtitle": "По личным запросам свяжитесь со нами",
+      "tier1": {
+        "name": "Разовое занятие",
+        "tag": "Оплата по факту",
+        "desc": "Одно индивидуальное занятие, сфокусированное на ваших конкретных целях — идеально, чтобы попробовать или для нерегулярной практики.",
+        "price": "2.100₽",
+        "period": "/ занятие",
+        "features": [
+          "Индивидуальное занятие 60 минут",
+          "Индивидуальный план урока",
+          "Практические материалы включены",
+          "Гибкое расписание",
+          "Онлайн-поддержка между занятиями"
+        ],
+        "cta": "Записаться на занятие"
+      },
+      "tier2": {
+        "badge": "Самый популярный",
+        "name": "Регулярный  тариф",
+        "tag": "Регулярный прогресс",
+        "desc": "Еженедельные занятия со структурированными домашними заданиями и материалами — для стабильного, последовательного прогресса.",
+        "price": "7.500₽",
+        "period": "/ месяц",
+        "features": [
+          "4 урока (60 минут)",
+          "Индивидуальные домашние задания и письменная обратная связь",
+          "Онлайн-поддержка между занятиями",
+          "Отчёт об отслеживании прогресса",
+          "Приоритетное расписание"
+        ],
+        "cta": "Выбрать месячный тариф"
+      },
+      "tier3": {
+        "name": "Интенсивная подготовка к экзамену",
+        "tag": "Фокус на IELTS / TOEFL",
+        "desc": "Целенаправленная интенсивная подготовка к IELTS, TOEFL или Cambridge с пробными тестами и подробной обратной связью.",
+        "price": "23.500₽",
+        "period": "/ месяц",
+        "features": [
+          "8 урока (60 минут)",
+          "Полноформатные пробные экзамены",
+          "Подробная обратная связь по баллам",
+          "Индивидуальный план подготовки",
+          "Онлайн-поддержка между занятиями"
+        ],
+        "cta": "Начать подготовку к экзамену"
+      }
+    },
+    "faq": {
+      "overline": "Частые вопросы",
+      "title": "Часто задаваемые вопросы об уроках английского",
+      "subtitle": "Всё, что нужно знать о записи на урок, нашем подходе к обучению и том, чего ожидать.",
+      "items": [
+        {
+          "q": "С чего начать?",
+          "a": "Просто запишитесь на бесплатный пробный урок через форму связи или WhatsApp. Мы коротко обсудим ваши цели и текущий уровень, а затем начнём первое занятие."
+        },
+        {
+          "q": "Занятия проходят онлайн или очно?",
+          "a": "Все занятия проводятся онлайн по видеосвязи, поэтому вы можете присоединиться откуда угодно при стабильном интернет-соединении. Это также делает расписание гибким для разных часовых поясов."
+        },
+        {
+          "q": "Сколько времени занимает подготовка к IELTS или TOEFL?",
+          "a": "Это зависит от вашего начального уровня и целевого балла, но большинство учеников видят заметный прогресс уже через 8-12 недель регулярных еженедельных занятий в сочетании с постоянной практикой."
+        },
+        {
+          "q": "Для каких уровней вы преподаёте?",
+          "a": "Занятия доступны для всех уровней — от начинающих (A1) до продвинутых (C1/C2), работающих над беглостью речи, подготовкой к экзаменам или профессиональным английским."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Запишитесь на бесплатный пробный урок",
+      "subtitle": "Ученики и родители могут связаться с нами, чтобы запланировать пробный урок, подходящий вашему уровню и целям.",
+      "channelsLabel": "Свяжитесь с нами",
+      "whatsapp": {
+        "title": "Написать в WhatsApp",
+        "subtitle": "Быстрые вопросы и запись",
+        "url": "https://wa.me/",
+        "floatMessage": "Здравствуйте! Хотел(а) бы узнать больше о ваших уроках английского."
+      },
+      "telegram": {
+        "title": "Написать в Telegram",
+        "subtitle": "Мы на связи в любое время",
+        "url": "https://t.me/"
+      },
+      "email": {
+        "title": "hello@elizavetatarasova.com",
+        "subtitle": "Для подробных вопросов",
+        "address": "hello@elizavetatarasova.com"
+      },
+      "formTitle": "Запросить бесплатный пробный урок",
+      "formSubtitle": "Поделитесь несколькими деталями, чтобы мы могли подготовить урок под ваш уровень и цели.",
+      "fieldStudentName": "Полное имя ученика *",
+      "studentNamePlaceholder": "например, Юлиан Стерлинг",
+      "fieldParentEmail": "Email *",
+      "parentEmailPlaceholder": "name@domain.com",
+      "fieldParentPhone": "Номер телефона *",
+      "parentPhonePlaceholder": "например, 555 123 4567",
+      "fieldSubject": "Интерес / цель",
+      "subjectPlaceholder": "например, IELTS, разговорная практика, деловой английский",
+      "fieldNotes": "Дополнительные заметки",
+      "notesPlaceholder": "Расскажите о вашем текущем уровне, целях или удобном времени...",
+      "submitBtn": "Записаться на пробный урок",
+      "successMsg": "Ваша заявка получена. Мы свяжемся с вами в течение 4 рабочих часов.",
+      "errorMsg": "Что-то пошло не так. Пожалуйста, попробуйте снова или свяжитесь с нами через WhatsApp/Telegram."
+    },
+    "bottomBar": {
+      "backToTop": "Наверх"
+    },
+    "footer": {
+      "description": "Персонализированные индивидуальные уроки английского для любого уровня — от разговорной речи до подготовки к экзаменам IELTS, TOEFL и Cambridge.",
+      "whatsappLabel": "WhatsApp",
+      "telegramLabel": "Telegram",
+      "emailLabel": "Email",
+      "navTitle": "Быстрые ссылки",
+      "navLink1": "Наша методика преподавания",
+      "navLink2": "Программы английского языка",
+      "navLink3": "Познакомьтесь с преподавателем",
+      "navLink4": "Цены и тарифы",
+      "socialTitle": "Свяжитесь с нами",
+      "instagramUrl": "https://instagram.com/",
+      "linkedinUrl": "https://linkedin.com/",
+      "copyright": "© 2025 Elizaveta Tarasova. Все права защищены.",
+      "link2": "Политика конфиденциальности"
+    },
+    "privacyPolicy": {
+      "title": "Политика конфиденциальности",
+      "updated": "Последнее обновление: сентябрь 2026",
+      "intro": "Elizaveta Tarasova («мы») уважает вашу конфиденциальность. Настоящая политика объясняет, какую информацию мы собираем через этот сайт, как мы её используем и какой выбор у вас есть.",
+      "closeLabel": "Закрыть",
+      "sections": [
+        {
+          "heading": "Какую информацию мы собираем",
+          "body": "Когда вы заполняете форму заявки на пробный урок, мы собираем предоставленные вами данные: имя, адрес электронной почты, номер телефона и любые заметки о ваших целях или предпочтениях по расписанию. Мы не собираем платёжную информацию через этот сайт."
+        },
+        {
+          "heading": "Как мы используем вашу информацию",
+          "body": "Мы используем ваши контактные данные исключительно для ответа на ваш запрос, назначения пробного урока и предоставления информации о занятиях и тарифах. Мы никогда не продаём и не передаём в аренду вашу информацию третьим лицам."
+        },
+        {
+          "heading": "Файлы cookie и локальное хранилище",
+          "body": "Этот сайт не использует отслеживающие cookie. Ваш языковой выбор (английский, турецкий или русский) сохраняется локально в вашем браузере с помощью localStorage, чтобы сайт запомнил ваш выбор при следующем посещении. Эти данные остаются на вашем устройстве и никогда не передаются нам."
+        },
+        {
+          "heading": "Сторонние сервисы",
+          "body": "Если вы решите связаться с нами через WhatsApp или Telegram, ваша переписка регулируется собственной политикой конфиденциальности этой платформы. Мы не несём ответственности за то, как эти сторонние сервисы обрабатывают ваши данные."
+        },
+        {
+          "heading": "Хранение данных",
+          "body": "Мы храним вашу контактную информацию только столько, сколько необходимо для ответа на ваш запрос и ведения наших занятий, если вы не попросите нас удалить её раньше."
+        },
+        {
+          "heading": "Ваши права и контакты",
+          "body": "Вы можете в любое время запросить доступ, исправление или удаление ваших персональных данных, написав нам на hello@elizavetatarasova.com. Мы ответим в разумные сроки."
+        }
+      ]
+    }
+  }
+}

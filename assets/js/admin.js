@@ -1,44 +1,112 @@
 (function () {
   "use strict";
 
-  var ADMIN_PASSWORD = "sapphire2026"; // Basic client-side deterrent only — not real security.
-  var AUTH_KEY = "sapphire_admin_authed";
+  var TOKEN_KEY = "sapphire_admin_token"; // JWT from POST /api/auth/login; sessionStorage = gone when the tab closes
+  var FLASH_KEY = "sapphire_admin_flash";
+  var API = window.SITE_API_BASE || "";
 
   var SC = window.SapphireContent;
   var SCHEMA = window.SITE_SCHEMA;
-  var content = SC.getContent(); // {en:{...}, tr:{...}, ru:{...}}
+  var content = null; // {en:{...}, tr:{...}, ru:{...}} — loaded from GET /api/admin/content after login
   var currentLang = "tr";
   var currentSectionIndex = 0;
   var saveTimer = null;
 
-  /* ---------------- Auth ---------------- */
+  /* ---------------- API / Auth ---------------- */
+  function getToken() {
+    try { return sessionStorage.getItem(TOKEN_KEY); } catch (e) { return null; }
+  }
+
+  function logout(message) {
+    try {
+      sessionStorage.removeItem(TOKEN_KEY);
+      if (message) sessionStorage.setItem(FLASH_KEY, message);
+    } catch (e) {}
+    location.reload();
+  }
+
+  function apiFetch(path, options) {
+    options = options || {};
+    var headers = { Accept: "application/json" };
+    if (options.body) headers["Content-Type"] = "application/json";
+    var token = getToken();
+    if (token) headers.Authorization = "Bearer " + token;
+    return fetch(API + path, { method: options.method || "GET", headers: headers, body: options.body }).then(function (res) {
+      if (res.status === 401 && token) {
+        logout("Oturum süresi doldu, lütfen tekrar giriş yapın.");
+        throw new Error("unauthorized");
+      }
+      return res;
+    });
+  }
+
+  function showLoginError(message) {
+    var box = document.getElementById("login-error");
+    box.textContent = message;
+    box.hidden = false;
+  }
+
   function showApp() {
     document.getElementById("login-screen").hidden = true;
     document.getElementById("admin-app").hidden = false;
     initAdmin();
   }
 
-  if (sessionStorage.getItem(AUTH_KEY) === "1") {
-    showApp();
+  function loadContentAndShow() {
+    return apiFetch("/api/admin/content").then(function (res) {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    }).then(function (data) {
+      content = data;
+      showApp();
+    });
+  }
+
+  if (!API) {
+    showLoginError("Bu adreste yönetim sunucusu (API) tanımlı değil. Paneli yerelde, backend çalışırken açın.");
+  }
+
+  try {
+    var flash = sessionStorage.getItem(FLASH_KEY);
+    if (flash) { sessionStorage.removeItem(FLASH_KEY); showLoginError(flash); }
+  } catch (e) {}
+
+  if (API && getToken()) {
+    loadContentAndShow().catch(function (err) {
+      if (err.message !== "unauthorized") {
+        try { sessionStorage.removeItem(TOKEN_KEY); } catch (e) {}
+        showLoginError("Sunucuya bağlanılamadı. Backend'in çalıştığından emin olun.");
+      }
+    });
   }
 
   document.getElementById("login-form").addEventListener("submit", function (e) {
     e.preventDefault();
+    if (!API) return;
     var val = document.getElementById("login-password").value;
-    if (val === ADMIN_PASSWORD) {
-      sessionStorage.setItem(AUTH_KEY, "1");
+    fetch(API + "/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: window.SITE_ADMIN_USERNAME || "admin", password: val })
+    }).then(function (res) {
+      if (res.status === 401) { showLoginError("Şifre hatalı. Lütfen tekrar deneyin."); return null; }
+      if (res.status === 429) { showLoginError("Çok fazla deneme yapıldı. Bir dakika sonra tekrar deneyin."); return null; }
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    }).then(function (data) {
+      if (!data) return;
+      try { sessionStorage.setItem(TOKEN_KEY, data.token); } catch (err) {}
       document.getElementById("login-error").hidden = true;
-      showApp();
-    } else {
-      document.getElementById("login-error").hidden = false;
-    }
+      return loadContentAndShow();
+    }).catch(function () {
+      showLoginError("Sunucuya bağlanılamadı. Backend'in çalıştığından emin olun.");
+    });
   });
 
   /* ---------------- Admin UI ---------------- */
   function initAdmin() {
     document.getElementById("btn-logout").addEventListener("click", function () {
-      sessionStorage.removeItem(AUTH_KEY);
-      location.reload();
+      logout();
     });
 
     document.querySelectorAll(".lang-tab").forEach(function (btn) {
@@ -275,17 +343,48 @@
     return { en: "İngilizce (EN)", tr: "Türkçe (TR)", ru: "Rusça (RU)" }[lang] || lang;
   }
 
+  var saveInFlight = false;
+  var savePending = false;
+
   function scheduleSave() {
     setSaveStatus("saving");
     clearTimeout(saveTimer);
-    saveTimer = setTimeout(function () {
-      SC.saveContent(content);
-      setSaveStatus("saved");
-    }, 400);
+    saveTimer = setTimeout(saveNow, 600);
   }
 
-  function setSaveStatus(state) {
+  // Saves are serialized: while one PUT is in flight, further edits just mark
+  // "pending" and one more PUT (with the then-current content) runs afterwards.
+  function saveNow() {
+    if (saveInFlight) { savePending = true; return; }
+    saveInFlight = true;
+    savePending = false;
+    apiFetch("/api/admin/content", { method: "PUT", body: JSON.stringify(content) }).then(function (res) {
+      if (res.ok) return { ok: true };
+      return res.json().catch(function () { return {}; }).then(function (d) { return { ok: false, data: d }; });
+    }).then(function (result) {
+      if (savePending) return;
+      if (result.ok) {
+        setSaveStatus("saved");
+      } else {
+        var errs = (result.data && result.data.errors) || [];
+        var msg = errs.length ? errs.slice(0, 3).join(" ") + (errs.length > 3 ? " (+" + (errs.length - 3) + " hata daha)" : "") : ((result.data && result.data.error) || "Kayıt başarısız oldu.");
+        setSaveStatus("error", "Kaydedilemedi: " + msg);
+      }
+    }).catch(function (err) {
+      if (err.message !== "unauthorized") setSaveStatus("error", "Kaydedilemedi: sunucuya ulaşılamadı.");
+    }).finally(function () {
+      saveInFlight = false;
+      if (savePending) saveNow();
+    });
+  }
+
+  function setSaveStatus(state, message) {
     var el = document.getElementById("save-status");
+    if (state === "error") {
+      el.textContent = message || "Kaydedilemedi.";
+      el.className = "text-xs text-danger flex items-center gap-1";
+      return;
+    }
     if (state === "saving") {
       el.innerHTML = '<span class="text-[15px] animate-pulse"><svg fill="currentColor" style="display:inline-block;vertical-align:middle" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="M160-160v-80h110l-16-14q-52-46-73-105t-21-119q0-111 66.5-197.5T400-790v84q-72 26-116 88.5T240-478q0 45 17 87.5t53 78.5l10 10v-98h80v240H160Zm400-10v-84q72-26 116-88.5T720-482q0-45-17-87.5T650-648l-10-10v98h-80v-240h240v80H690l16 14q49 49 71.5 106.5T800-482q0 111-66.5 197.5T560-170Z"/></svg></span><span>Kaydediliyor…</span>';
       el.className = "text-xs text-amber-tint-text flex items-center gap-1";
@@ -296,7 +395,7 @@
   }
 
   function exportJSON() {
-    var json = SC.exportJSON();
+    var json = JSON.stringify(content, null, 2);
     var blob = new Blob([json], { type: "application/json" });
     var url = URL.createObjectURL(blob);
     var a = document.createElement("a");
@@ -314,11 +413,12 @@
     var reader = new FileReader();
     reader.onload = function () {
       try {
-        var imported = SC.importJSON(reader.result);
-        content = SC.getContent();
+        var imported = JSON.parse(reader.result);
+        if (!imported || !imported.en || !imported.tr || !imported.ru) throw new Error("bad shape");
+        content = imported;
         renderFields();
-        setSaveStatus("saved");
-        alert("İçerik başarıyla içe aktarıldı.");
+        scheduleSave(); // goes through the API's validation like any other edit
+        alert("İçerik içe aktarıldı ve veritabanına kaydediliyor. Kayıt durumunu üst çubukta görebilirsiniz.");
       } catch (err) {
         alert("Dosya okunamadı. Geçerli bir content.json dosyası seçtiğinizden emin olun.");
       }
@@ -329,9 +429,8 @@
 
   function handleReset() {
     if (!confirm(langName(currentLang) + " için tüm değişiklikleri varsayılan içeriğe sıfırlamak istediğinize emin misiniz? Bu işlem geri alınamaz.")) return;
-    SC.resetLanguage(currentLang);
-    content = SC.getContent();
+    content[currentLang] = SC.deepClone(window.SITE_CONTENT_DEFAULT[currentLang]);
     renderFields();
-    setSaveStatus("saved");
+    scheduleSave();
   }
 })();

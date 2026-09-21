@@ -214,9 +214,25 @@ const openBtn = document.getElementById('mobile-menu-trigger'); const closeBtn =
     syncWhatsappFloat(lang);
   }
 
+  var activeLang = null;
+
+  // Renders immediately from whatever content is available (built-in
+  // content-data.js at first), then re-renders once the API's database
+  // content for that language has arrived. Same render code either way.
+  function showLang(lang) {
+    activeLang = lang;
+    setLang(lang);
+    var SC = window.SapphireContent;
+    if (SC.hasRemote() && !SC.isRemoteLoaded(lang)) {
+      SC.loadRemote(lang).then(function (ok) {
+        if (ok && activeLang === lang) setLang(lang);
+      });
+    }
+  }
+
   document.querySelectorAll('.lang-switch-btn').forEach(function (btn) {
     btn.addEventListener('click', function () {
-      setLang(btn.getAttribute('data-lang'));
+      showLang(btn.getAttribute('data-lang'));
     });
   });
 
@@ -224,7 +240,7 @@ const openBtn = document.getElementById('mobile-menu-trigger'); const closeBtn =
   // fully parsed (readyState is at least 'interactive') — a single direct
   // call is enough; no need for a DOMContentLoaded listener as well, which
   // would fire a second, redundant setLang() right after this one.
-  setLang(window.SapphireContent.getLang());
+  showLang(window.SapphireContent.getLang());
 
   /* ---- Phone field: digits only, capped length ---- */
   var phoneInput = document.getElementById('parent-phone');
@@ -262,19 +278,39 @@ const openBtn = document.getElementById('mobile-menu-trigger'); const closeBtn =
       if (submitBtn) submitBtn.setAttribute('disabled', 'disabled');
 
       var formData = new FormData(consultationForm);
-      fetch(consultationForm.action, {
-        method: 'POST',
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      }).then(function (response) {
-        if (response.ok) {
+
+      // Two independent deliveries: the request is stored in the database
+      // (when an API is configured) and still e-mailed through Formspree.
+      // The visitor sees success if at least one of them went through.
+      var deliveries = [
+        fetch(consultationForm.action, {
+          method: 'POST',
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        }).then(function (response) { return response.ok; }).catch(function () { return false; })
+      ];
+      var apiBase = window.SapphireContent.hasRemote() ? window.SITE_API_BASE : '';
+      if (apiBase) {
+        deliveries.push(fetch(apiBase + '/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            studentName: formData.get('studentName') || '',
+            parentEmail: formData.get('parentEmail') || '',
+            parentPhone: formData.get('parentPhone') || '',
+            topic: formData.get('subject') || null,
+            message: formData.get('notes') || null
+          })
+        }).then(function (response) { return response.ok; }).catch(function () { return false; }));
+      }
+
+      Promise.all(deliveries).then(function (results) {
+        if (results.some(Boolean)) {
           if (successBox) successBox.classList.remove('hidden');
           consultationForm.reset();
         } else {
           if (errorBox) errorBox.classList.remove('hidden');
         }
-      }).catch(function () {
-        if (errorBox) errorBox.classList.remove('hidden');
       }).finally(function () {
         if (submitBtn) submitBtn.removeAttribute('disabled');
       });

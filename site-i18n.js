@@ -119,8 +119,58 @@
      at once (cross-language edits), but index.html only ever renders one
      language at a time, so calling getContent()[lang] there was wastefully
      deep-cloning ~2/3 of content-data.js on every setLang() call. */
+  /* ---- Remote (C# API) content ----------------------------------------
+     When window.SITE_API_BASE is set, the page first renders from the
+     built-in defaults (content-data.js) and then swaps to the database
+     content once /api/content?lang=xx has answered. If the API is not
+     reachable the defaults simply stay — the page never renders empty. */
+  var remote = {};
+
+  function apiBase() {
+    return global.SITE_API_BASE || "";
+  }
+
+  function hasRemote() {
+    return !!apiBase();
+  }
+
+  function isRemoteLoaded(lang) {
+    return !!remote[lang];
+  }
+
+  function loadRemote(lang) {
+    if (!hasRemote()) return Promise.resolve(false);
+    var controller = typeof AbortController === "function" ? new AbortController() : null;
+    var timer = controller ? setTimeout(function () { controller.abort(); }, 8000) : null;
+    return fetch(apiBase() + "/api/content?lang=" + encodeURIComponent(lang), {
+      headers: { Accept: "application/json" },
+      signal: controller ? controller.signal : undefined
+    }).then(function (res) {
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      return res.json();
+    }).then(function (data) {
+      remote[lang] = data;
+      return true;
+    }).catch(function (err) {
+      console.error("[content] API unavailable for '" + lang + "', using built-in content-data.js fallback:", err);
+      return false;
+    }).finally(function () {
+      if (timer) clearTimeout(timer);
+    });
+  }
+
   function getLangContent(lang) {
     var defaults = global.SITE_CONTENT_DEFAULT[lang];
+    if (remote[lang]) {
+      // DB is the source of truth: defaults only fill keys the API does not know about, and the
+      // FAQ list is taken verbatim (an empty list must stay empty instead of falling back).
+      var merged = deepMerge(deepClone(defaults), remote[lang]);
+      if (remote[lang].faq && Array.isArray(remote[lang].faq.items)) {
+        merged.faq = merged.faq || {};
+        merged.faq.items = remote[lang].faq.items;
+      }
+      return merged;
+    }
     var overrides = readStoredOverrides();
     var langOverrides = overrides && overrides[lang];
     return langOverrides ? deepMerge(deepClone(defaults), langOverrides) : deepClone(defaults);
@@ -262,6 +312,9 @@
     setPath: setPath,
     getContent: getContent,
     getLangContent: getLangContent,
+    hasRemote: hasRemote,
+    isRemoteLoaded: isRemoteLoaded,
+    loadRemote: loadRemote,
     saveContent: saveContent,
     resetLanguage: resetLanguage,
     resetAll: resetAll,
