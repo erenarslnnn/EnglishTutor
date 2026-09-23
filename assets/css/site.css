@@ -160,3 +160,11 @@ html.overflow-hidden, body.overflow-hidden { overflow: hidden !important; }
 .curriculum-tab-btn { transition: none; }
 .curriculum-tab-btn.bg-primary { color: #fff !important; background-color: #001428; }
 .curriculum-tab-btn:not(.bg-primary) { color: #43474D; background-color: transparent; }
+
+/* Brief dim/undim while site.js swaps in database content over the content-data.js defaults —
+   see showLang() in assets/js/site.js. Kept off entirely under prefers-reduced-motion. */
+html { transition: opacity 150ms ease-out; }
+html.content-refreshing { opacity: .55; }
+@media (prefers-reduced-motion: reduce) {
+  html { transition: none; }
+}

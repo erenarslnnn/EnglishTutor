@@ -1,3 +1,4 @@
 backend/**/bin/
 backend/**/obj/
 *.user
+backend/**/logs/

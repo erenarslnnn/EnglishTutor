@@ -219,13 +219,27 @@ const openBtn = document.getElementById('mobile-menu-trigger'); const closeBtn =
   // Renders immediately from whatever content is available (built-in
   // content-data.js at first), then re-renders once the API's database
   // content for that language has arrived. Same render code either way.
+  var CONTENT_FADE_MS = 150; // must match the transition-duration on html.content-refreshing in site.css
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   function showLang(lang) {
     activeLang = lang;
     setLang(lang);
     var SC = window.SapphireContent;
     if (SC.hasRemote() && !SC.isRemoteLoaded(lang)) {
       SC.loadRemote(lang).then(function (ok) {
-        if (ok && activeLang === lang) setLang(lang);
+        if (!ok || activeLang !== lang) return;
+        // The DB content can differ from the content-data.js defaults just shown (e.g. after an
+        // admin edit), so swapping every data-i18n text node via setLang() can otherwise read as an
+        // abrupt flash on a slow connection. A brief dim/undim masks the swap instead of touching
+        // the render functions themselves.
+        if (reduceMotion) { setLang(lang); return; }
+        var root = document.documentElement;
+        root.classList.add('content-refreshing');
+        setTimeout(function () {
+          setLang(lang);
+          root.classList.remove('content-refreshing');
+        }, CONTENT_FADE_MS);
       });
     }
   }
